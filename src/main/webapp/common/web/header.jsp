@@ -158,7 +158,7 @@
                                             </div>
                                         </li>
                                         <li class="item dinner-room-drop ">
-                                            <a href="@Url.Action("Index","DiningRoom","Index")" title="Home Page 3">Phòng Ăn <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                            <a href="<c:url value="/views/web/living-room.jsp"/>" title="Home Page 3">Phòng Ăn <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <div class="dropdown-menu dinner-room-menu">
                                                 <ul class="drop-menu">
                                                     <li class="item">
@@ -177,7 +177,7 @@
                                             </div>
                                         </li>
                                         <li class="item bedroom-drop">
-                                            <a href="<c:url value="/living-room"/>" title="Phòng Ngủ">Phòng Ngủ<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                            <a href="<c:url value="/views/web/living-room.jsp"/>" title="Phòng Ngủ">Phòng Ngủ<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <div class="dropdown-menu bedroom-menu">
                                                 <ul class="drop-menu bedroom-drop" style="">
                                                     <li class="item">
@@ -196,7 +196,7 @@
                                             </div>
                                         </li>
                                         <li class="item work-room-drop">
-                                            <a href="@Url.Action("Index","DiningRoom","Index")" title="Home Page 4">Phòng Làm Việc <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                            <a href="" title="Home Page 4">Phòng Làm Việc <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                                             <div class="dropdown-menu work-room-menu">
                                                 <ul class="drop-menu">
                                                     <li class="item">
@@ -215,7 +215,7 @@
                                             </div>
                                         </li>
                                         <li class="item decorations-drop">
-                                            <a href="@Url.Action("Index","DiningRoom","Index")" title="Home Page 5">Đồ Trang Trí</a>
+                                            <a href="" title="Home Page 5">Đồ Trang Trí</a>
                                             <div class="dropdown-menu decorations">
                                                 <ul class="drop-menu">
                                                     <li class="item">
@@ -237,14 +237,14 @@
                                 </div>
                             </li>
                             <li>
-                                <a href="@Url.Action("Index","CollectionPage","Index")" class="parent">Bộ Sưu Tập <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                                <a href="" class="parent">Bộ Sưu Tập <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
                                 <div class="dropdown-menu">
                                     <ul>
                                         <li class="item">
-                                            <a href="@Url.Action("Index","CollectionPage","Index")" title="Blog List (Sidebar Left)">KOLDING Collection</a>
+                                            <a href="" title="Blog List (Sidebar Left)">KOLDING Collection</a>
                                         </li>
                                         <li class="item">
-                                            <a href="@Url.Action("Index","CollectionPage","Index")" title="Blog List (Sidebar Left) 2">FIJI Collection</a>
+                                            <a href="" title="Blog List (Sidebar Left) 2">FIJI Collection</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -255,16 +255,16 @@
                                 <div class="dropdown-menu service-menu">
                                     <ul>
                                         <li class="item">
-                                            <a href="@Url.Action("Index","FaqsPage","Index")" title="Blog List (Sidebar Left)"> Các Câu Hỏi Thường Gặp</a>
+                                            <a href="" title="Blog List (Sidebar Left)"> Các Câu Hỏi Thường Gặp</a>
                                         </li>
                                         <li class="item">
-                                            <a href="@Url.Action("Index","ShoppingGuide","Index")" title="Blog List (Sidebar Left) 2"> Hướng Dẫn Đặt Hàng</a>
+                                            <a href="" title="Blog List (Sidebar Left) 2"> Hướng Dẫn Đặt Hàng</a>
                                         </li>
                                         <li class="item">
-                                            <a href="@Url.Action("Index","DeliveryPolicy","Index")" title="Category Blog (Right column)">Chính Sách Vận Chuyển</a>
+                                            <a href="" title="Category Blog (Right column)">Chính Sách Vận Chuyển</a>
                                         </li>
                                         <li class="item">
-                                            <a href="@Url.Action("Index","WarrantyPolicy","Index")" title="Blog List (No Sidebar)">Chính Sách Bảo Mật Thông Tin</a>
+                                            <a href="" title="Blog List (No Sidebar)">Chính Sách Bảo Mật Thông Tin</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -277,16 +277,16 @@
                                 <div class="dropdown-menu">
                                     <ul>
                                         <li class="item">
-                                            <a href="@Url.Action("Index","BlogListSidebarLeftPage","Index")" title="Blog List (Sidebar Left)">Tin tức</a>
+                                            <a href="" title="Blog List (Sidebar Left)">Tin tức</a>
                                         </li>
                                         <li class="item">
-                                            <a href="@Url.Action("Index","BlogListSidebarLeftPage","Index")" title="Blog List (Sidebar Left) 2">Khuyến mãi</a>
+                                            <a href="" title="Blog List (Sidebar Left) 2">Khuyến mãi</a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
                             <li>
-                                <a href="@Url.Action("Index","ContactPage","Index")" class="parent">Liên hệ</a>
+                                <a href="" class="parent">Liên hệ</a>
                             </li>
                         </ul>
                     </div>
