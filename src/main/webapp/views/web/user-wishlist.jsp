@@ -96,7 +96,7 @@
                                         </table>
                                     </div>
                                     <div class="page-home">
-                                        <a class="btn btn-default" href="product-grid-sidebar-left.jsp">
+                                        <a class="btn btn-default" href="table.jsp">
                                             <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                                             <span>Tiếp tục mua hàng</span>
                                         </a>

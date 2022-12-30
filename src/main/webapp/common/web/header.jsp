@@ -29,91 +29,6 @@
 
 </style>
 <header>
-    <!-- header left mobie -->
-    <div class="header-mobile d-md-none">
-        <div class="mobile hidden-md-up text-xs-center d-flex align-items-center justify-content-around">
-
-            <!-- menu left -->
-            <div id="mobile_mainmenu" class="item-mobile-top">
-                <i class="fa fa-bars" aria-hidden="true"></i>
-            </div>
-
-            <!-- logo -->
-            <div class="mobile-logo">
-                <a href="index-2.html">
-                    <img class="logo-mobile img-fluid" src="img/home/logo-mobie.png" alt="Prestashop_Furnitica">
-                </a>
-            </div>
-
-            <!-- menu right -->
-            <div class="mobile-menutop" data-target="#mobile-pagemenu">
-                <i class="zmdi zmdi-more"></i>
-            </div>
-        </div>
-
-        <!-- search -->
-        <div id="mobile_search" class="d-flex">
-            <div id="mobile_search_content">
-                <form method="get" action="#">
-
-                    <input type="text" name="s" value="" placeholder="Tìm kiếm">
-                    <button type="submit">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </form>
-            </div>
-            <div class="desktop_cart">
-                <div class="blockcart block-cart cart-preview tiva-toggle">
-                    <div class="header-cart tiva-toggle-btn">
-                        <span class="cart-products-count">1</span>
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                    </div>
-                    <div class="dropdown-content">
-                        <div class="cart-content">
-                            <table>
-                                <tbody>
-                                <tr>
-                                    <td class="product-image">
-                                        <a href="product-detail.html">
-                                            <img src="img/product/5.jpg" alt="Product">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <div class="product-name">
-                                            <a href="product-detail.html">Bàn làm việc</a>
-                                        </div>
-                                        <div>
-                                            2 x
-                                            <span class="product-price">400.000 vnđ</span>
-                                        </div>
-                                    </td>
-                                    <td class="action">
-                                        <a class="remove" href="#">
-                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr class="total">
-                                    <td colspan="2">Thành tiền:</td>
-                                    <td>800.000 vnđ</td>
-                                </tr>
-
-                                <tr>
-                                    <td colspan="3" class="d-flex justify-content-center">
-                                        <div class="cart-button">
-                                            <a href="product-cart.html" title="View Cart">Xem giỏ hàng</a>
-                                            <a href="product-checkout.html" title="Checkout">Thanh toán</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- header desktop -->
     <div class="header-top d-xs-none ">
@@ -137,101 +52,20 @@
                                 <div class="dropdown-menu">
                                     <ul>
                                         <li class="item living-room-drop">
-                                            <a href="<c:url value="/views/web/home.jsp"/>" title="Home Page 2">Phòng Khách<i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                            <a href="<c:url value="/views/web/table.jsp"/>" title="Bàn">Bàn</i>
                                             </a>
-
-                                            <div class="dropdown-menu living-room-menu">
-                                                <ul class="drop-menu">
-                                                    <li class="item">
-                                                        <a href="#" title="">Bàn</a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" title="">Ghế</a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" title="">Tủ Kệ</a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" title="">Phụ Kiện</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
                                         </li>
                                         <li class="item dinner-room-drop ">
-                                            <a href="<c:url value="/views/web/living-room.jsp"/>" title="Home Page 3">Phòng Ăn <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                                            <div class="dropdown-menu dinner-room-menu">
-                                                <ul class="drop-menu">
-                                                    <li class="item">
-                                                        <a href="#" title="">Bàn</a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" title="">Ghế</a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" title="">Tủ Kệ</a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" title="">Phụ Kiện</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            <a href="<c:url value="/views/web/table.jsp"/>" title="Ghế">Ghế</a>
                                         </li>
                                         <li class="item bedroom-drop">
-                                            <a href="<c:url value="/views/web/living-room.jsp"/>" title="Phòng Ngủ">Phòng Ngủ<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                                            <div class="dropdown-menu bedroom-menu">
-                                                <ul class="drop-menu bedroom-drop" style="">
-                                                    <li class="item">
-                                                        <a href="#" title="">Bàn</a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" title="">Ghế</a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" title="">Tủ Kệ</a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" title="">Phụ Kiện</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            <a href="<c:url value="/views/web/table.jsp"/>" title="Tủ">Tủ</a>
                                         </li>
                                         <li class="item work-room-drop">
-                                            <a href="" title="Home Page 4">Phòng Làm Việc <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                                            <div class="dropdown-menu work-room-menu">
-                                                <ul class="drop-menu">
-                                                    <li class="item">
-                                                        <a href="#" title="">Bàn</a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" title="">Ghế</a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" title="">Tủ Kệ</a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" title="">Phụ Kiện</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            <a href="" title="Đèn">Đèn</a>
                                         </li>
                                         <li class="item decorations-drop">
-                                            <a href="" title="Home Page 5">Đồ Trang Trí</a>
-                                            <div class="dropdown-menu decorations">
-                                                <ul class="drop-menu">
-                                                    <li class="item">
-                                                        <a href="#" title="">Bàn</a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" title="">Ghế</a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" title="">Tủ Kệ</a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" title="">Phụ Kiện</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            <a href="" title="Đồ trang trí">Đồ Trang Trí</a>
                                         </li>
                                     </ul>
                                 </div>

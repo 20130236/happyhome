@@ -62,7 +62,7 @@
                                                     <p> Những sản phẩm có lượng người mua cao nhất.
                                                     </p>
                                                     <div>
-                                                        <a href="product-grid-sidebar-left.jsp"> Xem thêm  </a>
+                                                        <a href="table.jsp"> Xem thêm  </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -355,7 +355,7 @@
                                                         <p>Những sản phẩm hiện đại, mới nhất.
                                                         </p>
                                                         <div>
-                                                            <a href="product-grid-sidebar-left.jsp"> Xem thêm  </a>
+                                                            <a href="table.jsp"> Xem thêm  </a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1910,7 +1910,7 @@
                                                     <div class="menu-content">
                                                         <ul class="col">
                                                             <li>
-                                                                <a href="product-grid-sidebar-left.jsp">Product Grid (Sidebar Left)</a>
+                                                                <a href="table.jsp">Product Grid (Sidebar Left)</a>
                                                             </li>
                                                             <li>
                                                                 <a href="product-grid-sidebar-right.html">Product Grid (Sidebar Right)</a>
