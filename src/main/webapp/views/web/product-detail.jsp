@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
@@ -106,12 +107,7 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <span>Phòng khách</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span>Sofa</span>
+                                            <span>Bàn</span>
                                         </a>
                                     </li>
                                 </ol>
@@ -128,303 +124,21 @@
                                         <div class="title-block">Thể loại</div>
                                         <div class="block-content">
                                             <div class="cateTitle hasSubCategory open level1">
-                                                    <span class="arrow collapse-icons collapsed" data-toggle="collapse" data-target="#livingroom">
-                                                        <i class="zmdi zmdi-minus"></i>
-                                                        <i class="zmdi zmdi-plus"></i>
-                                                    </span>
-                                                <a class="cateItem" href="#">Phòng khách</a>
-                                                <div class="subCategory collapse" id="livingroom" aria-expanded="true" role="status">
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">Bàn </a>
-                                                        <div class="subCategory collapse" id="subCategory-fruits" aria-expanded="true" role="status">
-                                                            <!-- <div class="cateTitle">
-                                                                <a href="#" class="cateItem">Bảng phụ</a>
-                                                            </div> -->
-                                                            <!-- <div class="cateTitle">
-                                                                <a href="#" class="cateItem">CHÁY</a>
-                                                            </div>
-                                                            <div class="cateTitle">
-                                                                <a href="#" class="cateItem">CHÁY</a>
-                                                            </div> -->
-                                                            <div class="cateTitle">
-                                                                <a href="#" class="cateItem">đèn sàn</a>
-                                                            </div>
-                                                            <div class="cateTitle">
-                                                                <a href="#" class="cateItem">ghế không có lưng dựa</a>
-                                                            </div>
-                                                            <div class="cateTitle">
-                                                                <a href="#" class="cateItem">ghế bành</a>
-                                                            </div>
-                                                            <div class="cateTitle">
-                                                                <a href="#" class="cateItem">ghế sofa</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- <div class="cateTitle">
-                                                        <a href="#" class="cateItem">CHÁY</a>
-                                                    </div>
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">CHÁY</a>
-                                                    </div> -->
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">đèn sàn</a>
-                                                    </div>
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">ghế không có lưng dựa</a>
-                                                    </div>
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">ghế bành</a>
-                                                    </div>
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">gối</a>
-                                                    </div>
-                                                </div>
+                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>">Bàn</a>
                                             </div>
                                             <div class="cateTitle hasSubCategory open level1">
-                                                    <span class="arrow collapsed collapse-icons" data-toggle="collapse" data-target="#bathroom">
-                                                        <i class="zmdi zmdi-minus"></i>
-                                                        <i class="zmdi zmdi-plus"></i>
-                                                    </span>
-                                                <a class="cateItem" href="#">Phòng tắm</a>
-                                                <div class="subCategory collapse" id="bathroom">
-                                                    <!-- <div class="cateTitle">
-                                                        <a href="#" class="cateItem">TOMATO</a>
-                                                    </div> -->
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">Bồn cầu</a>
-                                                    </div>
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">Chậu rửa</a>
-                                                    </div>
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">Gương tắm</a>
-                                                    </div>
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">Bồn tắm</a>
-                                                    </div>
-                                                </div>
+                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>">Ghế</a>
                                             </div>
                                             <div class="cateTitle hasSubCategory open level1">
-                                                    <span class="arrow collapsed collapse-icons" data-toggle="collapse" data-target="#diningroom">
-                                                        <i class="zmdi zmdi-minus"></i>
-                                                        <i class="zmdi zmdi-plus"></i>
-                                                    </span>
-                                                <a class="cateItem" href="#">Phòng bếp</a>
-                                                <div class="subCategory collapse" id="diningroom" aria-expanded="true" role="status">
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">Bàn ăn phòng bếp</a>
-                                                    </div>
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">Tủ bếp</a>
-                                                    </div>
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">Kệ bếp</a>
-                                                    </div>
-                                                    <!-- <div class="cateTitle">
-                                                        <a href="#" class="cateItem">BLACK BREAD</a>
-                                                    </div> -->
-                                                </div>
+                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>">Tủ</a>
                                             </div>
                                             <div class="cateTitle hasSubCategory open level1">
-                                                    <span class="arrow collapsed collapse-icons" data-toggle="collapse" data-target="#bedroom">
-                                                        <i class="zmdi zmdi-minus"></i>
-                                                        <i class="zmdi zmdi-plus"></i>
-                                                    </span>
-                                                <a class="cateItem" href="#">Phòng ngủ</a>
-                                                <div class="subCategory collapse" id="bedroom" aria-expanded="true" role="status">
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">Giường ngủ</a>
-                                                    </div>
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">Tủ quần áo</a>
-                                                    </div>
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">Bàn trang điểm</a>
-                                                    </div>
-
-                                                </div>
+                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>">Đèn</a>
                                             </div>
-                                            <!-- <div class="cateTitle hasSubCategory open level1">
-                                                <span class="arrow collapsed collapse-icons" data-toggle="collapse" data-target="#kitchen">
-                                                    <i class="zmdi zmdi-minus"></i>
-                                                    <i class="zmdi zmdi-plus"></i>
-                                                </span>
-                                                <a class="cateItem" href="#">PHÒNG BẾP</a>
-                                                <div class="subCategory collapse" id="kitchen" aria-expanded="true" role="status">
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">ORANGE JUICES</a>
-                                                    </div>
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">TOMATO JUICES</a>
-                                                    </div>
-                                                    <div class="cateTitle">
-                                                        <a href="#" class="cateItem">APPLE JUICES</a>
-                                                    </div>
-
-                                                </div>
-                                            </div> -->
                                         </div>
                                     </div>
 
-                                    <!-- best seller -->
-                                    <div class="sidebar-block">
-                                        <div class="title-block">
-                                            Sản phẩm bán tốt nhất
-                                        </div>
-                                        <div class="product-content tab-content">
-                                            <div class="row">
-                                                <div class="item col-md-12">
-                                                    <div class="product-miniature item-one first-item d-flex">
-                                                        <div class="thumbnail-container border">
-                                                            <a href="product-detail.jsp">
-                                                                <img class="img-fluid image-cover" src="img/product/1.jpg" alt="img">
-                                                                <img class="img-fluid image-secondary" src="img/product/22.jpg" alt="img">
-                                                            </a>
-                                                        </div>
-                                                        <div class="product-description">
-                                                            <div class="product-groups">
-                                                                <div class="product-title">
-                                                                    <a href="product-detail.jsp">Đồng hồ</a>
-                                                                </div>
-                                                                <div class="rating">
-                                                                    <div class="star-content">
-                                                                        <div class="star"></div>
-                                                                        <div class="star"></div>
-                                                                        <div class="star"></div>
-                                                                        <div class="star"></div>
-                                                                        <div class="star"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="product-group-price">
-                                                                    <div class="product-price-and-shipping">
-                                                                        <span class="price">430.000 vnđ</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item col-md-12">
-                                                    <div class="product-miniature item-one first-item d-flex">
-                                                        <div class="thumbnail-container border">
-                                                            <a href="product-detail.jsp">
-                                                                <img class="img-fluid image-cover" src="img/product/2.jpg" alt="img">
-                                                                <img class="img-fluid image-secondary" src="img/product/11.jpg" alt="img">
-                                                            </a>
-                                                        </div>
-                                                        <div class="product-description">
-                                                            <div class="product-groups">
-                                                                <div class="product-title">
-                                                                    <a href="product-detail.jsp">Ghế cafe </a>
-                                                                </div>
-                                                                <div class="rating">
-                                                                    <div class="star-content">
-                                                                        <div class="star"></div>
-                                                                        <div class="star"></div>
-                                                                        <div class="star"></div>
-                                                                        <div class="star"></div>
-                                                                        <div class="star"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="product-group-price">
-                                                                    <div class="product-price-and-shipping">
-                                                                        <span class="price">1.190.000 vnđ</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="item col-md-12">
-                                                    <div class="product-miniature item-one first-item d-flex">
-                                                        <div class="thumbnail-container border">
-                                                            <a href="product-detail.jsp">
-                                                                <img class="img-fluid image-cover" src="img/product/3.jpg" alt="img">
-                                                                <img class="img-fluid image-secondary" src="img/product/14.jpg" alt="img">
-                                                            </a>
-                                                        </div>
-                                                        <div class="product-description">
-                                                            <div class="product-groups">
-                                                                <div class="product-title">
-                                                                    <a href="product-detail.jsp">Ghế thư giãn Ball Chair màu đỏ vỏ trắng</a>
-                                                                </div>
-                                                                <div class="rating">
-                                                                    <div class="star-content">
-                                                                        <div class="star"></div>
-                                                                        <div class="star"></div>
-                                                                        <div class="star"></div>
-                                                                        <div class="star"></div>
-                                                                        <div class="star"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="product-group-price">
-                                                                    <div class="product-price-and-shipping">
-                                                                        <span class="price">15.375.000 vnđ</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <!-- product tag -->
-                                    <div class="sidebar-block product-tags">
-                                        <div class="title-block">
-                                            Thẻ sản phẩm
-                                        </div>
-                                        <div class="block-content">
-                                            <ul class="listSidebarBlog list-unstyled">
-                                                <li>
-                                                    <a href="#" title="Show products matching tag Hot Trend">Xu hướng nổi bật</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" title="Show products matching tag Jewelry">Rẻ nhất</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="man.html" title="Show products matching tag Man">Đắt nhất</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" title="Show products matching tag Party">Mua nhiều nhất</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" title="Show products matching tag SamSung">Đang giảm giá</a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" title="Show products matching tag Shirt Dresses">Bán chạy</a>
-                                                </li>
-                                                <!--
-                                            <li>
-                                                <a href="#" title="Show products matching tag Shoes">Shoes</a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#" title="Show products matching tag Summer">Summer</a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#" title="Show products matching tag Sweaters">Sweaters</a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#" title="Show products matching tag Winter">Winter</a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#" title="Show products matching tag Woman">Woman</a>
-                                            </li> -->
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                            </div>
                                 <div class="col-sm-8 col-lg-9 col-md-9">
                                     <div class="main-product-detail">
                                         <h2>Sản phẩm </h2>
