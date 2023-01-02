@@ -1,3 +1,5 @@
+<%@ page import="model.Article" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
@@ -256,6 +258,9 @@
                                     </div>
                                     <div class="col-sm-8 col-lg-9 col-md-9 flex-xs-first main-blogs">
                                         <h2>Bài đăng gần đây</h2>
+                                        <% List<Article> list = (List<Article>) request.getAttribute("list");
+                                            for (Article ar: list){
+                                        %>
                                         <div class="list-content row">
                                             <div class="hover-after col-md-5 col-xs-12">
                                                 <a href="blog-detail.jsp">
@@ -264,144 +269,18 @@
                                             </div>
                                             <div class="late-item col-md-7 col-xs-12">
                                                 <p class="content-title">
-                                                    <a href="blog-detail.jsp">Những lưu ý khi chọn màu cho nội thất
+                                                    <a href="blog-detail.jsp"><%=ar.title%>
                                                     </a>
                                                 </p>
-                                                <p class="post-info">
-                                                    <span>NGÀY ĐĂNG 07/11/2022</span>
-                                                    <span>3 Bình luận</span>
-                                                    <span>#trangtri</span>
-                                                </p>
-                                                <p class="description">Nếu bạn đang có nhu cầu mua sắm nội thất, chắc hẳn bạn đã có những tìm hiểu nhất định về những gì bạn muốn mua. 
-                                                    Dù sao thì, thứ bạn đang tìm kiếm cũng là một món nội thất hài hòa với phong cách thiết kế hiện tại của bạn, nhưng vẫn đảm bảo sự thời thượng,
-                                                     phong cách mà sẽ không bị lỗi thời chỉ sau một thời gian ngắn. 
+
+                                                <p class="description"><%=ar.content.substring(0,50)%>
                                                 </p>
                                                 <span class="view-more">
                                                     <a href="blog-detail.jsp">Xem thêm</a>
                                                 </span>
                                             </div>
                                         </div>
-                                        <div class="list-content row">
-                                            <div class="hover-after col-md-5 col-xs-12">
-                                                <a href="blog-detail.jsp">
-                                                    <img src="img/blog/5.jpg" alt="img">
-                                                </a>
-                                            </div>
-                                            <div class="late-item col-md-7 col-xs-12">
-                                                <p class="content-title">
-                                                    <a href="blog-detail.jsp">MẸO PHỐI GIỮA MÀU SƠN TƯỜNG VÀ ĐỒ NỘI THẤT CHO KHÔNG GIAN SỐNG THÊM HOÀN HẢO</a>
-                                                </p>
-                                                <p class="post-info">
-                                                    <span>NGÀY ĐĂNG 05/11/2022</span>
-                                                    <span>10 Bình luận</span>
-                                                    <span>#trangtri</span>
-                                                </p>
-                                                <p class="description">Phối màu nội thất sao cho đẹp, sang trọng, 
-                                                    hiện đại là cả nghệ thuật của nhà thiết kế nội thất. Nội thất có đẹp cũng phải phối màu ăn ý với nhau mới có thể tạo ra một không gian đẹp...
-                                                </p>
-                                                <span class="view-more">
-                                                    <a href="blog-detail.jsp">XEM THÊM</a>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="list-content row">
-                                            <div class="hover-after col-md-5 col-xs-12">
-                                                <a href="blog-detail.jsp">
-                                                    <img src="img/blog/13(2).jpg" alt="img">
-                                                </a>
-                                            </div>
-                                            <div class="late-item  col-md-7 col-xs-12">
-                                                <p class="content-title">
-                                                    <a href="blog-detail.jsp">300+ MẪU TỦ BẾP GỖ TỰ NHIÊN BỀN, ĐẸP, HIỆN ĐẠI GIÁ TỐT NHẤT 2022</a>
-                                                </p>
-                                                <p class="post-info">
-                                                    <span>NGÀY ĐĂNG 04/11/2022</span>
-                                                    <span>10 Bình luận</span>
-                                                    <span>#nhabep</span>
-                                                </p>
-                                                <p class="description">Tủ bếp là thiết bị nội thất không thể thiếu trong mọi căn bếp của gia đình Việt. 
-                                                    Đặc biệt, tủ bếp gỗ tự nhiên với giá trị thẩm mỹ cao và độ bền chắc lâu năm đang rất được lòng người sử dụng. 
-                                                    Hãy cùng nội thất HAPPYHOME tham khảo...
-                                                </p>
-                                                <span class="view-more">
-                                                    <a href="blog-detail.jsp">XEM THÊM</a>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="list-content row">
-                                            <div class="hover-after col-md-5 col-xs-12">
-                                                <a href="blog-detail.jsp">
-                                                    <img src="img/blog/6.jpg" alt="img">
-                                                </a>
-                                            </div>
-                                            <div class="late-item col-md-7 col-xs-12">
-                                                <p class="content-title">
-                                                    <a href="blog-detail.jsp">Những tone màu sofa đẹp bạn không thể bỏ qua</a>
-                                                </p>
-                                                <p class="post-info">
-                                                    <span>NGÀY ĐĂNG 03/11/2022</span>
-                                                    <span>5 Bình luận</span>
-                                                    <span>#sofa</span>
-                                                </p>
-                                                <p class="description">Khi mua sofa, điều mà các gia chủ cũng nên cân nhắc kĩ lưỡng bên cạnh chất liệu và kiểu dáng đó chính là màu sắc của chiếc sofa. 
-                                                    Màu sắc sofa cũng có một sự ảnh hưởng lớn đến thẩm mỹ không gian chung của phòng khách.
-                                                    Vì vậy, việc lựa chọn một bộ ghế sofa phù hợp thì màu sắc là yếu tố vô cùng quan trọng và cần thiết tiếp thêm năng lượng tích cực cho cả gia đình.
-                                                </p>
-                                                <span class="view-more">
-                                                    <a href="blog-detail.jsp">XEM THÊM</a>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="list-content row">
-                                            <div class="hover-after col-md-5 col-xs-12">
-                                                <a href="blog-detail.jsp">
-                                                    <img src="img/blog/14.jpg" alt="img">
-                                                </a>
-                                            </div>
-                                            <div class="late-item col-md-7 col-xs-12">
-                                                <p class="content-title">
-                                                    <a href="blog-detail.jsp">Ý nghĩa đồng hồ treo tường trang trí decor nghệ thuật cho nội thất nhà bạn</a>
-                                                </p>
-                                                <p class="post-info">
-                                                    <span>NGÀY ĐĂNG 03/11/2022</span>
-                                                    <span>1 Bình luận</span>
-                                                    <span>#dongho</span>
-                                                </p>
-                                                <p class="description">Các mẫu đồng hồ treo tường sang trọng trang trí là vật dụng vô cùng quen thuộc với tất cả mọi người. 
-                                                    Chắc hẳn là trong bất kỳ gia đình nào cũng có sự hiện diện của một chiếc đồng hồ. 
-                                                    Nhưng bạn đã thực sự hiểu hết ý nghĩa của chúng chưa ? 
-                                                    Mỗi đồng hồ trang trí là một ý nghĩa ,...
-                                                </p>
-                                                <span class="view-more">
-                                                    <a href="blog-detail.jsp">XEM THÊM</a>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="list-content row">
-                                            <div class="hover-after col-md-5 col-xs-12">
-                                                <a href="blog-detail.jsp">
-                                                    <img src="img/blog/15.jpg" alt="img">
-                                                </a>
-                                            </div>
-                                            <div class="late-item  col-md-7 col-xs-12">
-                                                <p class="content-title">
-                                                    <a href="blog-detail.jsp">Đèn trang trí – điểm nhấn không thể thiếu</a>
-                                                </p>
-                                                <p class="post-info">
-                                                    <span>NGÀY ĐĂNG 03/11/2022</span>
-                                                    <span>5 Bình luận</span>
-                                                    <span>#dentrangtri</span>
-                                                </p>
-                                                <p class="description">Hiện nay, khi đời sống con người đang ngày càng được nâng lên, 
-                                                    ngoài những yêu cầu thông thường như ăn ngon, mặc đẹp, thì yêu cầu về không gian sống cũng ngày càng được chú trọng. 
-                                                    Vì vậy, bên cạnh những vật dụng trang trí khác, đèn trang trí trở thành một sản phẩm không thể thiếu, nó giúp không gian nội thất của gia đình bạn trở nên lung linh và nổi bật hơn, 
-                                                    đồng thời cũng giúp thể hiện được gu thẩm mỹ và phong thái của gia chủ. Dưới đây là một số thông tin cơ bản xoay quanh dòng sản phẩm này, chúng sẽ giúp bạn dễ dàng hiểu và lựa chọn loại đèn phù hợp nhất với gia đình mình đấy.
-                                                </p>
-                                                <span class="view-more">
-                                                    <a href="blog-detail.jsp">XEM THÊM</a>
-                                                </span>
-                                            </div>
-                                        </div>
+                                        <% } %>
                                         <div class="page-list col">
                                             <ul class="justify-content-center d-flex">
                                                 <li>
@@ -437,43 +316,10 @@
     </div>
 
     <!-- footer -->
-
     <jsp:include page="/common/web/footer.jsp"></jsp:include>
 
-
-    <!-- back top top -->
-    <div class="back-to-top">
-        <a href="#">
-            <i class="fa fa-long-arrow-up"></i>
-        </a>
-    </div>
-
-    <!-- Page Loader -->
-    <div id="page-preloader">
-        <div class="page-loading">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
-    </div>
-
     <!-- Vendor JS -->
-    <script src="libs/jquery/jquery.min.js"/>"></script>
-    <script src="libs/popper/popper.min.js"/>"></script>
-    <script src="libs/bootstrap/js/bootstrap.min.js"/>"></script>
-    <script src="libs/nivo-slider/js/jquery.nivo.slider.js"/>"></script>
-    <script src="libs/owl-carousel/owl.carousel.min.js"/>"></script>
-    <script src="libs/slider-range/js/tmpl.js"/>"></script>
-    <script src="libs/slider-range/js/jquery.dependClass-0.1.js"/>"></script>
-    <script src="libs/slider-range/js/draggable-0.1.js"/>"></script>
-    <script src="libs/slider-range/js/jquery.slider.js"/>"></script>
-
-    <!-- Template JS -->
-    <script src="js/theme.js"/>"></script>
+    <jsp:include page="/common/web/js.jsp"></jsp:include>
 </body>
 
-
-<!-- blog-list-sidebar-left10:30-->
 </html>
