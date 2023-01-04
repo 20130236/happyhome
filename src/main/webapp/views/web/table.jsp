@@ -1,3 +1,6 @@
+<%@ page import="controller.web.ListProduct" %>
+<%@ page import="model.Product" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -113,8 +116,16 @@
                                     </div>
                                     <div class="tab-content product-items">
                                         <div id="grid" class="related tab-pane fade in active show">
+                                            <% List<Product> list = (List<Product>) request.getAttribute("list");
+                                                for (Product p: list
+                                                ) {%>
                                             <div class="row" id="data-product-row">
+
+
+
+
                                                 <div class="item text-center col-md-4">
+
                                                     <div class="product-miniature js-product-miniature item-one first-item">
                                                         <div class="thumbnail-container border">
                                                             <a href="product-detail.html">
@@ -165,10 +176,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                 </div>
                                             </div>
-
+                                            <%}%>
                                         </div>
+
                                         <div id="list" class="related tab-pane fade">
                                             <div class="row" id="data-product-row-list">
                                                 <div class="item col-md-12">
