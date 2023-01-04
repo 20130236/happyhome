@@ -1,5 +1,7 @@
 <%@ page import="model.Article" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
@@ -77,22 +79,7 @@
                                             </p>
                                            
 
-                                            <div class="spacing-10 group-image-special">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-lg-6 col-md-6 p-left">
-                                                            <div class="effect">
-                                                                <img class="img-fluid" src="img/blog/3.jpg" alt="banner-1" title="banner-1">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 p-right">
-                                                            <div class="effect">
-                                                                <img class="img-fluid" src="img/blog/2.jpg" alt="banner-2" title="banner-2">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+
 
                                             <div class="border-detail">
                                                 <p class="post-info float-left">
@@ -119,111 +106,34 @@
 
 
                                         <div class="related">
-                                            <h2 class="title-block">TIN TỨC LIÊN QUAN</h2>
+                                            <h2 class="title-block">TIN TỨC MỚI NHẤT</h2>
                                             <div class="main-blogs">
                                                 <div class="row">
+                                                    <% List<Article> list = (List<Article>) request.getAttribute("newest");
+                                                        for (Article ar: list){
+                                                    %>
                                                     <div class="col-md-4">
                                                         <div class="hover-after">
-                                                            <a href="blog-detail.jsp">
-                                                                <img src="img/blog/11.jpg" alt="img" class="img-fluid">
+                                                            <a href="detail_article?pid=<%=ar.article_id%>">
+                                                                <img src="<%=ar.getImageArticle(0)%>" alt="img" class="img-fluid">
                                                             </a>
                                                         </div>
                                                         <div class="late-item">
                                                             <p class="content-title">
-                                                                <a href="blog-detail.jsp">5 ý tưởng lắp đầy những khoảng trống cho căn phòng của bạn</a>
+                                                                <a href="detail_article?pid=<%=ar.article_id%>"><%=ar.title%></a>
                                                             </p>
-                                                            <p class="description">Đã bao giờ bạn cảm thấy không gian phòng của bạn vẫn còn trống trải và muốn sắm thêm nội thất? Đã bao giờ bạn muốn lấp đầy những gian tường nhà nhưng lại không biết bắt đầu từ đâu? 
-                                                                Vậy thì đây chắc chắn sẽ là bài viết dành cho bạn.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="hover-after">
-                                                            <a href="blog-detail.jsp">
-                                                                <img src="img/blog/8.jpg" alt="img" class="img-fluid">
-                                                            </a>
-                                                        </div>
-                                                        <div class="late-item">
-                                                            <p class="content-title">
-                                                                <a href="blog-detail.jsp">Tiết kiệm không gian căn hộ chung cư một cách thông minh</a>
-                                                            </p>
-                                                            <p class="description">Với những căn hộ chung cư, diện tích không gian sẽ khá hạn chế để có thể tối ưu hóa không gian hơn. 
-                                                                Việc tìm hiểu và thiết kế sao cho căn hộ vừa thoáng mát, thoải mái, vừa đa dụng và sành điệu đang là nhu cầu được rất nhiều người quan tâm đến.
+                                                            <p class="description"><%=ar.content.substring(0,50)%>
                                                             </p>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
-                                                        <div class="hover-after">
-                                                            <a href="blog-detail.jsp">
-                                                                <img src="img/blog/12.jpg" alt="img" class="img-fluid">
-                                                            </a>
-                                                        </div>
-                                                        <div class="late-item">
-                                                            <p class="content-title">
-                                                                <a href="blog-detail.jsp">Trang hoàng phòng khách đón mùa mới</a>
-                                                            </p>
-                                                            <p class="description">Sắp xếp, làm mới lại không gian sống cũng là một trong những cách nhanh nhất mang đến cảm giác tươi mới, hạnh phúc, 
-                                                                tràn đầy năng lượng cho bạn và những thành viên trong gia đình. Bây giờ, hãy cùng khám phá những yếu tố tạo nên gian phòng khách hiện đại, 
-                                                                độc đáo để có thêm cảnh hứng mới cho không gian của bạn.
-                                                            </p>
-                                                        </div>
-                                                    </div>
+                                                 <% } %>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="reply late-item">
                                             <div class="blog-comment" id="blog-comment">
                                                 <h2 class="title-block">Bình luận</h2>
-                                                <img src="img/blog/user1.jpg" alt="img" class="float-left right">
-                                            </div>
-                                            <div class="comment-content">
-                                                <p class="user-title">
-                                                    <a href="#">Nguyễn Vân Vân</a>
-                                                    <span class="time">Đăng ngày 06/11/2022 lúc 6:50am /
-                                                        <a href="#">Đăng lại</a> /
-                                                        <span class="green">
-                                                            <a href="#">Trả lời</a>
-                                                        </span>
-                                                    </span>
-                                                </p>
-                                                <p class="content-comment">Cảm ơn bạn đã chia sẻ bài viết này, rất hay và bổ ích.</p>
-                                                </p>
-                                            </div>
-                                            <div class="blog-comment margin-right-comment">
-                                                <div class="avatar">
-                                                    <img src="img/blog/user2.jpg" alt="img" class="float-left">
-                                                </div>
-                                                <div class="comment-content">
-                                                    <p class="user-title">
-                                                        <a href="#">Trần Duy Luận</a>
-                                                        <span class="time">Đăng ngày 06/11/2022 lúc 6:55am /
-                                                            <a href="#">Đăng lại</a> /
-                                                            <span class="green">
-                                                                <a href="#">Trả lời</a>
-                                                            </span>
-                                                        </span>
-                                                    </p>
-                                                    <p class="content-comment">Tôi đồng ý với ý kiến của bạn.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="blog-comment">
-                                                <div class="avatar">
-                                                    <img src="img/blog/user2.jpg" alt="img" class="float-left right">
-                                                </div>
-                                                <div class="comment-content">
-                                                    <p class="user-title">
-                                                        <a href="#">Trần Duy Luận</a>
-                                                        <span class="time">Đăng ngày 07/11/2022 lúc 6:57am /
-                                                            <a href="#">Đăng lại</a> /
-                                                            <span class="green">
-                                                                <a href="#">Trả lời</a>
-                                                            </span>
-                                                        </span>
-                                                    </p>
-                                                    <p class="content-comment">Bài viết rất hay, cảm ơn bạn đã chia sẻ.
-                                                    </p>
-                                                </div>
+
                                             </div>
                                         </div>
                                         <div class="submit-comment" id="respond">

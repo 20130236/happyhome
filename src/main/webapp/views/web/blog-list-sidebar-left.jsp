@@ -1,6 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="model.Article" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
@@ -76,13 +78,13 @@
                                         %>
                                         <div class="list-content row">
                                             <div class="hover-after col-md-5 col-xs-12">
-                                                <a href="blog-detail.jsp">
+                                                <a href="detail_article?pid=<%=ar.article_id%>">
                                                     <img src="<%=ar.getImageArticle(0)%>" alt="img">
                                                 </a>
                                             </div>
                                             <div class="late-item col-md-7 col-xs-12">
                                                 <p class="content-title">
-                                                    <a href="blog-detail.jsp"><%=ar.title%>
+                                                    <a href="detail_article?pid=<%=ar.article_id%>"><%=ar.title%>
                                                     </a>
                                                 </p>
 
@@ -95,27 +97,13 @@
                                         </div>
                                         <% } %>
                                         <div class="page-list col">
+
                                             <ul class="justify-content-center d-flex">
-                                                <li>
-                                                    <a rel="prev" href="#" class="previous disabled js-search-link">
-                                                        Về trước
-                                                    </a>
-                                                </li>
-                                                <li class="current active">
-                                                    <a rel="nofollow" href="#" class="disabled js-search-link">
-                                                        1
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a rel="nofollow" href="#" class="disabled js-search-link">
-                                                        2
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a rel="next" href="#" class="next disabled js-search-link">
-                                                        Tiếp theo
-                                                    </a>
-                                                </li>
+                                                <c:forEach var = "i" begin = "1" end = "${endP}">
+                                                    <li class="${tag == i?"current active" :""}" >
+                                                        <a rel="nofollow" href="list-article?index=${i}" class="disabled js-search-link">${i}</a>
+                                                    </li>
+                                                </c:forEach>
                                             </ul>
                                         </div>
                                     </div>

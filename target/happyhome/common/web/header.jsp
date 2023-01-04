@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/common/taglib.jsp"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
 .drop-menu {
     width: 235px;
@@ -107,15 +108,14 @@
                                  <a href="~/Template/contact.jsp" class="parent">Ưu Đãi</a>
                              </li>-->
                             <li>
-                                <a href="#" class="parent">Bài viết <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                                <a href="/list-article" class="parent">Bài viết <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
                                 <div class="dropdown-menu">
                                     <ul>
+                                        <c:forEach items="${listAr}" var="item">
                                         <li class="item">
-                                            <a href="" title="Blog List (Sidebar Left)">Tin tức</a>
+                                            <a href="articleCate?cid=${item.getArticle_category_id()}" title="Blog List (Sidebar Left)"> ${item.getArticle_category_name()}<br></a>
                                         </li>
-                                        <li class="item">
-                                            <a href="" title="Blog List (Sidebar Left) 2">Khuyến mãi</a>
-                                        </li>
+                                        </c:forEach>
                                     </ul>
                                 </div>
                             </li>
