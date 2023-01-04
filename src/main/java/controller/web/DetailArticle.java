@@ -1,4 +1,4 @@
-package controller;
+package controller.web;
 
 import model.Article;
 import service.ArticleService;

@@ -79,11 +79,51 @@ public class ArticleService {
         return imgUrl;
 
     }
+    public int getTotalArticle(){
+        String sql = "Select  count(*) from article";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            ps = DBConnection.getConnection().prepareStatement(sql);
+
+            rs = ps.executeQuery(sql);
+            while (rs.next()){
+               return rs.getInt(1);
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    public List<Article> pagingArticle(int index){
+        List<Article> list = new ArrayList<>();
+        String sql = "SELECT * FROM article\n" +
+                "ORDER BY article_id LIMIT "+((index -1)*3)+",3";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            ps = DBConnection.getConnection().prepareStatement(sql);
+
+            rs = ps.executeQuery(sql);
+            while (rs.next()){
+                Article ar = new Article(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4));
+                list.add(ar);
+            }
+
+        }catch (Exception e){
+
+        }
+        return list;
+    }
     public static void main(String[] args) {
         Article a = getArticleById(1);
-        System.out.println(a.toString());
+        ArticleService as = new ArticleService();
 
-
+        List<Article> li = as.pagingArticle(2);
+        for(Article aa : li){
+            System.out.println(aa.toString());
+        }
 
     }
 }
