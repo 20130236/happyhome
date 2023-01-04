@@ -12,13 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ListProduct", value = "/ListProduct")
+@WebServlet(name = "ListProduct", value = "/list-product")
 public class ListProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
      List<Product> list = ProductService.getListProduct();
      request.setAttribute("list",list);
-     request.getRequestDispatcher("table.jsp").forward(request,response);
+     request.getRequestDispatcher("/views/web/table.jsp").forward(request,response);
     }
 
     @Override
