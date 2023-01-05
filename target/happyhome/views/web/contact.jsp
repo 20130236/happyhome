@@ -119,7 +119,7 @@
 									
                                     <p class="icon text-center">
                                         <a href="#">
-                                            <img src="img/other/contact_mess.png" alt="img">
+                                            <img src="/Template/web/img/other/contact_mess.png" alt="img">
                                         </a>
                                     </p>
 
@@ -149,7 +149,7 @@
                                                     </div>
                                                     <div>
                                                         <button class="btn" type="submit" name="submitMessage">
-                                                            <img class="img-fl" src="img/other/contact_email.png" alt="img">GỬI
+                                                            <img class="img-fl" src="/Template/web/img/other/contact_email.png" alt="img">GỬI
                                                         </button>
                                                     </div>
                                                 </form>
