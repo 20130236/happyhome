@@ -1,10 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<!--<![endif]-->
-<html lang="en">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%
+    String error = (String) request.getAttribute("error");
+%>
+<html>
 <!-- user-login11:10-->
 <head>
     <!-- Basic Page Needs -->
@@ -20,83 +20,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <jsp:include page="/common/web/css.jsp"></jsp:include>
+    <style>
+        .error{
+            float: left !important;
+            color:#dc3545 !important;
+        }
+    </style>
 </head>
 
 <body class="user-login blog">
-    <jsp:include page="/common/web/header.jsp"></jsp:include>
+<jsp:include page="/common/web/header.jsp"></jsp:include>
 
-    <!-- main content -->
-    <div class="main-content">
-        <div class="wrap-banner">
+<!-- main content -->
+<div class="main-content">
+    <div class="wrap-banner">
 
-            <!-- breadcrumb -->
-            <nav class="breadcrumb-bg">
-                <div class="container no-index">
-                    <div class="breadcrumb">
-                        <ol>
-                            <li>
-                                <a href="index-2.html">
-                                    <span>Trang chủ</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="user-login.jsp">
-                                    <span>Đăng nhập</span>
-                                </a>
-                            </li>
-                        </ol>
-                    </div>
+        <!-- breadcrumb -->
+        <nav class="breadcrumb-bg">
+            <div class="container no-index">
+                <div class="breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="index-2.html">
+                                <span>Trang chủ</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="user-login.jsp">
+                                <span>Đăng nhập</span>
+                            </a>
+                        </li>
+                    </ol>
                 </div>
-            </nav>
+            </div>
+        </nav>
 
-        </div>
+    </div>
 
-        <!-- main -->
-        <div id="wrapper-site">
-            <div id="content-wrapper" class="full-width">
-                <div id="main">
-                    <div class="container">
-                        <h1 class="text-center title-page">Đăng Nhập</h1>
-                        <div class="login-form">
-                            <form id="customer-form" action="#" method="post">
-                                <div>
-                                    <input type="hidden" name="back" value="my-account">
-                                    <div class="form-group no-gutters">
-                                        <input class="form-control" name="email" type="email" placeholder=" Email">
-                                    </div>
-                                    <div class="form-group no-gutters">
-                                        <div class="input-group js-parent-focus">
-                                            <input class="form-control js-child-focus js-visible-password" name="password" type="password" value="" placeholder="Mật khẩu">
-                                        </div>
-                                    </div>
-                                    <div class="no-gutters text-center">
-                                        <div class="forgot-password">
-                                            <a href="user-reset-password.jsp" rel="nofollow">
-                                                Quên mật khẩu?
-                                            </a>
-                                        </div>
+    <!-- main -->
+    <div id="wrapper-site">
+        <div id="content-wrapper" class="full-width">
+            <div id="main">
+                <div class="container">
+                    <div class="login-form">
+                        <form id="customer-form" action="<c:url value="/login"/>" method="post">
+                            <h1 class="text-center title-page">Đăng Nhập</h1>
+                            <% if(error != null){%>
+                            <div style="color:#dc3545;"><%=error%></div>
+                            <%}%>
+                            <div style="display: flex;flex-direction: column;">
+                                <div class="form-group no-gutters">
+                                    <input class="form-control" name="username" id="username" type="text" value="<%=request.getParameter("username")!=null?request.getParameter("username"):"" %>"  placeholder="Tài khoản" >
+                                    <label id="username-error" class="error" for="username" style="display: inline;"></label>
+                                </div>
+                                <div class="form-group no-gutters">
+                                    <input class="form-control js-child-focus js-visible-password" name="password" id="password" type="password" value="" placeholder="Mật khẩu">
+                                    <label id="password-error" class="error" for="password" style="display: inline;"></label>
+                                </div>
+                                <div class="no-gutters text-center">
+                                    <div class="forgot-password">
+                                        <a href="<c:url value="/reset-password"></c:url>">
+                                            Quên mật khẩu?
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="clearfix">
-                                    <div class="text-center no-gutters">
-                                        <input type="hidden" name="submitLogin" value="1">
-                                        <button class="btn btn-primary" data-link-action="sign-in" type="submit">
-                                            ĐĂNG NHẬP
-                                        </button>
-                                    </div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="text-center no-gutters">
+                                    <button class="btn btn-primary" data-link-action="sign-in" type="submit">
+                                        ĐĂNG NHẬP
+                                    </button>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
-    <jsp:include page="/common/web/footer.jsp"></jsp:include>
+<jsp:include page="/common/web/footer.jsp"></jsp:include>
 
-    <jsp:include page="/common/web/js.jsp"></jsp:include>
+<jsp:include page="/common/web/js.jsp"></jsp:include>
+<script src="<c:url value="/Template/web/libs/jquery/jquery.validate.js"/>"></script>
+<script>
+    $.validator.setDefaults({
+        errorElement: "label",
+        errorClass: "error"
+    });
+
+    +(function ($) {
+        $("#customer-form").validate({
+            rules: {
+                username: {
+                    required : true
+                },
+                password: {
+                    required: true
+                }
+            },
+            messages: {
+                username: {
+                    required : "Phải nhập tên tài khoản",
+                },
+                password: {
+                    required: "Phải nhập mật khẩu",
+                }
+            }
+        });
+    })(jQuery);
+</script>
 </body>
 
 

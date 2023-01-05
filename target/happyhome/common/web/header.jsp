@@ -1,5 +1,7 @@
+<%@ page import="model.UserModel" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/common/taglib.jsp"%>
+<% UserModel user = (UserModel)session.getAttribute("user"); %>
 <style>
 .drop-menu {
     width: 235px;
@@ -141,34 +143,40 @@
                         <div class="myaccount-title ">
                             <a href="#acount" data-toggle="collapse" class="acount">
                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                <span>Tài khoản</span>
+                                <% if(user != null) { %>
+                                    <span><%=user.getUserName()%></span>
+                                <% } else {%>
+                                    <span>Tài khoản</span>
+                                <% } %>
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
-
                         </div>
 
-                        <div id="acount" class="collapse">
+                        <div id="acount" class="collapse" style="left: -120px;top: 36px;">
 
                             <div class="account-list-content">
-
+                                <% if(user != null) { %>
                                 <div>
-                                    <a class="login" href="user-acount.html" rel="nofollow" title="Log in to your customer account">
+                                    <a class="login" href="<c:url value="/account"></c:url>" rel="nofollow" title="Your info account">
                                         <i class="fa fa-cog"></i>
-                                        <span>Tài khoản</span>
+                                        <span>Tài khoản của bạn</span>
                                     </a>
                                 </div>
+                                <% } %>
+                                <% if(user == null) {%>
                                 <div>
-                                    <a class="login" href="user-login.html" rel="nofollow" title="Log in to your customer account">
+                                    <a class="login" href="<c:url value="/login"></c:url>" rel="nofollow" title="Log in to your customer account">
                                         <i class="fa fa-sign-in"></i>
                                         <span>Đăng nhập</span>
                                     </a>
                                 </div>
                                 <div>
-                                    <a class="register" href="user-register.html" rel="nofollow" title="Register Account">
+                                    <a class="register" href="<c:url value="/register"></c:url>" rel="nofollow" title="Register Account">
                                         <i class="fa fa-user"></i>
                                         <span>Đăng kí tài khoản</span>
                                     </a>
                                 </div>
+                                <% } %>
                                 <div>
                                     <a class="check-out" href="product-checkout.html" rel="nofollow" title="Checkout">
                                         <i class="fa fa-check" aria-hidden="true"></i>
@@ -181,40 +189,15 @@
                                         <span>Danh sách mong muốn</span>
                                     </a>
                                 </div>
-                                <!-- <div id="desktop_currency_selector" class="currency-selector groups-selector hidden-sm-down">
-                                    <ul class="list-inline">
-                                        <li>
-                                            <a title="Euro" rel="nofollow" href="#">VNĐ</a>
-                                        </li>
-                                        <li class="current list-inline-item">
-                                            <a title="British Pound Sterling" rel="nofollow" href="#">VNĐ</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div id="desktop_language_selector" class="language-selector groups-selector hidden-sm-down">
-                                    <ul class="list-inline">
-                                        <li class="list-inline-itemcurrent">
-                                            <a href="#">
-                                                <img class="img-fluid" src="img/home/home1-flas.jpg" alt="English" width="16" height="11">
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <img class="img-fluid" src="img/home/home1-flas2.jpg" alt="Italiano" width="16" height="11">
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <img class="img-fluid" src="img/home/home1-flas3.jpg" alt="Français" width="16" height="11">
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#">
-                                                <img class="img-fluid" src="img/home/home1-flas4.jpg" alt="Español" width="16" height="11">
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div> -->
+
+                                <% if(user != null) {%>
+                                    <div class="link_wishlist">
+                                        <a href="<c:url value="/logout"></c:url>" title="Logout">
+                                            <i class="fa fa-sign-out"></i>
+                                            <span>Đăng xuất</span>
+                                        </a>
+                                    </div>
+                                <% } %>
                             </div>
                         </div>
                     </div>

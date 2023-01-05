@@ -62,6 +62,7 @@
                   <tr>
                     <th>Tên tài khoản</th>
                     <th>Email</th>
+                    <th>Quyền</th>
                     <th>Tình trạng</th>
                     <th>Tác vụ</th>
                   </tr>
@@ -70,64 +71,11 @@
                   <tr>
                     <td>Trident</td>
                     <td>NguyenVanA@gmail.com</td>
+                    <td>Người dùng</td>
                     <td>Khoá</td>
                     <td>
-                      <button class="btn btn-danger">Chặn </button>
-                      <button class="btn btn-success">Mở hoạt động </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>NguyenVanA@gmail.com</td>
-                    <td>Mở</td>
-                    <td>
-                      <button class="btn btn-danger">Chặn </button>
-                      <button class="btn btn-success">Mở hoạt động </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>NguyenVanA@gmail.com</td>
-                    <td>Khoá</td>
-                    <td>
-                      <button class="btn btn-danger">Chặn </button>
-                      <button class="btn btn-success">Mở hoạt động </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>NguyenVanA@gmail.com</td>
-                    <td>Khoá</td>
-                    <td>
-                      <button class="btn btn-danger">Chặn </button>
-                      <button class="btn btn-success">Mở hoạt động </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>NguyenVanA@gmail.com</td>
-                    <td>Mở</td>
-                    <td>
-                      <button class="btn btn-danger">Chặn </button>
-                      <button class="btn btn-success">Mở hoạt động </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>NguyenVanA@gmail.com</td>
-                    <td>Khoá</td>
-                    <td>
-                      <button class="btn btn-danger">Chặn </button>
-                      <button class="btn btn-success">Mở hoạt động </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Tasman</td>
-                    <td>NguyenVanA@gmail.com</td>
-                    <td>Khoá</td>
-                    <td>
-                      <button class="btn btn-danger">Chặn </button>
-                      <button class="btn btn-success">Mở hoạt động </button>
+                      <a class="btn btn-danger">Xoá </a>
+                      <a class="btn btn-success">Sửa </a>
                     </td>
                   </tr>
                   </tbody>

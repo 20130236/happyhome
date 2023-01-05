@@ -24,3 +24,8 @@
 <!-- Template CSS -->
 <link rel="stylesheet" type="text/css" href="<c:url value="/Template/web/css/style.css"/>"/>
 <link rel="stylesheet" type="text/css" href="<c:url value="/Template/web/css/reponsive.css"/>"/>
+<style>
+    .error{
+        color:#dc3545 !important;
+    }
+</style>

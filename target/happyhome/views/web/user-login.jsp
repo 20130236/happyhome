@@ -1,10 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<!--<![endif]-->
-<html lang="en">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%
+    String error = (String) request.getAttribute("error");
+    String errorUserName = (String) request.getAttribute("errorUserName");
+    String errorPass = (String) request.getAttribute("errorPass");
+%>
+<html>
 <!-- user-login11:10-->
 <head>
     <!-- Basic Page Needs -->
@@ -56,14 +58,24 @@
             <div id="content-wrapper" class="full-width">
                 <div id="main">
                     <div class="container">
-                        <h1 class="text-center title-page">Đăng Nhập</h1>
                         <div class="login-form">
-                            <form id="customer-form" action="#" method="post">
+                            <form id="customer-form" action="<c:url value="/login"/>" method="post">
+                                <h1 class="text-center title-page">Đăng Nhập</h1>
+                                <% if(error != null){%>
+                                <div style="color:#dc3545;"><%=error%></div>
+                                <%}%>
                                 <div>
-                                    <input type="hidden" name="back" value="my-account">
+                                   <%-- <input type="hidden" name="back" value="my-account">--%>
+                                       <% if(errorUserName != null){%>
+                                       <div style="color:#dc3545;"><%=errorUserName%></div>
+                                       <%}%>
                                     <div class="form-group no-gutters">
-                                        <input class="form-control" name="email" type="email" placeholder=" Email">
+                                        <input class="form-control" name="username" type="text" value="<%=request.getParameter("username")!=null?request.getParameter("username"):"" %>"  placeholder="Tài khoản" >
                                     </div>
+
+                                       <% if(errorPass != null){%>
+                                       <div style="color:#dc3545;"><%=errorPass%></div>
+                                       <%}%>
                                     <div class="form-group no-gutters">
                                         <div class="input-group js-parent-focus">
                                             <input class="form-control js-child-focus js-visible-password" name="password" type="password" value="" placeholder="Mật khẩu">
