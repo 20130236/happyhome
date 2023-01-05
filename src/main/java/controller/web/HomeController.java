@@ -15,10 +15,11 @@ import java.util.List;
 public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //Lay ra danh sach loai bai viet
         ArticleService service = new ArticleService();
         List<Article_Category> list = service.getListArCategory();
         request.setAttribute("listAr", list);
-
+        //Lay ra thong tin de chen vao footer
         IntroService intr = new IntroService();
         Introduce intro = intr.getIntro();
         request.setAttribute("info", intro);
