@@ -1,7 +1,9 @@
 package controller.web;
 
 import model.Article_Category;
+import model.Introduce;
 import service.ArticleService;
+import service.IntroService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -17,6 +19,9 @@ public class HomeController extends HttpServlet {
         List<Article_Category> list = service.getListArCategory();
         request.setAttribute("listAr", list);
 
+        IntroService intr = new IntroService();
+        Introduce intro = intr.getIntro();
+        request.setAttribute("info", intro);
 
 
         RequestDispatcher rd = request.getRequestDispatcher("views/web/home.jsp");

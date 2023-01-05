@@ -7,12 +7,14 @@ import java.util.ArrayList;
 public class Article {
     public int article_id;
     public int article_category_id;
+    public String date;
     public String title;
     public String content;
 
-    public Article(int article_id, int article_category_id, String title, String content) {
+    public Article(int article_id, int article_category_id, String date, String title, String content) {
         this.article_id = article_id;
         this.article_category_id = article_category_id;
+        this.date = date;
         this.title = title;
         this.content = content;
     }
@@ -33,6 +35,14 @@ public class Article {
         this.article_category_id = article_category_id;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -49,15 +59,6 @@ public class Article {
         this.content = content;
     }
 
-    @Override
-    public String toString() {
-        return "Article{" +
-                "article_id=" + article_id +
-                ", article_category_id=" + article_category_id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                '}';
-    }
     public String getImageArticle(int index)
     {
         ArticleService manage = new ArticleService();

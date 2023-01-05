@@ -83,7 +83,7 @@
 
                                             <div class="border-detail">
                                                 <p class="post-info float-left">
-                                                    <span>Ngày đăng 07/11/2022</span>
+                                                    <span>Ngày đăng <%=article.date%></span>
                                                     <span>0 Bình luận</span>
                                                    </span>
                                                 </p>

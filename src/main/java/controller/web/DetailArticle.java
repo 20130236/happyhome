@@ -1,7 +1,9 @@
 package controller.web;
 
 import model.Article;
+import model.Introduce;
 import service.ArticleService;
+import service.IntroService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -21,6 +23,10 @@ public class DetailArticle extends HttpServlet {
 
         List<Article> newA = service.getNewArticle();
         request.setAttribute("newest", newA);
+
+        IntroService intr = new IntroService();
+        Introduce intro = intr.getIntro();
+        request.setAttribute("info", intro);
 
         request.getRequestDispatcher("/views/web/blog-detail.jsp").forward(request, response);
 

@@ -68,7 +68,20 @@
                             <div class="content">
                                 <div class="row">
                                     <div class="sidebar-3 sidebar-collection col-lg-3 col-md-3 col-sm-4">
+                                        <div class="sidebar-block">
+                                            <div class="title-block">Thể loại</div>
+                                            <div class="block-content">
+                                                <div class="cateTitle hasSubCategory open level1">
+                                                    <c:forEach items="${listAr}" var="item">
+                                                        <div class="cateTitle hasSubCategory open level1">
+                                                    <a class="cateItem" href="articleCate?cid=${item.getArticle_category_id()}">${item.getArticle_category_name()}</a>
+                                                        </div>
+                                                    </c:forEach>
+                                                </div>
 
+
+                                            </div>
+                                        </div>
 
                                     </div>
                                     <div class="col-sm-8 col-lg-9 col-md-9 flex-xs-first main-blogs">

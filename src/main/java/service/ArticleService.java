@@ -23,7 +23,7 @@ public class ArticleService {
 
             rs = ps.executeQuery(sql);
             while (rs.next()){
-                Article ar = new Article(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4));
+                Article ar = new Article(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5));
                 list.add(ar);
             }
 
@@ -45,7 +45,7 @@ public class ArticleService {
 
             rs = ps.executeQuery(sql);
             while (rs.next()){
-                ar = new Article(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4));
+                ar = new Article(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5));
 
             }
 
@@ -108,7 +108,7 @@ public class ArticleService {
 
             rs = ps.executeQuery(sql);
             while (rs.next()){
-                Article ar = new Article(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4));
+                Article ar = new Article(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5));
                 list.add(ar);
             }
 
@@ -149,7 +149,7 @@ public class ArticleService {
 
             rs = ps.executeQuery(sql);
             while (rs.next()){
-                Article ar = new Article(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4));
+                Article ar = new Article(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4), rs.getString(5));
                 list.add(ar);
             }
 
@@ -184,13 +184,13 @@ public class ArticleService {
         ResultSet rs = null;
         String sql;
         try{
-            sql = "(SELECT * FROM article ORDER BY article_id DESC) LIMIT 3";
+            sql = "(SELECT * FROM article ORDER BY date DESC) LIMIT 3";
             ps = DBConnection.getConnection().prepareStatement(sql);
             list = new ArrayList<>();
 
             rs = ps.executeQuery(sql);
             while (rs.next()){
-                Article ar = new Article(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4));
+                Article ar = new Article(rs.getInt(1), rs.getInt(2),rs.getString(3), rs.getString(4),rs.getString(5));
                 list.add(ar);
             }
 

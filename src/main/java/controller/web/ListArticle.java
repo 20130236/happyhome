@@ -1,7 +1,10 @@
 package controller.web;
 
 import model.Article;
+import model.Article_Category;
+import model.Introduce;
 import service.ArticleService;
+import service.IntroService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -27,9 +30,14 @@ public class ListArticle extends HttpServlet {
         if(count % 3 != 0){
             endPage ++;
         }
-
+        List<Article_Category> listArCategory = service.getListArCategory();
+        request.setAttribute("listAr", listArCategory);
         request.setAttribute("endP", endPage);
         request.setAttribute("tag", index);
+
+        IntroService intr = new IntroService();
+        Introduce intro = intr.getIntro();
+        request.setAttribute("info", intro);
 
         request.setAttribute("list",list);
         request.getRequestDispatcher("/views/web/blog-list-sidebar-left.jsp").forward(request,response);
