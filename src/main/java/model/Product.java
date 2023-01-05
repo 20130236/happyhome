@@ -4,7 +4,8 @@ public class Product {
    private int id;
    private String name;
    private String img;
-   private double price;
+   private String img2;
+   private float price;
    private double price_sell;
    private String info;
    private String color;
@@ -12,10 +13,12 @@ public class Product {
 
 
 
-   public Product(int id, String name, String img, double price, double price_sell, String info) {
+
+   public Product(int id, String name, String img,String img2, float price, double price_sell, String info) {
       this.id = id;
       this.name = name;
       this.img = img;
+      this.img2= img2;
       this.price = price;
       this.price_sell = price_sell;
       this.info = info;
@@ -38,11 +41,11 @@ public class Product {
       this.name = name;
    }
 
-   public double getPrice() {
+   public float getPrice() {
       return price;
    }
 
-   public void setPrice(double price) {
+   public void setPrice(float price) {
       this.price = price;
    }
 
@@ -72,16 +75,26 @@ public class Product {
       this.img = img;
    }
 
+   public String getImg2() {
+      return img2;
+   }
+
+   public void setImg2(String img2) {
+      this.img2 = img2;
+   }
+
    @Override
    public String toString() {
       return "Product{" +
               "id=" + id +
               ", name='" + name + '\'' +
               ", img='" + img + '\'' +
+              ", img2='" + img2 + '\'' +
               ", price=" + price +
               ", price_sell=" + price_sell +
-            ", info='" + info + '\'' +
-
+              ", info='" + info + '\'' +
+              ", color='" + color + '\'' +
+              ", size='" + size + '\'' +
               '}';
    }
 }

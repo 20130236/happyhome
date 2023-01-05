@@ -114,23 +114,26 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="tab-content product-items">
+
                                         <div id="grid" class="related tab-pane fade in active show">
-                                            <% List<Product> list = (List<Product>) request.getAttribute("list");
-                                                for (Product p: list
-                                                ) {%>
+
+
                                             <div class="row" id="data-product-row">
 
 
-
+                                                <% List<Product> list = (List<Product>) request.getAttribute("list");
+                                                    for (Product p: list
+                                                    ) {%>
 
                                                 <div class="item text-center col-md-4">
 
                                                     <div class="product-miniature js-product-miniature item-one first-item">
                                                         <div class="thumbnail-container border">
                                                             <a href="product-detail.html">
-                                                                <img class="img-fluid image-cover" src="img/product/1.jpg" alt="img">
-                                                                <img class="img-fluid image-secondary" src="img/product/22.jpg" alt="img">
+                                                                <img class="img-fluid image-cover" src="<%= p.getImg()%>" alt="img">
+                                                                <img class="img-fluid image-secondary" src="<%=p.getImg2() %>" alt="img">
                                                             </a>
                                                             <div class="highlighted-informations">
                                                                 <div class="variant-links">
@@ -143,7 +146,7 @@
                                                         <div class="product-description">
                                                             <div class="product-groups">
                                                                 <div class="product-title">
-                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                    <a href="product-detail.html"><%=p.getName() %></a>
                                                                 </div>
                                                                 <div class="rating">
                                                                     <div class="star-content">
@@ -156,7 +159,7 @@
                                                                 </div>
                                                                 <div class="product-group-price">
                                                                     <div class="product-price-and-shipping">
-                                                                        <span class="price">£28.08</span>
+                                                                        <span class="price"><%=p.getPrice() %> vnđ</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -178,8 +181,9 @@
                                                     </div>
 
                                                 </div>
+                                                <%}%>
                                             </div>
-                                            <%}%>
+
                                         </div>
 
                                         <div id="list" class="related tab-pane fade">
@@ -187,11 +191,14 @@
                                                 <div class="item col-md-12">
                                                     <div class="product-miniature item-one first-item">
                                                         <div class="row">
+                                                            <% List<Product> list2 = (List<Product>) request.getAttribute("list");
+                                                                for (Product p: list
+                                                                ) {%>
                                                             <div class="col-md-4">
                                                                 <div class="thumbnail-container border">
                                                                     <a href="product-detail.html">
-                                                                        <img class="img-fluid image-cover" src="https://salt.tikicdn.com/cache/750x750/ts/product/a9/f5/ee/68dfd8747e2b7157979659e77e8dc202.jpg.webp" alt="img">
-                                                                        <img class="img-fluid image-secondary" src="https://salt.tikicdn.com/cache/750x750/ts/product/81/ef/07/a6a74ba4f7e98d577f709c5acfab2e9e.jpg.webp" alt="img">
+                                                                        <img class="img-fluid image-cover" src="<%=p.getImg() %>" alt="img">
+                                                                        <img class="img-fluid image-secondary" src="<%=p.getImg2() %>" alt="img">
                                                                     </a>
                                                                 </div>
                                                             </div>
@@ -199,7 +206,7 @@
                                                                 <div class="product-description">
                                                                     <div class="product-groups">
                                                                         <div class="product-title">
-                                                                            <a href="product-detail.html">Giường BL304</a>
+                                                                            <a href="product-detail.html"><%=p.getName() %></a>
                                                                             <span class="info-stock">
                                                                                     <i class="fa fa-check-square-o" aria-hidden="true"></i>
                                                                                     Còn hàng
@@ -216,13 +223,11 @@
                                                                         </div>
                                                                         <div class="product-group-price">
                                                                             <div class="product-price-and-shipping">
-                                                                                <span class="price">15.400.000  vnđ</span>
+                                                                                <span class="price"><%=p.getPrice()%> vnđ</span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="discription">
-                                                                            Thiết kế tinh tế và hiện đại phù hợp với phong cách Việt Nam.
-                                                                            Độ cao giường vừa phải, góc cắt xéo tạo sự hài hòa trong tổng thể vững chắc.
-                                                                            Chất liệu ván MFC cao cấp được xử lý chống mọt và chống hút ẩm.
+                                                                            <%=p.getInfo() %>
                                                                         </div>
                                                                     </div>
                                                                     <div class="product-buttons d-flex">
@@ -239,8 +244,11 @@
                                                                         </a>
                                                                     </div>
                                                                 </div>
+
                                                             </div>
+                                                            <%}%>
                                                         </div>
+
                                                     </div>
                                                 </div>
                                             </div>

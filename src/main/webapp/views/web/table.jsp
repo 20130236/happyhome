@@ -133,7 +133,7 @@
                                                         <div class="thumbnail-container border">
                                                             <a href="product-detail.html">
                                                                 <img class="img-fluid image-cover" src="<%= p.getImg()%>" alt="img">
-                                                                <img class="img-fluid image-secondary" src="<%=p.getImg() %>" alt="img">
+                                                                <img class="img-fluid image-secondary" src="<%=p.getImg2() %>" alt="img">
                                                             </a>
                                                             <div class="highlighted-informations">
                                                                 <div class="variant-links">
@@ -159,7 +159,7 @@
                                                                 </div>
                                                                 <div class="product-group-price">
                                                                     <div class="product-price-and-shipping">
-                                                                        <span class="price"><%=p.getPrice() %></span>
+                                                                        <span class="price"><%=p.getPrice() %> vnđ</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -198,7 +198,7 @@
                                                                 <div class="thumbnail-container border">
                                                                     <a href="product-detail.html">
                                                                         <img class="img-fluid image-cover" src="<%=p.getImg() %>" alt="img">
-                                                                        <img class="img-fluid image-secondary" src="<%=p.getImg() %>" alt="img">
+                                                                        <img class="img-fluid image-secondary" src="<%=p.getImg2() %>" alt="img">
                                                                     </a>
                                                                 </div>
                                                             </div>
@@ -223,7 +223,7 @@
                                                                         </div>
                                                                         <div class="product-group-price">
                                                                             <div class="product-price-and-shipping">
-                                                                                <span class="price"><%=p.getPrice()%>vnđ</span>
+                                                                                <span class="price"><%=p.getPrice()%> vnđ</span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="discription">
