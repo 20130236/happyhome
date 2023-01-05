@@ -78,13 +78,13 @@
                                         %>
                                         <div class="list-content row">
                                             <div class="hover-after col-md-5 col-xs-12">
-                                                <a href="blog-detail.jsp">
+                                                <a href="detail_article?pid=<%=ar.article_id%>">
                                                     <img src="<%=ar.getImageArticle(0)%>" alt="img">
                                                 </a>
                                             </div>
                                             <div class="late-item col-md-7 col-xs-12">
                                                 <p class="content-title">
-                                                    <a href="blog-detail.jsp"><%=ar.title%>
+                                                    <a href="detail_article?pid=<%=ar.article_id%>"><%=ar.title%>
                                                     </a>
                                                 </p>
 
