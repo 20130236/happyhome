@@ -57,10 +57,16 @@ public class UserService {
     }
 
     public static void save(UserModel user) {
+        user.setPassWord(hashPassword(user.getPassWord()));
         UserDAO.save(user);
     }
 
-    public static void updateAdmin(UserModel user) {
+    public static void updateAdmin(UserModel user,String enable) {
+        if(enable.equals("on")){
+            user.setEnable(1);
+        } else{
+            user.setEnable(0);
+        }
         UserDAO.updateUserAdmin(user);
     }
 
@@ -91,7 +97,7 @@ public class UserService {
     public static void addToken(int id, String token){
         Long currentTime = getTimeNowInMillis();
         Timestamp token_expiry = getTokenExpiry(currentTime);
-        Timestamp create_date = new Timestamp(currentTime);
+        Timestamp create_date = new java.sql.Timestamp(currentTime);
         UserDAO.addToken(id,token, create_date,token_expiry);
     }
 
@@ -100,7 +106,7 @@ public class UserService {
     }
 
     private static Timestamp getTokenExpiry(Long timeNow){
-        return new Timestamp(timeNow + 600000);
+        return new java.sql.Timestamp(timeNow + 600000);
     }
 
     public static boolean checkTokenExpiry(int id, String token){

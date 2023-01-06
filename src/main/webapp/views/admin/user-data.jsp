@@ -1,5 +1,11 @@
+<%@ page import="model.UserModel" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+  List<UserModel> users = (List<UserModel>) request.getAttribute("users");
+%>
+<c:url var="UrlAction" value="/data-user?action=delete"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,14 +56,15 @@
                     <option>Washington</option>
                   </select>
                 </div>
-                <button class="btn btn-primary" style="float: right;"><a href="add-article.html" style="color: white">Thêm mới</a></button>
+                <button class="btn btn-primary" style="float: right;"><a href="<c:url value="/data-user?action=add"></c:url>" style="color: white">Thêm mới</a></button>
               </div>
 
               <!-- /.card-header -->
               <div class="card-body">
-
+                <c:if test="${success != null}">
+                  <div class="alert-success" style="width: 36%;">${success}</div>
+                </c:if>
                 <table id="example1" class="table table-bordered table-striped">
-
                   <thead>
                   <tr>
                     <th>Tên tài khoản</th>
@@ -68,21 +75,34 @@
                   </tr>
                   </thead>
                   <tbody>
+                  <% for (UserModel user : users) {%>
                   <tr>
-                    <td>Trident</td>
-                    <td>NguyenVanA@gmail.com</td>
-                    <td>Người dùng</td>
-                    <td>Khoá</td>
+                    <td><%=user.getUserName()==null?"Dữ liệu đang cập nhật":user.getUserName()%></td>
+                    <td><%=user.getEmail()==null?"Dữ liệu đang cập nhật":user.getEmail()%></td>
+                    <% if(user.getRole() == 0)  {%>
+                    <td>user</td>
+                    <% } else if(user.getRole() == 1){%>
+                    <td> mod</td>
+                    <% } else {%>
+                    <td> admin </td>
+                    <% } %>
+                    <% if(user.getEnable() == 1)  {%>
+                    <td> mở</td>
+                    <% } else {%>
+                    <td> khoá</td>
+                    <% } %>
                     <td>
-                      <a class="btn btn-danger">Xoá </a>
-                      <a class="btn btn-success">Sửa </a>
+                      <a class="btn btn-danger" id="delete" href="data-user?action=delete&id=<%=user.getId()%>">Xoá </a>
+                      <a class="btn btn-success"  href="data-user?action=edit&id=<%=user.getId()%>">Sửa </a>
                     </td>
                   </tr>
+                  <% } %>
                   </tbody>
                   <tfoot>
                   <tr>
                     <th>Tên tài khoản</th>
                     <th>Email</th>
+                    <th>Quyền</th>
                     <th>Tình trạng</th>
                     <th>Tác vụ</th>
                   </tr>
@@ -108,5 +128,21 @@
 <!-- ./wrapper -->
 
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
+<script>
+  /* $('#delete').click(function (e) {
+     e.preventDefault();
+     $.ajax({
+       type: "POST",
+       url: '${UrlAction}',
+      data: form.serialize(),
+      success: function () {
+        alert( "Xoá thành công" );
+      },
+      error: function (error){
+        console.log(error);
+      }
+    });
+  });*/
+</script>
 </body>
 </html>

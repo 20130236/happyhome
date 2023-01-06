@@ -175,12 +175,14 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
-            sql = "insert into USER (user_name,password,role,email) values(?,?,?,?)";
+            sql = "insert into USER (user_name,password,full_name,role,email,enable) values(?,?,?,?,?,?)";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setString(1, user.getUserName());
             pst.setString(2, user.getPassWord());
-            pst.setInt(3, user.getRole());
-            pst.setString(4, user.getEmail());
+            pst.setString(3, user.getFullName());
+            pst.setInt(4, user.getRole());
+            pst.setString(5, user.getEmail());
+            pst.setInt(6, 1);
             pst.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -208,6 +210,7 @@ public class UserDAO {
         PreparedStatement pst;
         String sql;
         try {
+            deleteUserForgetPassword(id);
             sql = "delete from USER where uid = ?";
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setInt(1, id);
@@ -311,6 +314,19 @@ public class UserDAO {
             pst = DBConnection.getConnection().prepareStatement(sql);
             pst.setInt(1,id);
             pst.setString(2,token);
+            pst.executeUpdate();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void deleteUserForgetPassword(int id) {
+        PreparedStatement pst;
+        String sql;
+        try {
+            sql = "delete from forget_password where  uid = ? ";
+            pst = DBConnection.getConnection().prepareStatement(sql);
+            pst.setInt(1,id);
             pst.executeUpdate();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
