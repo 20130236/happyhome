@@ -16,7 +16,10 @@ import java.util.List;
 public class ListProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-     List<Product> list = ProductService.getListProduct();
+     // Goi service de thuc hien getAll
+        ProductService service = new ProductService();
+        // lay ra list product
+        List<Product> list = service.getAllProduct();
      request.setAttribute("list",list);
      request.getRequestDispatcher("/views/web/table.jsp").forward(request,response);
 

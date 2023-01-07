@@ -132,8 +132,8 @@
                                                     <div class="product-miniature js-product-miniature item-one first-item">
                                                         <div class="thumbnail-container border">
                                                             <a href="product-detail.html">
-                                                                <img class="img-fluid image-cover" src="" alt="img">
-                                                                <img class="img-fluid image-secondary" src="" alt="img">
+                                                                <img class="img-fluid image-cover" src="<%=p.getImage(0)%>" alt="img">
+                                                                <img class="img-fluid image-secondary" src="<%=p.getImage(1)%>" alt="img">
                                                             </a>
                                                             <div class="highlighted-informations">
                                                                 <div class="variant-links">
@@ -197,8 +197,8 @@
                                                             <div class="col-md-4">
                                                                 <div class="thumbnail-container border">
                                                                     <a href="product-detail.html">
-                                                                        <img class="img-fluid image-cover" src="" alt="img">
-                                                                        <img class="img-fluid image-secondary" src="" alt="img">
+                                                                        <img class="img-fluid image-cover" src="<%=p.getImage(0)%>" alt="img">
+                                                                        <img class="img-fluid image-secondary" src="<%=p.getImage(0)%>" alt="img">
                                                                     </a>
                                                                 </div>
                                                             </div>
