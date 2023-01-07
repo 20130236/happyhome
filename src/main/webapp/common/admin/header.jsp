@@ -138,9 +138,9 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<c:url value="/views/admin/category-product.jsp"/>" class="nav-link">
+                            <a href="<c:url value="/data-category"/>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Chủng loại</p>
+                                <p>Danh mục sản phẩm</p>
                             </a>
                         </li>
                         <li class="nav-item">
