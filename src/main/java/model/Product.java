@@ -5,19 +5,19 @@ import service.ProductService;
 import java.util.ArrayList;
 
 public class Product {
-   private int product_id;
-   private String name;
-   private int price;
-   private int price_sell;
-   private String info;
-   private String code;
-   private String brand;
-   private String color;
-   private String size;
-   private String attribute;
-   private int status;
-   private int product_type;
-   private String product_insurance;
+   public int product_id;
+   public String name;
+   public int price;
+   public int price_sell;
+   public String info;
+   public String code;
+   public String brand;
+   public String color;
+   public String size;
+   public String attribute;
+   public int status;
+   public int product_type;
+   public String product_insurance;
 
    public Product(int product_id, String name, int price, int price_sell, String info, String code, String brand, String color, String size, String attribute, int status, int product_type, String product_insurance) {
       this.product_id = product_id;

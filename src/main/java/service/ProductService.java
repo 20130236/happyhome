@@ -38,27 +38,7 @@ public class ProductService {
 
 
     }
-    public static Product getProductById(int id){
-        Product p =null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        String sql;
-        try {
-            sql = "select * from product where product_id" +id;
-            ps = DBConnection.getConnection().prepareStatement(sql);
-            rs = ps.executeQuery(sql);
-            while (rs.next()){
-                 p = new Product(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11),rs.getInt(11),rs.getString(12));
-            }
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
-        return p;
-    }
     public ArrayList<Image> getImage(int id){
         ArrayList<Image> imgUrl = new ArrayList<>();
         Image img = null;
@@ -98,25 +78,27 @@ public class ProductService {
         }
         return type_name;
     }
-    public ArrayList<Product_type> getProduct_type(int id){
-        ArrayList<Product_type> type_name = new ArrayList();
-      String sql = "select type_id, type_name from product_type";
-      PreparedStatement ps = null;
-      ResultSet rs = null;
-      try {
-        ps = DBConnection.getConnection().prepareStatement(sql);
-        rs = ps.executeQuery(sql);
-        while (rs.next()) {
-            Product_type t = new Product_type(rs.getInt(1),rs.getString(2));
-            type_name.add(t);
+    public static Product getProductById(int id){
+        Product pro = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql;
+        try {
+            sql = "select * from product where product_id =" + id;
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            rs = ps.executeQuery(sql);
+            while (rs.next()){
+                pro = new Product(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11),rs.getInt(11),rs.getString(12));
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
-      } catch (SQLException e) {
-          throw new RuntimeException(e);
-      } catch (ClassNotFoundException e) {
-          throw new RuntimeException(e);
-      }
-    return type_name;
+        return pro;
     }
+
 
 
     public static void main(String[] args) {
@@ -130,10 +112,12 @@ public class ProductService {
 //        for(Image i : img){
 //            System.out.println(i.toString());
 //        }
-        ArrayList<Product_type> type_name = service.getAllProduct_type();
-        for (Product_type t: type_name){
-            System.out.println(t.toString());
-        }
+//        ArrayList<Product_type> type_name = service.getAllProduct_type();
+//        for (Product_type t: type_name){
+//            System.out.println(t.toString());
+//        }
+        Product p = service.getProductById(1);
+        System.out.println(p.toString());
 
     }
 

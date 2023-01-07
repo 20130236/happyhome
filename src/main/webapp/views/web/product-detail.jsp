@@ -1,10 +1,12 @@
+<%@ page import="model.Product" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <!--<![endif]-->
+
+<% Product p = (Product) request.getRequestDispatcher("prod"); %>
 <html lang="zxx">
 
 
@@ -13,7 +15,7 @@
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Furnitica - Minimalist Furniture HTML Template</title>
+    <title><%=p.name%></title>
 
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
@@ -141,23 +143,23 @@
                             </div>
                                 <div class="col-sm-8 col-lg-9 col-md-9">
                                     <div class="main-product-detail">
-                                        <h2>Sản phẩm </h2>
+                                        <h2><%=p.name%></h2>
                                         <div class="product-single row">
                                             <div class="product-detail col-xs-12 col-md-5 col-sm-5">
                                                 <div class="page-content" id="content">
                                                     <div class="images-container">
                                                         <div class="js-qv-mask mask tab-content border">
                                                             <div id="item1" class="tab-pane fade active in show">
-                                                                <img src="img/product/ban-sofa-tron-st3015-001.jpg" alt="img">
+                                                                <img src="<%=p.getImage(0)%>" alt="img">
                                                             </div>
                                                             <div id="item2" class="tab-pane fade">
-                                                                <img src="img/product/ban-sofa-tron-st3015-002.jpg" alt="img">
+                                                                <img src="<%=p.getImage(1)%>" alt="img">
                                                             </div>
                                                             <div id="item3" class="tab-pane fade">
-                                                                <img src="img/product/ban-sofa-tron-st3015-001.jpg" alt="img">
+                                                                <img src="<%=p.getImage(2)%>" alt="img">
                                                             </div>
                                                             <div id="item4" class="tab-pane fade">
-                                                                <img src="img/product/ban-sofa-tron-st3015-002.jpg" alt="img">
+                                                                <img src="<%=p.getImage(3)%>" alt="img">
                                                             </div>
                                                             <div class="layer hidden-sm-down" data-toggle="modal" data-target="#product-modal">
                                                                 <i class="fa fa-expand"></i>
@@ -166,22 +168,22 @@
                                                         <ul class="product-tab nav nav-tabs d-flex">
                                                             <li class="active col">
                                                                 <a href="#item1" data-toggle="tab" aria-expanded="true" class="active show">
-                                                                    <img src="img/product/ban-sofa-tron-st3015-001.jpg" alt="img">
+                                                                    <img src="<%=p.getImage(0)%>" alt="img">
                                                                 </a>
                                                             </li>
                                                             <li class="col">
                                                                 <a href="#item2" data-toggle="tab">
-                                                                    <img src="img/product/ban-sofa-tron-st3015-002.jpg" alt="img">
+                                                                    <img src="<%=p.getImage(1)%>" alt="img">
                                                                 </a>
                                                             </li>
                                                             <li class="col">
                                                                 <a href="#item3" data-toggle="tab">
-                                                                    <img src="img/product/ban-sofa-tron-st3015-001.jpg" alt="img">
+                                                                    <img src="<%=p.getImage(2)%>" alt="img">
                                                                 </a>
                                                             </li>
                                                             <li class="col">
                                                                 <a href="#item4" data-toggle="tab">
-                                                                    <img src="img/product/ban-sofa-tron-st3015-002.jpg" alt="img">
+                                                                    <img src="<%=p.getImage(3)%>" alt="img">
                                                                 </a>
                                                             </li>
                                                         </ul>
@@ -245,33 +247,30 @@
                                             <div class="product-info col-xs-12 col-md-7 col-sm-7">
                                                 <div class="detail-description">
                                                     <div class="price-del">
-                                                        <span class="price">190.000 vnđ</span>
+                                                        <span class="price"><%=p.price_sell%></span>
                                                         <span class="float-right">
-                                                                <span class="availb">khả dụng: </span>
+                                                                <span class="availb">Khả dụng: </span>
+                                                            <% String result = "Còn hàng";
+                                                                if(p.status == 0){
+                                                                    result = "Hết hàng";
+                                                                }
+                                                            %>
                                                                 <span class="check">
-                                                                    <i class="fa fa-check-square-o" aria-hidden="true"></i>TRONG KHO</span>
+                                                                    <i class="fa fa-check-square-o" aria-hidden="true"></i><%=result%></span>
                                                             </span>
+
                                                     </div>
-                                                    <p class="description">Sản phẩm bán nhanh , đang giảm giá
-                                                        Mua ngay.</p>
+                                                    <p class="description"><%=p.attribute%></p>
                                                     <div class="option has-border d-lg-flex size-color">
                                                         <div class="size">
-                                                            <span class="size">kích cỡ :</span>
+                                                            <span class="size">Kích cỡ :</span>
                                                             <select>
-                                                                <option value="">Chọn kích thước của bạn</option>
-                                                                <option value="">M</option>
-                                                                <option value="">l</option>
-                                                                <option value="">xl</option>
+                                                                <option value=""><%=p.size%></option>
                                                             </select>
                                                         </div>
                                                         <div class="colors">
-                                                            <b class="title">Màu : </b>
-                                                            <span class="blue"></span>
-                                                            <span class="yellow"></span>
-                                                            <span class="pink"></span>
-                                                            <span class="green"></span>
-                                                            <span class="brown"></span>
-                                                            <span class="red"></span>
+                                                            <b class="title">Màu : <%=p.color%> </b>
+
                                                         </div>
                                                     </div>
                                                     <div class="has-border cart-area">

@@ -130,14 +130,13 @@
 
 
                                                 <% List<Product> list = (List<Product>) request.getAttribute("list");
-                                                    for (Product p: list
-                                                    ) {%>
+                                                    for (Product p: list) {%>
 
                                                 <div class="item text-center col-md-4">
 
                                                     <div class="product-miniature js-product-miniature item-one first-item">
                                                         <div class="thumbnail-container border">
-                                                            <a href="product-detail.html">
+                                                            <a href="product_detail?pid=<%=p.product_id%>">
                                                                 <img class="img-fluid image-cover" src="<%=p.getImage(0)%>" alt="img">
                                                                 <img class="img-fluid image-secondary" src="<%=p.getImage(1)%>" alt="img">
                                                             </a>
@@ -152,7 +151,7 @@
                                                         <div class="product-description">
                                                             <div class="product-groups">
                                                                 <div class="product-title">
-                                                                    <a href="product-detail.html"><%=p.getName() %></a>
+                                                                    <a href="product_detail?pid=<%=p.product_id%>"><%=p.getName() %></a>
                                                                 </div>
                                                                 <div class="rating">
                                                                     <div class="star-content">
@@ -202,7 +201,7 @@
                                                                 ) {%>
                                                             <div class="col-md-4">
                                                                 <div class="thumbnail-container border">
-                                                                    <a href="product-detail.html">
+                                                                    <a href="product_detail?pid=<%=p.product_id%>">
                                                                         <img class="img-fluid image-cover" src="<%=p.getImage(0)%>" alt="img">
                                                                         <img class="img-fluid image-secondary" src="<%=p.getImage(1)%>" alt="img">
                                                                     </a>
@@ -212,7 +211,7 @@
                                                                 <div class="product-description">
                                                                     <div class="product-groups">
                                                                         <div class="product-title">
-                                                                            <a href="product-detail.html"><%=p.getName() %></a>
+                                                                            <a href="product_detail?pid=<%=p.product_id%>"><%=p.getName() %></a>
                                                                             <span class="info-stock">
                                                                                     <i class="fa fa-check-square-o" aria-hidden="true"></i>
                                                                                     Còn hàng
@@ -245,7 +244,7 @@
                                                                         <a class="addToWishlist" href="#" data-rel="1" onclick="">
                                                                             <i class="fa fa-heart" aria-hidden="true"></i>
                                                                         </a>
-                                                                        <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                        <a href="product_detail?pid=<%=p.product_id%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                             <i class="fa fa-eye" aria-hidden="true"></i>
                                                                         </a>
                                                                     </div>
