@@ -1,6 +1,7 @@
 package controller.web;
 
 import model.Product;
+import model.Product_type;
 import service.ProductService;
 
 
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ListProduct", value = "/list-product")
+@WebServlet(name = "ListProduct", value = "/list_product")
 public class ListProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,6 +21,8 @@ public class ListProduct extends HttpServlet {
         ProductService service = new ProductService();
         // lay ra list product
         List<Product> list = service.getAllProduct();
+        List<Product_type> listType = service.getAllProduct_type();
+        request.setAttribute("listType",listType);
      request.setAttribute("list",list);
      request.getRequestDispatcher("/views/web/table.jsp").forward(request,response);
 

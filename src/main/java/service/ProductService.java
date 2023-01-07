@@ -3,6 +3,7 @@ package service;
 import dao.DBConnection;
 import model.Product;
 import model.Image;
+import model.Product_type;
 
 import java.awt.*;
 import java.sql.PreparedStatement;
@@ -78,6 +79,45 @@ public class ProductService {
         return imgUrl;
 
     }
+    public ArrayList<Product_type> getAllProduct_type(){
+        ArrayList<Product_type> type_name = new ArrayList();
+        String sql = "select type_id, type_name from product_type";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            rs = ps.executeQuery(sql);
+            while (rs.next()) {
+                Product_type t = new Product_type(rs.getInt(1),rs.getString(2));
+                type_name.add(t);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return type_name;
+    }
+    public ArrayList<Product_type> getProduct_type(int id){
+        ArrayList<Product_type> type_name = new ArrayList();
+      String sql = "select type_id, type_name from product_type";
+      PreparedStatement ps = null;
+      ResultSet rs = null;
+      try {
+        ps = DBConnection.getConnection().prepareStatement(sql);
+        rs = ps.executeQuery(sql);
+        while (rs.next()) {
+            Product_type t = new Product_type(rs.getInt(1),rs.getString(2));
+            type_name.add(t);
+        }
+      } catch (SQLException e) {
+          throw new RuntimeException(e);
+      } catch (ClassNotFoundException e) {
+          throw new RuntimeException(e);
+      }
+    return type_name;
+    }
+
 
     public static void main(String[] args) {
        ProductService service = new ProductService();
@@ -86,9 +126,13 @@ public class ProductService {
 //        for(Product p : li){
 //            System.out.println(p.toString());
 //        }
-        List<Image> img = service.getImage(1);
-        for(Image i : img){
-            System.out.println(i.toString());
+//        List<Image> img = service.getImage(1);
+//        for(Image i : img){
+//            System.out.println(i.toString());
+//        }
+        ArrayList<Product_type> type_name = service.getAllProduct_type();
+        for (Product_type t: type_name){
+            System.out.println(t.toString());
         }
 
     }

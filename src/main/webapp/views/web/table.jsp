@@ -1,6 +1,7 @@
 <%@ page import="controller.web.ListProduct" %>
 <%@ page import="model.Product" %>
 <%@ page import="java.util.List" %>
+<%@ page import="model.Product_type" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -63,24 +64,29 @@
                                 <div class="sidebar-3 sidebar-collection col-lg-3 col-md-4 col-sm-4">
 
                                     <!-- category menu -->
+
                                     <div class="sidebar-block">
+
                                         <div class="title-block">Thể loại</div>
+                                        <% List<Product_type> list0 = (List<Product_type>) request.getAttribute("listType");
+                                            for (Product_type pty: list0
+                                            ) {%>
                                         <div class="block-content">
+
                                             <div class="cateTitle hasSubCategory open level1">
-                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>">Bàn</a>
+
+
+                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>"><%= pty.getType_name()%></a>
+
                                             </div>
-                                            <div class="cateTitle hasSubCategory open level1">
-                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>">Ghế</a>
-                                            </div>
-                                            <div class="cateTitle hasSubCategory open level1">
-                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>">Tủ</a>
-                                            </div>
-                                            <div class="cateTitle hasSubCategory open level1">
-                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>">Đèn</a>
-                                            </div>
+
+
                                         </div>
+                                        <%}%>
                                     </div>
+
                                 </div>
+
                                 <div class="col-sm-8 col-lg-9 col-md-8 product-container">
                                     <h1>Bàn</h1>
                                     <div class="js-product-list-top firt nav-top">
