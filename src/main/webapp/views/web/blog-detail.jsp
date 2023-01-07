@@ -30,7 +30,7 @@
 
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0&appId=1827192387637142&autoLogAppEvents=1" nonce="TPPeMGh0"></script>
-    <meta property="fb:app_id" content="&#123;1827192387637142&#125;" />
+    <meta property="fb:app_id" content="1827192387637142" />
 </head>
 
 <body id="blog-detail" class="blog">
@@ -131,16 +131,17 @@
                                                             </p>
                                                         </div>
                                                     </div>
-                                                 <% } %>
+                                                    <% } %>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="reply late-item">
                                             <div class="blog-comment" id="blog-comment">
                                                 <h2 class="title-block">Bình luận</h2>
-                                                <div class="fb-comments" data-href="https://nguyenthanhdat20130013.github.io/HappyHomeMVC/" data-width="" data-numposts="5"></div>
+                                                <div class="fb-comments" data-href="https://nguyenthanhdat20130013.github.io/HappyHomeMVC/<%=article.article_id%>" data-width="" data-numposts="5"></div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>

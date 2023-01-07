@@ -1,6 +1,7 @@
 package model;
 
 public class Introduce {
+    public  String name;
     public String introduce;
     public String address;
     public String showroom;
@@ -9,7 +10,8 @@ public class Introduce {
     public String phone;
     public String caption;
 
-    public Introduce(String introduce, String address, String showroom, String timework, String email, String phone, String caption) {
+    public Introduce(String name,String introduce, String address, String showroom, String timework, String email, String phone, String caption) {
+        this.name = name;
         this.introduce = introduce;
         this.address = address;
         this.showroom = showroom;
@@ -17,6 +19,14 @@ public class Introduce {
         this.email = email;
         this.phone = phone;
         this.caption = caption;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getIntroduce() {

@@ -26,6 +26,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <jsp:include page="/common/web/css.jsp"></jsp:include>
+
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0&appId=1827192387637142&autoLogAppEvents=1" nonce="TPPeMGh0"></script>
+    <meta property="fb:app_id" content="1827192387637142" />
 </head>
 
 <body id="blog-detail" class="blog">
@@ -126,43 +131,17 @@
                                                             </p>
                                                         </div>
                                                     </div>
-                                                 <% } %>
+                                                    <% } %>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="reply late-item">
                                             <div class="blog-comment" id="blog-comment">
                                                 <h2 class="title-block">Bình luận</h2>
+                                                <div class="fb-comments" data-href="https://nguyenthanhdat20130013.github.io/HappyHomeMVC/<%=article.article_id%>" data-width="" data-numposts="5"></div>
+                                            </div>
+                                        </div>
 
-                                            </div>
-                                        </div>
-                                        <div class="submit-comment" id="respond">
-                                            <h2 class="title-block">THÊM BÌNH LUẬN</h2>
-                                            <div id="commentInput">
-                                                <form action="#" method="post" id="commentform">
-                                                    <input type="hidden" name="comment_parent" id="comment_parent" value="0">
-                                                    <div class="row">
-                                                        <div class="form-group col col-sm-12 col-md-4 ">
-                                                            <input type="text" class="inputName form-control" name="name" placeholder="Tên của bạn *">
-                                                        </div>
-                                                        <div class="form-group col col-sm-12  col-md-4">
-                                                            <input type="text" class="inputMail form-control" name="mail" placeholder="Địa chỉ Email *">
-                                                        </div>
-                                                        <div class="form-group col col-sm-12  col-md-4">
-                                                            <input type="text" class="form-control" name="website" placeholder="Biệt danh của bạn">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="form-group col col-md-12">
-                                                            <textarea tabindex="4" class="inputContent form-control grey" rows="10" name="comment" placeholder="Bình luận của bạn"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="submit">
-                                                        <input type="submit" name="addComment" id="submitComment" class="btn btn-default" value="Đăng bình luận">
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

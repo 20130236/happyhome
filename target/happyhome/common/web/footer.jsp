@@ -11,7 +11,7 @@
                     <div class="block">
                         <div class="block-content">
                             <div class="title-block">
-                                NỘI THẤT HAPPYHOME
+                                <%=in.name%>
                             </div>
                             <p class="content-logo">
                                 <%=in.introduce%>
