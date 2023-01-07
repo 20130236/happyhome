@@ -1,36 +1,46 @@
 package model;
 
+import service.ProductService;
+
+import java.util.ArrayList;
+
 public class Product {
-   private int id;
+   private int product_id;
    private String name;
-   private String img;
-   private String img2;
-   private float price;
-   private double price_sell;
+   private int price;
+   private int price_sell;
    private String info;
+   private String code;
+   private String brand;
    private String color;
    private String size;
+   private String attribute;
+   private int status;
+   private int product_type;
+   private String product_insurance;
 
-
-
-
-   public Product(int id, String name, String img,String img2, float price, double price_sell, String info) {
-      this.id = id;
+   public Product(int product_id, String name, int price, int price_sell, String info, String code, String brand, String color, String size, String attribute, int status, int product_type, String product_insurance) {
+      this.product_id = product_id;
       this.name = name;
-      this.img = img;
-      this.img2= img2;
       this.price = price;
       this.price_sell = price_sell;
       this.info = info;
-
+      this.code = code;
+      this.brand = brand;
+      this.color = color;
+      this.size = size;
+      this.attribute = attribute;
+      this.status = status;
+      this.product_type = product_type;
+      this.product_insurance = product_insurance;
    }
 
-   public int getId() {
-      return id;
+   public int getProduct_id() {
+      return product_id;
    }
 
-   public void setId(int id) {
-      this.id = id;
+   public void setProduct_id(int product_id) {
+      this.product_id = product_id;
    }
 
    public String getName() {
@@ -41,19 +51,19 @@ public class Product {
       this.name = name;
    }
 
-   public float getPrice() {
+   public int getPrice() {
       return price;
    }
 
-   public void setPrice(float price) {
+   public void setPrice(int price) {
       this.price = price;
    }
 
-   public double getPrice_sell() {
+   public int getPrice_sell() {
       return price_sell;
    }
 
-   public void setPrice_sell(double price_sell) {
+   public void setPrice_sell(int price_sell) {
       this.price_sell = price_sell;
    }
 
@@ -65,36 +75,100 @@ public class Product {
       this.info = info;
    }
 
-
-
-   public String getImg() {
-      return img;
+   public String getCode() {
+      return code;
    }
 
-   public void setImg(String img) {
-      this.img = img;
+   public void setCode(String code) {
+      this.code = code;
    }
 
-   public String getImg2() {
-      return img2;
+   public String getBrand() {
+      return brand;
    }
 
-   public void setImg2(String img2) {
-      this.img2 = img2;
+   public void setBrand(String brand) {
+      this.brand = brand;
+   }
+
+   public String getColor() {
+      return color;
+   }
+
+   public void setColor(String color) {
+      this.color = color;
+   }
+
+   public String getSize() {
+      return size;
+   }
+
+   public void setSize(String size) {
+      this.size = size;
+   }
+
+   public String getAttribute() {
+      return attribute;
+   }
+
+   public void setAttribute(String attribute) {
+      this.attribute = attribute;
+   }
+
+   public int getStatus() {
+      return status;
+   }
+
+   public void setStatus(int status) {
+      this.status = status;
+   }
+
+   public int getProduct_type() {
+      return product_type;
+   }
+
+   public void setProduct_type(int product_type) {
+      this.product_type = product_type;
+   }
+
+   public String getProduct_insurance() {
+      return product_insurance;
+   }
+
+   public void setProduct_insurance(String product_insurance) {
+      this.product_insurance = product_insurance;
    }
 
    @Override
    public String toString() {
       return "Product{" +
-              "id=" + id +
+              "product_id=" + product_id +
               ", name='" + name + '\'' +
-              ", img='" + img + '\'' +
-              ", img2='" + img2 + '\'' +
               ", price=" + price +
               ", price_sell=" + price_sell +
               ", info='" + info + '\'' +
+              ", code='" + code + '\'' +
+              ", brand='" + brand + '\'' +
               ", color='" + color + '\'' +
               ", size='" + size + '\'' +
+              ", attribute='" + attribute + '\'' +
+              ", status=" + status +
+              ", product_type=" + product_type +
+              ", product_insurance='" + product_insurance + '\'' +
               '}';
    }
+   public String getImage(int index){
+      ProductService manage = new ProductService();
+      ArrayList image = manage.getImage(product_id);
+      if (image.size()>0){
+         if (image.size()>index){
+            Image img = (Image) image.get(index);
+            return img.getImg_url();
+         }
+      }
+      return "";
+   }
 }
+
+
+

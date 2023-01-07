@@ -19,6 +19,7 @@ public class ListProduct extends HttpServlet {
      List<Product> list = ProductService.getListProduct();
      request.setAttribute("list",list);
      request.getRequestDispatcher("/views/web/table.jsp").forward(request,response);
+
     }
 
     @Override
