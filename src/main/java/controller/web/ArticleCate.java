@@ -30,6 +30,7 @@ public class ArticleCate extends HttpServlet {
         if(count % 3 != 0){
             endPage ++;
         }
+
         IntroService intr = new IntroService();
         Introduce intro = intr.getIntro();
         request.setAttribute("info", intro);

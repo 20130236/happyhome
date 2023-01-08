@@ -114,7 +114,7 @@
                                             <ul class="justify-content-center d-flex">
                                                 <c:forEach var = "i" begin = "1" end = "${endP}">
                                                     <li class="${tag == i?"current active" :""}" >
-                                                        <a rel="nofollow" href="list-article?index=${i}" class="disabled js-search-link">${i}</a>
+                                                        <a rel="nofollow" href="list_article?index=${i}" class="disabled js-search-link">${i}</a>
                                                     </li>
                                                 </c:forEach>
                                             </ul>
