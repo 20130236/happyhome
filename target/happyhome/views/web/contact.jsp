@@ -1,4 +1,6 @@
+<%@ page import="model.Introduce" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% Introduce intro = (Introduce) request.getAttribute("info");%>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
@@ -69,9 +71,7 @@
                                                 <div class="item-right d-flex">
                                                     <div class="title">Email:</div>
                                                     <div class="contact-content">
-                                                        <a href="mailto:HappyHome@domain.com">happyhome@domain.com</a>
-                                                        <br>
-                                                        <a href="mailto:contact@domain.com">contact@happyhome.com</a>
+                                                       <%=intro.email%>
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,9 +86,7 @@
                                                 <div class="item-right d-flex">
                                                     <div class="title">Địa chỉ:</div>
                                                     <div class="contact-content">
-                                                        Khu phố 6, phường Linh Trung, 
-                                                    </br>Thành phố Thủ Đức, 
-                                                    </br>Thành phố Hồ Chí Minh, Việt Nam
+                                                    <%=intro.address%>
                                                     </div>
                                                 </div>
                                             </div>
@@ -103,8 +101,7 @@
                                                 <div class="item-right d-flex">
                                                     <div class="title">Hotline:</div>
                                                     <div class="contact-content">
-                                                        0123-456-7891
-                                                        <br>0987-654-321
+                                                      <%=intro.phone%>
                                                     </div>
                                                 </div>
                                             </div>
@@ -117,13 +114,12 @@
                                     </div>
                                 </div>
                                 <div class="input-contact">
-                                    <p class="text-intro text-center">“ Chân thành cảm ơn quý khách đã lựa chọn và tin tưởng ủng hộ những sản phẩm của chúng tôi trong suốt thời gian vừa qua. 
-                                        Trong quá trình sử dụng hoặc mua sắm nếu có thắc mắc hay phản ánh về chất lượng, quý khách hãy để lại phản ánh hoặc câu hỏi cho chúng tôi.”
+                                    <p class="text-intro text-center"><%=intro.caption%>
                                     </p>
 									
                                     <p class="icon text-center">
                                         <a href="#">
-                                            <img src="img/other/contact_mess.png" alt="img">
+                                            <img src="/Template/web/img/other/contact_mess.png" alt="img">
                                         </a>
                                     </p>
 
@@ -153,7 +149,7 @@
                                                     </div>
                                                     <div>
                                                         <button class="btn" type="submit" name="submitMessage">
-                                                            <img class="img-fl" src="img/other/contact_email.png" alt="img">GỬI
+                                                            <img class="img-fl" src="/Template/web/img/other/contact_email.png" alt="img">GỬI
                                                         </button>
                                                     </div>
                                                 </form>
