@@ -7,7 +7,7 @@ import model.Product_type;
 import service.ArticleService;
 import service.IntroService;
 import service.ProductService;
-import services.ProductSearchService;
+import service.ProductSearchService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

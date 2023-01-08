@@ -7,8 +7,8 @@ import model.Product_type;
 import service.ArticleService;
 import service.IntroService;
 import service.ProductService;
-import services.UserService;
-import utils.EmailUtil;
+import service.UserService;
+import util.EmailUtil;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -50,10 +50,10 @@ public class RegisterController extends HttpServlet {
         String password = request.getParameter("password");
         if(UserService.checkUserName(username)){
             request.setAttribute("exist_user","Tên tài khoản đã tồn tại");
-            request.getRequestDispatcher("views/web/user-register.jsp").forward(request, response);
+            response.sendRedirect("login");
         } else {
             UserService.register(username, password,emailAddress,full_name,gender);
-            response.sendRedirect(request.getContextPath() + "/login");
+            response.sendRedirect("login");
             Email email = new Email();
             email.setFrom("happyhomenoithat@gmail.com");
             email.setTo(emailAddress);

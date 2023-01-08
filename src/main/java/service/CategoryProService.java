@@ -1,4 +1,4 @@
-package services;
+package service;
 
 import dao.CategoryProDAO;
 import model.CategoryProModel;

@@ -1,4 +1,4 @@
-package services;
+package service;
 
 import dao.ProductSearchDAO;
 import model.ProductSearchModel;

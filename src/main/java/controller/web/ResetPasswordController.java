@@ -8,8 +8,8 @@ import model.UserModel;
 import service.ArticleService;
 import service.IntroService;
 import service.ProductService;
-import services.UserService;
-import utils.EmailUtil;
+import service.UserService;
+import util.EmailUtil;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
