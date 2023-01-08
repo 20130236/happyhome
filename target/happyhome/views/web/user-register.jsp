@@ -1,12 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<!--<![endif]-->
-<html lang="en">
-
-
+<%
+    String exist_user = (String) request.getAttribute("exist_user");
+%>
+<html>
 <!-- user-register11:10-->
 <head>
     <!-- Basic Page Needs -->
@@ -22,6 +19,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <jsp:include page="/common/web/css.jsp"></jsp:include>
+    <style>
+        .error{
+            float: left !important;
+        }
+    </style>
 </head>
 
 <body class="user-register blog">
@@ -30,7 +32,6 @@
     <!-- main content -->
     <div class="main-content">
         <div class="wrap-banner">
-
             <!-- breadcrumb -->
             <nav class="breadcrumb-bg">
                 <div class="container no-index">
@@ -61,33 +62,33 @@
                             <div id="content" class="page-content">
                                 <div class="register-form text-center">
                                     <h1 class="text-center title-page">Tạo Tài Khoản</h1>
-                                    <form action="#" id="customer-form" class="js-customer-form" method="post">
+                                    <form action="<c:url value="/register"/>" id="customer-form" class="js-customer-form" method="post">
                                         <div>
                                             <div class="form-group">
                                                 <div>
-                                                    <input class="form-control" name="firstname" type="text" placeholder="Họ">
+                                                    <input class="form-control" id="full_name" name="full_name" type="text" placeholder="Họ và tên" value="<%=request.getParameter("full_name")==null?"":request.getParameter("full_name")%>">
+                                                    <label id="full_name-error" class="error" for="full_name" style="display: inline;"></label>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div>
-                                                    <input class="form-control" name="lastname" type="text" placeholder="Tên">
+                                                    <input class="form-control" id="username" name="username" type="text" placeholder="Tên người dùng" value="<%=request.getParameter("username")==null?"":request.getParameter("username")%>">
+                                                    <label id="username-error" class="error" for="username" style="display: inline;"></label>
+                                                    <% if(exist_user != null) {%>
+                                                        <div class="error"><%=exist_user%></div>
+                                                    <% } %>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div>
-                                                    <input class="form-control" name="username" type="text" placeholder="Tên người dùng">
+                                                    <input class="form-control" id="email" name="email" type="email" placeholder="Email" value="<%=request.getParameter("email")==null?"":request.getParameter("email")%>">
+                                                    <label id="email-error" class="error" for="email" style="display: inline;"></label>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div>
-                                                    <input class="form-control" name="email" type="email" placeholder="Email">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div>
-                                                    <div class="input-group js-parent-focus">
-                                                        <input class="form-control js-child-focus js-visible-password" name="password" type="password" placeholder="Mật khẩu">
-                                                    </div>
+                                                        <input class="form-control js-child-focus js-visible-password" id="password" name="password" type="password" placeholder="Mật khẩu" value="<%=request.getParameter("password")==null?"":request.getParameter("password")%>">
+                                                        <label id="password-error" class="error" for="password" style="display: inline;"></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -111,8 +112,50 @@
     <jsp:include page="/common/web/footer.jsp"></jsp:include>
     <!-- Vendor JS -->
     <jsp:include page="/common/web/js.jsp"></jsp:include>
-</body>
+    <script src="<c:url value="/Template/web/libs/jquery/jquery.validate.js"/>"></script>
+    <script>
+        $.validator.setDefaults({
+            errorElement: "label",
+            errorClass: "error"
+        });
 
+        +(function ($) {
+            $("#customer-form").validate({
+                rules: {
+                    username: {
+                        required : true
+                    },
+                    password: {
+                        required: true
+                    },
+                    email: {
+                        required : true,
+                        email : true
+                    },
+                    full_name: {
+                        required : true
+                    }
+                },
+                messages: {
+                    username: {
+                        required : "Phải nhập tên tài khoản",
+                    },
+                    password: {
+                        required: "Phải nhập mật khẩu",
+                    },
+                    email: {
+                        required : "Phải nhập email",
+                        email : "email không đúng định dạng"
+                    },
+                    full_name: {
+                        required : "Phải nhập họ và tên"
+                    }
+                }
+            });
+        })(jQuery);
+
+    </script>
+</body>
 
 <!-- user-register11:10-->
 </html>
