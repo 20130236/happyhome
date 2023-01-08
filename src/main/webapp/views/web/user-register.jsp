@@ -83,7 +83,7 @@
                             <div class="register-form text-center">
                                 <h1 class="text-center title-page">Tạo Tài Khoản</h1>
                                 <form action="<c:url value="/register"/>" id="customer-form" class="js-customer-form" method="post">
-                                    <div>
+                                    <div style="display: flex;flex-direction: column;">
                                         <div class="form-group">
                                             <div>
                                                 <input class="form-control" id="full_name" name="full_name" type="text" placeholder="Họ và tên" value="<%=request.getParameter("full_name")==null?"":request.getParameter("full_name")%>">
