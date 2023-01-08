@@ -1,10 +1,15 @@
+<%@ page import="model.Product" %>
+<%@ page import="model.Product_type" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <!--<![endif]-->
+<% Product product = (Product) request.getAttribute("pro");
+
+%>
 <html lang="zxx">
 
 
@@ -13,7 +18,7 @@
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Furnitica - Minimalist Furniture HTML Template</title>
+    <title><%=product.name%></title>
 
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
@@ -121,43 +126,42 @@
 
                                     <!-- category -->
                                     <div class="sidebar-block">
+
                                         <div class="title-block">Thể loại</div>
+                                        <% List<Product_type> list0 = (List<Product_type>) request.getAttribute("listType");
+                                            for (Product_type pty: list0
+                                            ) {%>
                                         <div class="block-content">
+
                                             <div class="cateTitle hasSubCategory open level1">
-                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>">Bàn</a>
+                                                <a class="cateItem" href="productCate?cid=<%=pty.getType_id()%>"><%=pty.getType_name()%></a>
                                             </div>
-                                            <div class="cateTitle hasSubCategory open level1">
-                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>">Ghế</a>
-                                            </div>
-                                            <div class="cateTitle hasSubCategory open level1">
-                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>">Tủ</a>
-                                            </div>
-                                            <div class="cateTitle hasSubCategory open level1">
-                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>">Đèn</a>
-                                            </div>
+
+
                                         </div>
+                                        <%}%>
                                     </div>
 
                             </div>
                                 <div class="col-sm-8 col-lg-9 col-md-9">
                                     <div class="main-product-detail">
-                                        <h2>Sản phẩm </h2>
+                                        <h2><%=product.name%></h2>
                                         <div class="product-single row">
                                             <div class="product-detail col-xs-12 col-md-5 col-sm-5">
                                                 <div class="page-content" id="content">
                                                     <div class="images-container">
                                                         <div class="js-qv-mask mask tab-content border">
                                                             <div id="item1" class="tab-pane fade active in show">
-                                                                <img src="img/product/ban-sofa-tron-st3015-001.jpg" alt="img">
+                                                                <img src="<%=product.getImage(0)%>" alt="img">
                                                             </div>
                                                             <div id="item2" class="tab-pane fade">
-                                                                <img src="img/product/ban-sofa-tron-st3015-002.jpg" alt="img">
+                                                                <img src="<%=product.getImage(1)%>" alt="img">
                                                             </div>
                                                             <div id="item3" class="tab-pane fade">
-                                                                <img src="img/product/ban-sofa-tron-st3015-001.jpg" alt="img">
+                                                                <img src="<%=product.getImage(2)%>" alt="img">
                                                             </div>
                                                             <div id="item4" class="tab-pane fade">
-                                                                <img src="img/product/ban-sofa-tron-st3015-002.jpg" alt="img">
+                                                                <img src="<%=product.getImage(3)%>" alt="img">
                                                             </div>
                                                             <div class="layer hidden-sm-down" data-toggle="modal" data-target="#product-modal">
                                                                 <i class="fa fa-expand"></i>
@@ -166,22 +170,22 @@
                                                         <ul class="product-tab nav nav-tabs d-flex">
                                                             <li class="active col">
                                                                 <a href="#item1" data-toggle="tab" aria-expanded="true" class="active show">
-                                                                    <img src="img/product/ban-sofa-tron-st3015-001.jpg" alt="img">
+                                                                    <img src="<%=product.getImage(0)%>" alt="img">
                                                                 </a>
                                                             </li>
                                                             <li class="col">
                                                                 <a href="#item2" data-toggle="tab">
-                                                                    <img src="img/product/ban-sofa-tron-st3015-002.jpg" alt="img">
+                                                                    <img src="<%=product.getImage(1)%>" alt="img">
                                                                 </a>
                                                             </li>
                                                             <li class="col">
                                                                 <a href="#item3" data-toggle="tab">
-                                                                    <img src="img/product/ban-sofa-tron-st3015-001.jpg" alt="img">
+                                                                    <img src="<%=product.getImage(2)%>" alt="img">
                                                                 </a>
                                                             </li>
                                                             <li class="col">
                                                                 <a href="#item4" data-toggle="tab">
-                                                                    <img src="img/product/ban-sofa-tron-st3015-002.jpg" alt="img">
+                                                                    <img src="<%=product.getImage(3)%>" alt="img">
                                                                 </a>
                                                             </li>
                                                         </ul>
@@ -197,37 +201,37 @@
                                                                                     <div class="images-container">
                                                                                         <div class="js-qv-mask mask tab-content">
                                                                                             <div id="modal-item1" class="tab-pane fade active in show">
-                                                                                                <img src="img/product/1.jpg" alt="img">
+                                                                                                <img src="<%=product.getImage(0)%>" alt="img">
                                                                                             </div>
                                                                                             <div id="modal-item2" class="tab-pane fade">
-                                                                                                <img src="img/product/2.jpg" alt="img">
+                                                                                                <img src="<%=product.getImage(1)%>" alt="img">
                                                                                             </div>
                                                                                             <div id="modal-item3" class="tab-pane fade">
-                                                                                                <img src="img/product/3.jpg" alt="img">
+                                                                                                <img src="<%=product.getImage(2)%>" alt="img">
                                                                                             </div>
                                                                                             <div id="modal-item4" class="tab-pane fade">
-                                                                                                <img src="img/product/5.jpg" alt="img">
+                                                                                                <img src="<%=product.getImage(3)%>" alt="img">
                                                                                             </div>
                                                                                         </div>
                                                                                         <ul class="product-tab nav nav-tabs">
                                                                                             <li class="active">
                                                                                                 <a href="#modal-item1" data-toggle="tab" class=" active show">
-                                                                                                    <img src="img/product/1.jpg" alt="img">
+                                                                                                    <img src="<%=product.getImage(0)%>" alt="img">
                                                                                                 </a>
                                                                                             </li>
                                                                                             <li>
                                                                                                 <a href="#modal-item2" data-toggle="tab">
-                                                                                                    <img src="img/product/2.jpg" alt="img">
+                                                                                                    <img src="<%=product.getImage(1)%>" alt="img">
                                                                                                 </a>
                                                                                             </li>
                                                                                             <li>
                                                                                                 <a href="#modal-item3" data-toggle="tab">
-                                                                                                    <img src="img/product/3.jpg" alt="img">
+                                                                                                    <img src="<%=product.getImage(2)%>" alt="img">
                                                                                                 </a>
                                                                                             </li>
                                                                                             <li>
                                                                                                 <a href="#modal-item4" data-toggle="tab">
-                                                                                                    <img src="img/product/5.jpg" alt="img">
+                                                                                                    <img src="<%=product.getImage(3)%>" alt="img">
                                                                                                 </a>
                                                                                             </li>
                                                                                         </ul>
@@ -245,33 +249,28 @@
                                             <div class="product-info col-xs-12 col-md-7 col-sm-7">
                                                 <div class="detail-description">
                                                     <div class="price-del">
-                                                        <span class="price">190.000 vnđ</span>
+                                                        <span class="price"><%=product.price_sell%> VNĐ</span>
                                                         <span class="float-right">
-                                                                <span class="availb">khả dụng: </span>
+                                                                <span class="availb">Khả dụng: </span>
+                                                            <% String result = "Còn hàng";
+                                                                if(product.status == 0){
+                                                                    result = "Hết hàng";
+                                                                }
+                                                            %>
                                                                 <span class="check">
-                                                                    <i class="fa fa-check-square-o" aria-hidden="true"></i>TRONG KHO</span>
+                                                                    <i class="fa fa-check-square-o" aria-hidden="true"></i><%=result%></span>
                                                             </span>
+
                                                     </div>
-                                                    <p class="description">Sản phẩm bán nhanh , đang giảm giá
-                                                        Mua ngay.</p>
+
                                                     <div class="option has-border d-lg-flex size-color">
                                                         <div class="size">
-                                                            <span class="size">kích cỡ :</span>
-                                                            <select>
-                                                                <option value="">Chọn kích thước của bạn</option>
-                                                                <option value="">M</option>
-                                                                <option value="">l</option>
-                                                                <option value="">xl</option>
-                                                            </select>
+                                                            <span class="size">Kích cỡ : <%=product.size%></span>
+
                                                         </div>
                                                         <div class="colors">
-                                                            <b class="title">Màu : </b>
-                                                            <span class="blue"></span>
-                                                            <span class="yellow"></span>
-                                                            <span class="pink"></span>
-                                                            <span class="green"></span>
-                                                            <span class="brown"></span>
-                                                            <span class="red"></span>
+                                                            <b class="title">Màu : <%=product.color%> </b>
+
                                                         </div>
                                                     </div>
                                                     <div class="has-border cart-area">
@@ -311,11 +310,11 @@
                                                         <div class="btn-group">
                                                             <a href="#">
                                                                 <i class="zmdi zmdi-share"></i>
-                                                                <span>Chia sẽ</span>
+                                                                <span>Chia sẻ</span>
                                                             </a>
                                                             <a href="#" class="email">
                                                                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                                                                <span>CHIA SẼ CHO BẠN BÈ</span>
+                                                                <span>CHIA SẺ CHO BẠN BÈ</span>
                                                             </a>
                                                             <a href="#" class="print">
                                                                 <i class="zmdi zmdi-print"></i>
@@ -339,7 +338,7 @@
                                                         <div class="read after-has-border">
                                                             <a href="#review">
                                                                 <i class="fa fa-commenting-o color" aria-hidden="true"></i>
-                                                                <span>ĐỌC ĐÁNH GIÁ (3)</span>
+                                                                <span>ĐỌC ĐÁNH GIÁ</span>
                                                             </a>
                                                         </div>
                                                         <div class="apen after-has-border">
@@ -352,25 +351,20 @@
                                                     <div class="content">
                                                         <p>Mã hàng :
                                                             <span class="content2">
-                                                                    <a href="#">e-02154</a>
+                                                                    <a href="#"><%=product.code%></a>
                                                                 </span>
                                                         </p>
-                                                        <p>Thể loại :
+                                                        <p>Loại sản phẩm :
                                                             <span class="content2">
-                                                                    <a href="#">Bán chạy</a>,
-                                                                    <a href="#">Xu hướng</a>
+                                                                    <a href="#"><%=product.getNType()%></a>
                                                                 </span>
                                                         </p>
-                                                        <p>thẻ :
+                                                        <p>Thời gian bảo hành :
                                                             <span class="content2">
-                                                                    <a href="#">Bàn</a>,
-                                                                    <a href="#">Ghế</a>,
-                                                                    <a href="#">Tủ</a>,
-                                                                    <a href="#">Đồng hồ</a>,
-                                                                    <a href="#">Bồn tắm</a>,
-                                                                    <a href="#">Linh tinh</a>
+                                                                    <a href="#"><%=product.product_insurance%></a>
                                                                 </span>
                                                         </p>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -382,117 +376,29 @@
                                                     <a data-toggle="tab" href="#description" class="active show">Mô tả sản phẩm </a>
                                                 </li>
                                                 <li>
-                                                    <a data-toggle="tab" href="#tag"> Đội ngũ làm việc</a>
+                                                    <a data-toggle="tab" href="#tag">Đặt điểm sản phẩm</a>
                                                 </li>
                                                 <li>
-                                                    <a data-toggle="tab" href="#review">Nhận xét (2)</a>
+                                                    <a data-toggle="tab" href="#review">Nhận xét</a>
                                                 </li>
                                             </ul>
 
                                             <div class="tab-content">
                                                 <div id="description" class="tab-pane fade in active show">
-                                                    <p>Với thiết kế sang trọng cùng độ bền cao nội thất chúng tôi đang
-                                                        được rất nhiều gia đình Việt tin dùng.
-                                                    </p>
-                                                    <p>Chúng tôi luôn phục vụ bạn nhứng sản phẩm tốt nhất.
+                                                    <p> <%=product.info%>
                                                     </p>
                                                 </div>
 
                                                 <div id="review" class="tab-pane fade">
                                                     <div class="spr-form">
-                                                        <div class="user-comment">
-                                                            <div class="spr-review">
-                                                                <div class="spr-review-header">
-                                                                        <span class="spr-review-header-byline">
-                                                                            <strong>Tuấn Đẹp Trai</strong> -
-                                                                            <span>14 tháng 4, 2018</span>
-                                                                        </span>
-                                                                    <div class="rating">
-                                                                        <div class="star-content">
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="spr-review-content">
-                                                                    <p class="spr-review-content-body">Sản phẩm rất tốt </p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="spr-review preview2">
-                                                                <div class="spr-review-header">
-                                                                        <span class="spr-review-header-byline">
-                                                                            <strong>Nhiếp Ly</strong> -
-                                                                            <span>13 tháng 8, 2018</span>
-                                                                        </span>
-                                                                    <div class="rating">
-                                                                        <div class="star-content">
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="spr-review-content">
-                                                                    <p class="spr-review-content-body">Hảo sản phẩm , mấy bạn nên mua thử</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+
                                                     </div>
                                                     <form method="post" action="#" class="new-review-form">
-                                                        <input type="hidden" name="review[rating]" value="3">
-                                                        <input type="hidden" name="product_id">
-                                                        <h3 class="spr-form-title">Viết nhận xét</h3>
-                                                        <fieldset>
-                                                            <div class="spr-form-review-rating">
-                                                                <label class="spr-form-label">Đánh giá</label>
-                                                                <fieldset class="ratings">
-                                                                    <input type="radio" id="star5" name="rating" value="5" />
-                                                                    <label class="full" for="star5" title="Awesome - 5 stars"></label>
-                                                                    <input type="radio" id="star4half" name="rating" value="4 and a half" />
-                                                                    <input type="radio" id="star4" name="rating" value="4" />
-                                                                    <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-                                                                    <input type="radio" id="star3half" name="rating" value="3 and a half" />
-                                                                    <input type="radio" id="star3" name="rating" value="3" />
-                                                                    <label class="full" for="star3" title="Meh - 3 stars"></label>
-                                                                    <input type="radio" id="star2half" name="rating" value="2 and a half" />
-                                                                    <input type="radio" id="star2" name="rating" value="2" />
-                                                                    <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-                                                                    <input type="radio" id="star1half" name="rating" value="1 and a half" />
-                                                                    <input type="radio" id="star1" name="rating" value="1" />
-                                                                    <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-                                                                    <input type="radio" id="starhalf" name="rating" value="half" />
-                                                                </fieldset>
-                                                            </div>
-                                                        </fieldset>
-                                                        <fieldset class="spr-form-contact">
-                                                            <div class="spr-form-contact-name">
-                                                                <input class="spr-form-input spr-form-input-text form-control" value="" placeholder="Tên bạn">
-                                                            </div>
-                                                            <div class="spr-form-contact-email">
-                                                                <input class="spr-form-input spr-form-input-email form-control" value="" placeholder=" email">
-                                                            </div>
-                                                        </fieldset>
-                                                        <fieldset>
-                                                            <div class="spr-form-review-body">
-                                                                <div class="spr-form-input">
-                                                                    <textarea class="spr-form-input-textarea" rows="10" placeholder="Viết bình luận của bạn ở đây"></textarea>
-                                                                </div>
-                                                            </div>
-                                                        </fieldset>
-                                                        <div class="submit">
-                                                            <input type="submit" name="addComment" id="submitComment" class="btn btn-default" value="Submit Review">
-                                                        </div>
+                                                       Chèn bình luận facebook
                                                     </form>
                                                 </div>
                                                 <div id="tag" class="tab-pane fade in">
-                                                    <p>10 Năm kinh nghiệm trong nghề .
-                                                    </p>
-                                                    <p>Phục vụ ân cần, chu đáo, quan tâm khách hàng.
+                                                    <p><%=product.attribute%>
                                                     </p>
                                                 </div>
                                             </div>
@@ -505,12 +411,15 @@
                                             </div>
                                             <div class="tab-content">
                                                 <div class="row">
+                                                    <% List<Product> same = (List<Product>) request.getAttribute("sameProduct");
+                                                        for (Product psm: same
+                                                        ) {%>
                                                     <div class="item text-center col-md-4">
                                                         <div class="product-miniature js-product-miniature item-one first-item">
                                                             <div class="thumbnail-container border border">
-                                                                <a href="product-detail.jsp">
-                                                                    <img class="img-fluid image-cover" src="img/product/1.jpg" alt="img">
-                                                                    <img class="img-fluid image-secondary" src="img/product/22.jpg" alt="img">
+                                                                <a href="product_detail?pid=<%=psm.product_id%>">
+                                                                    <img class="img-fluid image-cover" src="<%=psm.getImage(0)%>" alt="img">
+                                                                    <img class="img-fluid image-secondary" src="<%=psm.getImage(1)%>" alt="img">
                                                                 </a>
                                                                 <div class="highlighted-informations">
                                                                     <div class="variant-links">
@@ -523,7 +432,7 @@
                                                             <div class="product-description">
                                                                 <div class="product-groups">
                                                                     <div class="product-title">
-                                                                        <a href="product-detail.jsp">Bàn </a>
+                                                                        <a href="product_detail?pid=<%=psm.product_id%>"><%=psm.name%></a>
                                                                     </div>
                                                                     <div class="rating">
                                                                         <div class="star-content">
@@ -536,7 +445,7 @@
                                                                     </div>
                                                                     <div class="product-group-price">
                                                                         <div class="product-price-and-shipping">
-                                                                            <span class="price">220.000 vnđ</span>
+                                                                            <span class="price"><%=psm.price_sell%> vnd</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -549,115 +458,14 @@
                                                                     <a class="addToWishlist" href="#" data-rel="1" onclick="">
                                                                         <i class="fa fa-heart" aria-hidden="true"></i>
                                                                     </a>
-                                                                    <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                    <a href="product_detail?pid=<%=psm.product_id%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                                                     </a>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="item text-center col-md-4">
-                                                        <div class="product-miniature js-product-miniature item-one first-item">
-                                                            <div class="thumbnail-container border">
-                                                                <a href="product-detail.jsp">
-                                                                    <img class="img-fluid image-cover" src="img/product/2.jpg" alt="img">
-                                                                    <img class="img-fluid image-secondary" src="img/product/11.jpg" alt="img">
-                                                                </a>
-                                                                <div class="highlighted-informations">
-                                                                    <div class="variant-links">
-                                                                        <a href="#" class="color beige" title="Beige"></a>
-                                                                        <a href="#" class="color orange" title="Orange"></a>
-                                                                        <a href="#" class="color green" title="Green"></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-description">
-                                                                <div class="product-groups">
-                                                                    <div class="product-title">
-                                                                        <a href="product-detail.jsp">Ghế gỗ cao cấp</a>
-                                                                    </div>
-                                                                    <div class="rating">
-                                                                        <div class="star-content">
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-group-price">
-                                                                        <div class="product-price-and-shipping">
-                                                                            <span class="price">3.990.000 vnđ</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="product-buttons d-flex justify-content-center">
-                                                                    <form action="#" method="post" class="formAddToCart">
-                                                                        <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                        </a>
-                                                                    </form>
-                                                                    <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                    </a>
-                                                                    <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="item text-center col-md-4">
-                                                        <div class="product-miniature js-product-miniature item-one first-item">
-                                                            <div class="thumbnail-container border">
-                                                                <a href="product-detail.jsp">
-                                                                    <img class="img-fluid image-cover" src="img/product/3.jpg" alt="img">
-                                                                    <img class="img-fluid image-secondary" src="img/product/14.jpg" alt="img">
-                                                                </a>
-                                                                <div class="highlighted-informations">
-                                                                    <div class="variant-links">
-                                                                        <a href="#" class="color beige" title="Beige"></a>
-                                                                        <a href="#" class="color orange" title="Orange"></a>
-                                                                        <a href="#" class="color green" title="Green"></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-description">
-                                                                <div class="product-groups">
-                                                                    <div class="product-title">
-                                                                        <a href="product-detail.jsp">Bồn tắm </a>
-                                                                    </div>
-                                                                    <div class="rating">
-                                                                        <div class="star-content">
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                            <div class="star"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-group-price">
-                                                                        <div class="product-price-and-shipping">
-                                                                            <span class="price">9.000.000 vnđ</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="product-buttons d-flex justify-content-center">
-                                                                    <form action="#" method="post" class="formAddToCart">
-                                                                        <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                        </a>
-                                                                    </form>
-                                                                    <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                    </a>
-                                                                    <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <%}%>
                                                 </div>
                                             </div>
                                         </div>

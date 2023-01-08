@@ -1,5 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="controller.web.ListProduct" %>
+<%@ page import="model.Product" %>
+<%@ page import="java.util.List" %>
+<%@ page import="model.Product_type" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
@@ -12,12 +17,11 @@
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>HappyHome</title>
+    <title>Danh sách sản phẩm</title>
 
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
     <meta name="author" content="tivatheme">
-
 
     <!-- Mobile Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -45,8 +49,8 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
-                                            <span>Bàn</span>
+                                        <a href="/list_product">
+                                            <span>Danh mục sản phẩm</span>
                                         </a>
                                     </li>
                                 </ol>
@@ -60,26 +64,27 @@
                                 <div class="sidebar-3 sidebar-collection col-lg-3 col-md-4 col-sm-4">
 
                                     <!-- category menu -->
+
                                     <div class="sidebar-block">
+
                                         <div class="title-block">Thể loại</div>
+                                        <% List<Product_type> list0 = (List<Product_type>) request.getAttribute("listType");
+                                            for (Product_type pty: list0
+                                            ) {%>
                                         <div class="block-content">
                                             <div class="cateTitle hasSubCategory open level1">
-                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>">Bàn</a>
-                                            </div>
-                                            <div class="cateTitle hasSubCategory open level1">
-                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>">Ghế</a>
-                                            </div>
-                                            <div class="cateTitle hasSubCategory open level1">
-                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>">Tủ</a>
-                                            </div>
-                                            <div class="cateTitle hasSubCategory open level1">
-                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>">Đèn</a>
+                                                <a class="cateItem" href="productCate?cid=<%=pty.getType_id()%>"><%= pty.getType_name()%></a>
                                             </div>
                                         </div>
+                                        <%}%>
                                     </div>
+
                                 </div>
+
                                 <div class="col-sm-8 col-lg-9 col-md-8 product-container">
-                                    <h1>Bàn</h1>
+                                    <% Product_type t = (Product_type) request.getAttribute("typeName"); %>
+                                    <h1><%=t.getType_name()%></h1>
+
                                     <div class="js-product-list-top firt nav-top">
                                         <div class="d-flex justify-content-around row">
                                             <div class="col col-xs-12">
@@ -92,7 +97,7 @@
                                                     </li>
                                                 </ul>
                                                 <div class="hidden-sm-down total-products">
-                                                    <p>Có 12 sản phẩm.</p>
+                                                    <p>Có ${num} sản phẩm.</p>
                                                 </div>
                                             </div>
                                             <div class="col col-xs-12">
@@ -111,15 +116,25 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="tab-content product-items">
+
                                         <div id="grid" class="related tab-pane fade in active show">
+
+
                                             <div class="row" id="data-product-row">
+
+
+                                                <% List<Product> list = (List<Product>) request.getAttribute("list");
+                                                    for (Product p: list) {%>
+
                                                 <div class="item text-center col-md-4">
+
                                                     <div class="product-miniature js-product-miniature item-one first-item">
                                                         <div class="thumbnail-container border">
-                                                            <a href="product-detail.html">
-                                                                <img class="img-fluid image-cover" src="img/product/1.jpg" alt="img">
-                                                                <img class="img-fluid image-secondary" src="img/product/22.jpg" alt="img">
+                                                            <a href="product_detail?pid=<%=p.product_id%>">
+                                                                <img class="img-fluid image-cover" src="<%=p.getImage(0)%>" alt="img">
+                                                                <img class="img-fluid image-secondary" src="<%=p.getImage(1)%>" alt="img">
                                                             </a>
                                                             <div class="highlighted-informations">
                                                                 <div class="variant-links">
@@ -132,7 +147,7 @@
                                                         <div class="product-description">
                                                             <div class="product-groups">
                                                                 <div class="product-title">
-                                                                    <a href="product-detail.html">Nulla et justo non augue</a>
+                                                                    <a href="product_detail?pid=<%=p.product_id%>"><%=p.getName() %></a>
                                                                 </div>
                                                                 <div class="rating">
                                                                     <div class="star-content">
@@ -145,7 +160,7 @@
                                                                 </div>
                                                                 <div class="product-group-price">
                                                                     <div class="product-price-and-shipping">
-                                                                        <span class="price">£28.08</span>
+                                                                        <span class="price"><%=p.getPrice() %> vnđ</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -165,20 +180,26 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                 </div>
+                                                <%}%>
                                             </div>
 
                                         </div>
+
                                         <div id="list" class="related tab-pane fade">
                                             <div class="row" id="data-product-row-list">
                                                 <div class="item col-md-12">
                                                     <div class="product-miniature item-one first-item">
                                                         <div class="row">
+                                                            <% List<Product> list2 = (List<Product>) request.getAttribute("list");
+                                                                for (Product p: list
+                                                                ) {%>
                                                             <div class="col-md-4">
                                                                 <div class="thumbnail-container border">
-                                                                    <a href="product-detail.html">
-                                                                        <img class="img-fluid image-cover" src="https://salt.tikicdn.com/cache/750x750/ts/product/a9/f5/ee/68dfd8747e2b7157979659e77e8dc202.jpg.webp" alt="img">
-                                                                        <img class="img-fluid image-secondary" src="https://salt.tikicdn.com/cache/750x750/ts/product/81/ef/07/a6a74ba4f7e98d577f709c5acfab2e9e.jpg.webp" alt="img">
+                                                                    <a href="product_detail?pid=<%=p.product_id%>">
+                                                                        <img class="img-fluid image-cover" src="<%=p.getImage(0)%>" alt="img">
+                                                                        <img class="img-fluid image-secondary" src="<%=p.getImage(1)%>" alt="img">
                                                                     </a>
                                                                 </div>
                                                             </div>
@@ -186,10 +207,15 @@
                                                                 <div class="product-description">
                                                                     <div class="product-groups">
                                                                         <div class="product-title">
-                                                                            <a href="product-detail.html">Giường BL304</a>
+                                                                            <a href="product_detail?pid=<%=p.product_id%>"><%=p.getName() %></a>
+                                                                            <% String result = "Còn hàng";
+                                                                                if(p.status == 0){
+                                                                                    result = "Hết hàng";
+                                                                                }
+                                                                            %>
                                                                             <span class="info-stock">
                                                                                     <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                    Còn hàng
+                                                                                   <%=result%>
                                                                                 </span>
                                                                         </div>
                                                                         <div class="rating">
@@ -203,13 +229,11 @@
                                                                         </div>
                                                                         <div class="product-group-price">
                                                                             <div class="product-price-and-shipping">
-                                                                                <span class="price">15.400.000  vnđ</span>
+                                                                                <span class="price"><%=p.getPrice()%> vnđ</span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="discription">
-                                                                            Thiết kế tinh tế và hiện đại phù hợp với phong cách Việt Nam.
-                                                                            Độ cao giường vừa phải, góc cắt xéo tạo sự hài hòa trong tổng thể vững chắc.
-                                                                            Chất liệu ván MFC cao cấp được xử lý chống mọt và chống hút ẩm.
+                                                                            <%=p.getInfo() %>
                                                                         </div>
                                                                     </div>
                                                                     <div class="product-buttons d-flex">
@@ -221,13 +245,16 @@
                                                                         <a class="addToWishlist" href="#" data-rel="1" onclick="">
                                                                             <i class="fa fa-heart" aria-hidden="true"></i>
                                                                         </a>
-                                                                        <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                        <a href="product_detail?pid=<%=p.product_id%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                             <i class="fa fa-eye" aria-hidden="true"></i>
                                                                         </a>
                                                                     </div>
                                                                 </div>
+
                                                             </div>
+                                                            <%}%>
                                                         </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -239,36 +266,17 @@
                                         <div class="js-product-list-top ">
                                             <div class="d-flex justify-content-around row">
                                                 <div class="showing col col-xs-12">
-                                                    <span>HIỂN THỊ 1-3 TRONG 3 MỤC</span>
+                                                    <span>HIỂN THỊ ${indexPage} TRONG ${endP} MỤC</span>
                                                 </div>
                                                 <div class="page-list col col-xs-12">
                                                     <ul>
-                                                        <li>
-                                                            <a rel="prev" href="#" class="previous disabled js-search-link">
-                                                                Trước
+                                                        <c:forEach var = "i" begin = "1" end = "${endP}">
+                                                        <li class="${tag == i?"current active" :""}">
+                                                            <a rel="nofollow" href="list_product?index=${i}" class="disabled js-search-link">
+                                                                    ${i}
                                                             </a>
                                                         </li>
-                                                        <li class="current active">
-                                                            <a rel="nofollow" href="#" class="disabled js-search-link">
-                                                                1
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a rel="nofollow" href="#" class="disabled js-search-link">
-                                                                2
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a rel="nofollow" href="#" class="disabled js-search-link">
-                                                                3
-                                                            </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a rel="next" href="#" class="next disabled js-search-link">
-                                                                Tiếp theo
-                                                            </a>
-                                                        </li>
+                                                        </c:forEach>
                                                     </ul>
                                                 </div>
                                             </div>
