@@ -16,12 +16,11 @@
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>HappyHome</title>
+    <title>Danh sách sản phẩm</title>
 
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
     <meta name="author" content="tivatheme">
-
 
     <!-- Mobile Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -49,8 +48,8 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
-                                            <span>Bàn</span>
+                                        <a href="/list_product">
+                                            <span>Danh mục sản phẩm</span>
                                         </a>
                                     </li>
                                 </ol>
@@ -72,15 +71,9 @@
                                             for (Product_type pty: list0
                                             ) {%>
                                         <div class="block-content">
-
                                             <div class="cateTitle hasSubCategory open level1">
-
-
-                                                <a class="cateItem" href="<c:url value="/views/web/table.jsp"/>"><%= pty.getType_name()%></a>
-
+                                                <a class="cateItem" href="productCate?cid=<%=pty.getType_id()%>"><%= pty.getType_name()%></a>
                                             </div>
-
-
                                         </div>
                                         <%}%>
                                     </div>
@@ -88,7 +81,9 @@
                                 </div>
 
                                 <div class="col-sm-8 col-lg-9 col-md-8 product-container">
-                                    <h1>Bàn</h1>
+                                    <% Product_type t = (Product_type) request.getAttribute("typeName"); %>
+                                    <h1><%=t.getType_name()%></h1>
+
                                     <div class="js-product-list-top firt nav-top">
                                         <div class="d-flex justify-content-around row">
                                             <div class="col col-xs-12">

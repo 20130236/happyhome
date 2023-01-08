@@ -17,14 +17,18 @@ import java.util.List;
 public class ListProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-     // Goi service de thuc hien getAll
+        // Goi service de thuc hien getAll
         ProductService service = new ProductService();
         // lay ra list product
         List<Product> list = service.getAllProduct();
         List<Product_type> listType = service.getAllProduct_type();
-        request.setAttribute("listType",listType);
-     request.setAttribute("list",list);
-     request.getRequestDispatcher("/views/web/table.jsp").forward(request,response);
+        request.setAttribute("listType", listType);
+        request.setAttribute("list", list);
+
+        Product_type name = new Product_type(500, "Tất cả sản phẩm");
+        request.setAttribute("typeName" , name);
+
+        request.getRequestDispatcher("/views/web/table.jsp").forward(request, response);
 
     }
 

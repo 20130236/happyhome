@@ -16,15 +16,23 @@ import java.util.List;
 public class ProductDetail extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Lay id tu request
+        //lay ra id cua san pham tu request
         String id = request.getParameter("pid");
-        int pid = Integer.parseInt(id);
+        int aid = Integer.parseInt(id);
+        //goi service
         ProductService service = new ProductService();
-        // lay ra product
-        Product p = service.getProductById(pid);
-        request.setAttribute("prod",p);
-        request.getRequestDispatcher("/views/web/product-detail.jsp").forward(request,response);
+        //lay ra sp va dua vao request
+        Product p = service.getProductById(aid);
+        request.setAttribute("pro", p);
+        //lay ra loai sp
+        List<Product_type> listType = service.getAllProduct_type();
+        request.setAttribute("listType",listType);
+        //
+        List<Product> same = service.selectSameProduct(p.product_type);
+        request.setAttribute("sameProduct",same);
 
+
+        request.getRequestDispatcher("/views/web/product-detail.jsp").forward(request, response);
     }
 
     @Override

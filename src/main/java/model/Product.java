@@ -168,6 +168,13 @@ public class Product {
       }
       return "";
    }
+   public String getNType(){
+      String result = null;
+      ProductService ser = new ProductService();
+      Product_type type_name = ser.getNameType(product_type);
+      result = type_name.getType_name();
+      return result;
+   }
 }
 
 
