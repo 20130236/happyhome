@@ -19,8 +19,28 @@ public class ListProduct extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Goi service de thuc hien getAll
         ProductService service = new ProductService();
+        //phan trang
+        String indexPage = request.getParameter("index");
+        if(indexPage == null){
+            indexPage = "1";
+        }
+        int index = Integer.parseInt(indexPage);
+
+
+        List<Product> list= service.pagingProduct(index);
+        int count = service.getTotalProduct();
+        int endPage = count/5; //moi trang 3 bai
+        if(count % 5 != 0){
+            endPage ++;
+        }
+        request.setAttribute("endP", endPage);
+        request.setAttribute("tag", index);
+        request.setAttribute("num", count);
+        request.setAttribute("indexPage",indexPage);
+
+
         // lay ra list product
-        List<Product> list = service.getAllProduct();
+     //   List<Product> list = service.getAllProduct();
         List<Product_type> listType = service.getAllProduct_type();
         request.setAttribute("listType", listType);
         request.setAttribute("list", list);

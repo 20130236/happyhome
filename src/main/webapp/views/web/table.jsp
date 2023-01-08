@@ -1,9 +1,10 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="controller.web.ListProduct" %>
 <%@ page import="model.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="model.Product_type" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
@@ -96,7 +97,7 @@
                                                     </li>
                                                 </ul>
                                                 <div class="hidden-sm-down total-products">
-                                                    <p>Có 12 sản phẩm.</p>
+                                                    <p>Có ${num} sản phẩm.</p>
                                                 </div>
                                             </div>
                                             <div class="col col-xs-12">
@@ -207,9 +208,14 @@
                                                                     <div class="product-groups">
                                                                         <div class="product-title">
                                                                             <a href="product_detail?pid=<%=p.product_id%>"><%=p.getName() %></a>
+                                                                            <% String result = "Còn hàng";
+                                                                                if(p.status == 0){
+                                                                                    result = "Hết hàng";
+                                                                                }
+                                                                            %>
                                                                             <span class="info-stock">
                                                                                     <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                                                    Còn hàng
+                                                                                   <%=result%>
                                                                                 </span>
                                                                         </div>
                                                                         <div class="rating">
@@ -260,36 +266,17 @@
                                         <div class="js-product-list-top ">
                                             <div class="d-flex justify-content-around row">
                                                 <div class="showing col col-xs-12">
-                                                    <span>HIỂN THỊ 1-3 TRONG 3 MỤC</span>
+                                                    <span>HIỂN THỊ ${indexPage} TRONG ${endP} MỤC</span>
                                                 </div>
                                                 <div class="page-list col col-xs-12">
                                                     <ul>
-                                                        <li>
-                                                            <a rel="prev" href="#" class="previous disabled js-search-link">
-                                                                Trước
+                                                        <c:forEach var = "i" begin = "1" end = "${endP}">
+                                                        <li class="${tag == i?"current active" :""}">
+                                                            <a rel="nofollow" href="list_product?index=${i}" class="disabled js-search-link">
+                                                                    ${i}
                                                             </a>
                                                         </li>
-                                                        <li class="current active">
-                                                            <a rel="nofollow" href="#" class="disabled js-search-link">
-                                                                1
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a rel="nofollow" href="#" class="disabled js-search-link">
-                                                                2
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a rel="nofollow" href="#" class="disabled js-search-link">
-                                                                3
-                                                            </a>
-                                                        </li>
-
-                                                        <li>
-                                                            <a rel="next" href="#" class="next disabled js-search-link">
-                                                                Tiếp theo
-                                                            </a>
-                                                        </li>
+                                                        </c:forEach>
                                                     </ul>
                                                 </div>
                                             </div>

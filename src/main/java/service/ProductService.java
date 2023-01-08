@@ -187,12 +187,49 @@ public class ProductService {
     public List<Product> pagingProduct(int index){
         List<Product> list = new ArrayList<>();
         String sql = "SELECT * FROM product\n" +
-                "ORDER BY product_id LIMIT "+((index -1)*3)+",3";
+                "ORDER BY product_id LIMIT "+((index -1)*5)+",5";
         PreparedStatement ps = null;
         ResultSet rs = null;
         try{
             ps = DBConnection.getConnection().prepareStatement(sql);
 
+            rs = ps.executeQuery(sql);
+            while (rs.next()){
+                Product p = new Product(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11),rs.getInt(11),rs.getString(12));
+                list.add(p);
+            }
+
+        }catch (Exception e){
+
+        }
+        return list;
+    }
+    //dem sl san pham theo loai sp
+    public int getTotalProductType(int type){
+        String sql = "Select  count(*) from product where product_type = " + type;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            ps = DBConnection.getConnection().prepareStatement(sql);
+
+            rs = ps.executeQuery(sql);
+            while (rs.next()){
+                return rs.getInt(1);
+            }
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    public List<Product> pagingProductBType(int index, int typeid){
+        List<Product> list = new ArrayList<>();
+        String sql = "SELECT * FROM product\n" + " WHERE product_type = "+ typeid +
+                " ORDER BY product_id LIMIT "+((index -1)*5)+",5";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+            ps = DBConnection.getConnection().prepareStatement(sql);
             rs = ps.executeQuery(sql);
             while (rs.next()){
                 Product p = new Product(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11),rs.getInt(11),rs.getString(12));
@@ -210,7 +247,7 @@ public class ProductService {
 
     public static void main(String[] args) {
        ProductService service = new ProductService();
-        List<Product> li = service.pagingProduct(3);
+        List<Product> li = service.pagingProductBType(1,1);
 
         for(Product p : li){
             System.out.println(p.toString());
