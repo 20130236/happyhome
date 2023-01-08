@@ -108,7 +108,7 @@
                                  <a href="~/Template/contact.jsp" class="parent">Ưu Đãi</a>
                              </li>-->
                             <li>
-                                <a href="/list-article" class="parent">Bài viết <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                                <a href="/list_article" class="parent">Bài viết <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
                                 <div class="dropdown-menu">
                                     <ul>
                                         <c:forEach items="${listAr}" var="item">
