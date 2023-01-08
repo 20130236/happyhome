@@ -5,33 +5,34 @@
 <%@ page import="model.Product_type" %>
 <%@ page import="java.util.List" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
->>>>>>> gopcode
+
 <style>
-.drop-menu {
-    width: 235px;
-    margin-left: 0px;!important;
+    .drop-menu {
+        width: 235px;
+        margin-left: 0px;!important;
 
-}
+    }
 
-.header-top .navbar-nav .bedroom-menu{
-    width: 220px !important;
-}
+    .header-top .navbar-nav .bedroom-menu{
+        width: 220px !important;
 
-.fa-chevron-down{
-    font-size: 11px;
-    padding-left: 2px;
-}
+    }
 
-.fa-chevron-right{
-    font-size: 11px;
-    padding-left: 4px;
-}
-.main-menu .menu .menu-top li{
-    padding-right: 10px!important;
-}
-[class~=main-menu] [class~=menu] [class~=menu-top] li {
-    padding-right: 10px!important;
-}
+    .fa-chevron-down{
+        font-size: 11px;
+        padding-left: 2px;
+    }
+
+    .fa-chevron-right{
+        font-size: 11px;
+        padding-left: 4px;
+    }
+    .main-menu .menu .menu-top li{
+        padding-right: 10px!important;
+    }
+    [class~=main-menu] [class~=menu] [class~=menu-top] li {
+        padding-right: 10px!important;
+    }
 
 </style>
 <header>
@@ -124,10 +125,10 @@
 
                 <!-- search and acount -->
                 <div class="col-sm-5 col-md-5 d-flex align-items-center justify-content-end" id="search_widget">
-                    <form method="get" action="#">
+                    <form method="get" action="<c:url value="/search"/>">
 
                         <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-                        <input type="text" name="s" value="" placeholder="Tìm kiếm" class="ui-autocomplete-input" autocomplete="off">
+                        <input type="text" name="search" value="" required placeholder="Tìm kiếm" class="ui-autocomplete-input" autocomplete="off" >
                         <button type="submit">
                             <i class="fa fa-search"></i>
                         </button>
@@ -138,9 +139,9 @@
                             <a href="#acount" data-toggle="collapse" class="acount">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <% if(user != null) { %>
-                                    <span><%=user.getUserName()%></span>
+                                <span><%=user.getUserName()%></span>
                                 <% } else {%>
-                                    <span>Tài khoản</span>
+                                <span>Tài khoản</span>
                                 <% } %>
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
@@ -153,7 +154,7 @@
                                 <div>
                                     <a class="login" href="<c:url value="/account"></c:url>" rel="nofollow" title="Your info account">
                                         <i class="fa fa-cog"></i>
-                                        <span>Tài khoản của bạn</span>
+                                        <span>Thông tin Tài khoản </span>
                                     </a>
                                 </div>
                                 <% } %>
@@ -185,12 +186,12 @@
                                 </div>
 
                                 <% if(user != null) {%>
-                                    <div class="link_wishlist">
-                                        <a href="<c:url value="/logout"></c:url>" title="Logout">
-                                            <i class="fa fa-sign-out"></i>
-                                            <span>Đăng xuất</span>
-                                        </a>
-                                    </div>
+                                <div class="link_wishlist">
+                                    <a href="<c:url value="/logout"></c:url>" title="Logout">
+                                        <i class="fa fa-sign-out"></i>
+                                        <span>Đăng xuất</span>
+                                    </a>
+                                </div>
                                 <% } %>
                             </div>
                         </div>
