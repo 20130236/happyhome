@@ -18,7 +18,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Danh sách sản phẩm</title>
-
+    <link rel="icon" type="image/x-icon" href="/Template/web/img/home/Logo-happyhome-removebg-preview.png">
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
     <meta name="author" content="tivatheme">
@@ -44,7 +44,7 @@
                             <div class="breadcrumb">
                                 <ol>
                                     <li>
-                                        <a href="#">
+                                        <a href="/home">
                                             <span>Trang chủ</span>
                                         </a>
                                     </li>
@@ -174,7 +174,7 @@
                                                                 <a class="addToWishlist" href="#" data-rel="1" onclick="">
                                                                     <i class="fa fa-heart" aria-hidden="true"></i>
                                                                 </a>
-                                                                <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                <a href="product_detail?pid=<%=p.product_id%>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                                                 </a>
                                                             </div>

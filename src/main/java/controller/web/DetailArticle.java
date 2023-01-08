@@ -2,8 +2,10 @@ package controller.web;
 
 import model.Article;
 import model.Introduce;
+import model.Product_type;
 import service.ArticleService;
 import service.IntroService;
+import service.ProductService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -27,6 +29,10 @@ public class DetailArticle extends HttpServlet {
         IntroService intr = new IntroService();
         Introduce intro = intr.getIntro();
         request.setAttribute("info", intro);
+        //Loai sp
+        ProductService productService = new ProductService();
+        List<Product_type> listType = productService.getAllProduct_type();
+        request.setAttribute("listType",listType);
 
         request.getRequestDispatcher("/views/web/blog-detail.jsp").forward(request, response);
 

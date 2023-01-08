@@ -1,7 +1,9 @@
 package controller.web;
 
+import model.Introduce;
 import model.Product;
 import model.Product_type;
+import service.IntroService;
 import service.ProductService;
 
 import javax.servlet.*;
@@ -45,6 +47,13 @@ public class ProductCate extends HttpServlet {
 
         request.setAttribute("listType",listType);
         request.setAttribute("list",list);
+
+        //Lay ra thong tin de chen vao footer
+        IntroService intr = new IntroService();
+        Introduce intro = intr.getIntro();
+        request.setAttribute("info", intro);
+
+
         request.getRequestDispatcher("/views/web/table.jsp").forward(request,response);
     }
 

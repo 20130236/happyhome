@@ -32,7 +32,7 @@
                                     <a href="/views/web/">Giới thiệu HappyHome</a>
                                 </li>
                                 <li>
-                                    <a href="">Liên hệ</a>
+                                    <a href="/contact">Liên hệ</a>
                                 </li>
                                 <li>
                                     <a href="">Tuyển dụng</a>

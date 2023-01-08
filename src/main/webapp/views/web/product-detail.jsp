@@ -19,12 +19,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><%=product.name%></title>
-
+    <link rel="icon" type="image/x-icon" href="/Template/web/img/home/Logo-happyhome-removebg-preview.png">
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
     <meta name="author" content="tivatheme">
 
-
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0&appId=1827192387637142&autoLogAppEvents=1" nonce="TPPeMGh0"></script>
+    <meta property="fb:app_id" content="1827192387637142" />
     <!-- Mobile Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -391,11 +393,9 @@
 
                                                 <div id="review" class="tab-pane fade">
                                                     <div class="spr-form">
-
+                                                        <div class="fb-comments" data-href="https://nguyenthanhdat20130013.github.io/HappyHomeMVC/p<%=product.product_id%>" data-width="100%" data-numposts="5"></div>
                                                     </div>
-                                                    <form method="post" action="#" class="new-review-form">
-                                                       Chèn bình luận facebook
-                                                    </form>
+
                                                 </div>
                                                 <div id="tag" class="tab-pane fade in">
                                                     <p><%=product.attribute%>

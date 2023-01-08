@@ -1,7 +1,9 @@
 package controller.web;
 
+import model.Introduce;
 import model.Product;
 import model.Product_type;
+import service.IntroService;
 import service.ProductService;
 
 
@@ -27,7 +29,13 @@ public class ProductDetail extends HttpServlet{
         //lay ra loai sp
         List<Product_type> listType = service.getAllProduct_type();
         request.setAttribute("listType",listType);
+
         //
+        IntroService intr = new IntroService();
+        Introduce intro = intr.getIntro();
+        request.setAttribute("info", intro);
+        //
+
         List<Product> same = service.selectSameProduct(p.product_type);
         request.setAttribute("sameProduct",same);
 
