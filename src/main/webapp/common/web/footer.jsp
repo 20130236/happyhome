@@ -1,7 +1,8 @@
+<%@ page import="model.Introduce" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- footer -->
 
-
+<% Introduce in = (Introduce) request.getAttribute("info");%>
 <div class="inner-footer">
     <div class="container">
         <div class="footer-top">
@@ -10,11 +11,10 @@
                     <div class="block">
                         <div class="block-content">
                             <div class="title-block">
-                                NỘI THẤT HAPPYHOME
+                                <%=in.name%>
                             </div>
                             <p class="content-logo">
-                                Nội Thất HAPPYHOME là thương hiệu đến từ Việt Nam
-                                với hơn 35 năm kinh nghiệm trong việc sản xuất và xuất khẩu nội thất đạt chuẩn quốc tế.
+                                <%=in.introduce%>
                             </p>
 
                         </div>
@@ -32,7 +32,7 @@
                                     <a href="/views/web/">Giới thiệu HappyHome</a>
                                 </li>
                                 <li>
-                                    <a href="">Liên hệ</a>
+                                    <a href="/contact">Liên hệ</a>
                                 </li>
                                 <li>
                                     <a href="">Tuyển dụng</a>
@@ -84,26 +84,26 @@
                                 <div class="data align-self-stretch d-flex">
                                     <i class="fa fa-home float-left m-bottom" aria-hidden="true"></i>
                                     <div class="content-data">
-                                        <b class="mr-2">Showroom:</b>Đại Học Nông Lâm TP.HCM
+                                        <b class="mr-2">Showroom:</b><%=in.showroom%>
                                     </div>
                                 </div>
                                 <div class="data d-flex align-self-stretch">
                                     <i class="fa fa-clock-o float-left" aria-hidden="true"></i>
                                     <div class="content-data">
-                                        <b class="mr-2">Thời gian làm việc: </b>08.00 - 19.00
+                                        <b class="mr-2">Thời gian làm việc: </b><%=in.timework%>
                                     </div>
                                 </div>
                                 <div class="support d-dflex align-self-stretch">
                                     <div class="data mail-support">
                                         <i class="fa fa-envelope float-left" aria-hidden="true"></i>
-                                        <div>HappyHome@domain.com</div>
+                                        <div><%=in.email%></div>
                                     </div>
                                 </div>
                                 <div class="data d-flex align-self-stretch phone-support" style="margin-left: 0px">
                                     <div class="title-icon">
                                         <i class="fa fa-phone float-left" aria-hidden="true"></i>
                                     </div>
-                                    <div>+0012-345-67890</div>
+                                    <div><%=in.phone%></div>
                                 </div>
                             </div>
                         </div>

@@ -2,6 +2,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/common/taglib.jsp"%>
 <% UserModel user = (UserModel)session.getAttribute("user"); %>
+<%@ page import="model.Product_type" %>
+<%@ page import="java.util.List" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+>>>>>>> gopcode
 <style>
 .drop-menu {
     width: 235px;
@@ -39,7 +43,7 @@
                 <!-- logo -->
                 <div class="col-sm-2 col-md-2 d-flex align-items-center">
                     <div id="logo">
-                        <a href="<c:url value="/views/web/home.jsp"/>">
+                        <a href="<c:url value="/home"/>">
                         <img src="<c:url value="/Template/web/img/home/Logo-happyhome-removebg-preview.png"/>" alt="logo" class="img-fluid" style="height: 90px">
                         </a>
                     </div>
@@ -50,25 +54,16 @@
                     <div class="menu navbar collapse navbar-collapse">
                         <ul class="menu-top navbar-nav">
                             <li>
-                                <a href="#" class="parent">Sản Phẩm <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                                <a href="/list_product" class="parent">Sản Phẩm<i class="fa fa-chevron-down" aria-hidden="true"></i></a>
                                 <div class="dropdown-menu">
                                     <ul>
+                                        <% List<Product_type> list0 = (List<Product_type>) request.getAttribute("listType");
+                                            for (Product_type pty: list0) {%>
                                         <li class="item living-room-drop">
-                                            <a href="<c:url value="/views/web/table.jsp"/>" title="Bàn">Bàn</i>
+                                            <a href="productCate?cid=<%=pty.getType_id()%>" title="<%=pty.getType_name()%>"> <%=pty.getType_name()%> </i>
                                             </a>
                                         </li>
-                                        <li class="item dinner-room-drop ">
-                                            <a href="<c:url value="/views/web/table.jsp"/>" title="Ghế">Ghế</a>
-                                        </li>
-                                        <li class="item bedroom-drop">
-                                            <a href="<c:url value="/views/web/table.jsp"/>" title="Tủ">Tủ</a>
-                                        </li>
-                                        <li class="item work-room-drop">
-                                            <a href="" title="Đèn">Đèn</a>
-                                        </li>
-                                        <li class="item decorations-drop">
-                                            <a href="" title="Đồ trang trí">Đồ Trang Trí</a>
-                                        </li>
+                                        <%}%>
                                     </ul>
                                 </div>
                             </li>
@@ -109,15 +104,14 @@
                                  <a href="~/Template/contact.jsp" class="parent">Ưu Đãi</a>
                              </li>-->
                             <li>
-                                <a href="#" class="parent">Bài viết <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+                                <a href="/list_article" class="parent">Bài viết <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
                                 <div class="dropdown-menu">
                                     <ul>
+                                        <c:forEach items="${listAr}" var="item">
                                         <li class="item">
-                                            <a href="" title="Blog List (Sidebar Left)">Tin tức</a>
+                                            <a href="articleCate?cid=${item.getArticle_category_id()}" title="Blog List (Sidebar Left)"> ${item.getArticle_category_name()}<br></a>
                                         </li>
-                                        <li class="item">
-                                            <a href="" title="Blog List (Sidebar Left) 2">Khuyến mãi</a>
-                                        </li>
+                                        </c:forEach>
                                     </ul>
                                 </div>
                             </li>
