@@ -34,6 +34,10 @@ public class UserModel {
         this.enable = enable;
     }
 
+    public UserModel() {
+
+    }
+
     public int getId() {
         return id;
     }

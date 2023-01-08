@@ -2,9 +2,10 @@ package model;
 
 import service.ProductService;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Product {
+public class Product implements Serializable {
    public int product_id;
    public String name;
    public int price;
@@ -18,8 +19,9 @@ public class Product {
    public int status;
    public int product_type;
    public String product_insurance;
+   public int quantity;
 
-   public Product(int product_id, String name, int price, int price_sell, String info, String code, String brand, String color, String size, String attribute, int status, int product_type, String product_insurance) {
+   public Product(int product_id, String name, int price, int price_sell, String info, String code, String brand, String color, String size, String attribute, int status, int product_type, String product_insurance, int quantity) {
       this.product_id = product_id;
       this.name = name;
       this.price = price;
@@ -33,6 +35,7 @@ public class Product {
       this.status = status;
       this.product_type = product_type;
       this.product_insurance = product_insurance;
+      this.quantity = quantity;
    }
 
    public int getProduct_id() {
@@ -69,6 +72,10 @@ public class Product {
 
    public String getInfo() {
       return info;
+   }
+   public String getKey(){
+      String key = Integer.toString(product_id);
+      return key;
    }
 
    public void setInfo(String info) {
@@ -139,24 +146,14 @@ public class Product {
       this.product_insurance = product_insurance;
    }
 
-   @Override
-   public String toString() {
-      return "Product{" +
-              "product_id=" + product_id +
-              ", name='" + name + '\'' +
-              ", price=" + price +
-              ", price_sell=" + price_sell +
-              ", info='" + info + '\'' +
-              ", code='" + code + '\'' +
-              ", brand='" + brand + '\'' +
-              ", color='" + color + '\'' +
-              ", size='" + size + '\'' +
-              ", attribute='" + attribute + '\'' +
-              ", status=" + status +
-              ", product_type=" + product_type +
-              ", product_insurance='" + product_insurance + '\'' +
-              '}';
+   public int getQuantity() {
+      return quantity;
    }
+
+   public void setQuantity(int quantity) {
+      this.quantity = quantity;
+   }
+
    public String getImage(int index){
       ProductService manage = new ProductService();
       ArrayList image = manage.getImage(product_id);
@@ -174,6 +171,26 @@ public class Product {
       Product_type type_name = ser.getNameType(product_type);
       result = type_name.getType_name();
       return result;
+   }
+
+   @Override
+   public String toString() {
+      return "Product{" +
+              "product_id=" + product_id +
+              ", name='" + name + '\'' +
+              ", price=" + price +
+              ", price_sell=" + price_sell +
+              ", info='" + info + '\'' +
+              ", code='" + code + '\'' +
+              ", brand='" + brand + '\'' +
+              ", color='" + color + '\'' +
+              ", size='" + size + '\'' +
+              ", attribute='" + attribute + '\'' +
+              ", status=" + status +
+              ", product_type=" + product_type +
+              ", product_insurance='" + product_insurance + '\'' +
+              ", quantity=" + quantity +
+              '}';
    }
 }
 

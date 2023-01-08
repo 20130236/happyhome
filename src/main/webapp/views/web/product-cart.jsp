@@ -1,4 +1,7 @@
+<%@ page import="model.Product" %>
+<%@ page import="java.util.Collection" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="cart" class="beans.Cart" scope="session"/>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
@@ -37,7 +40,7 @@
                     <div class="breadcrumb">
                         <ol>
                             <li>
-                                <a href="#">
+                                <a href="/home">
                                     <span>Trang chủ</span>
                                 </a>
                             </li>
@@ -60,38 +63,32 @@
                                     <div class="cart-container">
                                         <div class="cart-overview js-cart">
                                             <ul class="cart-items">
+                                                <%  Collection<Product> list = cart.getListProduct();
+                                                    for (Product p: list) {%>
                                                 <li class="cart-item">
                                                     <div class="product-line-grid row justify-content-between">
-                                                        <!--  product left content: image-->
                                                         <div class="product-line-grid-left col-md-2">
                                                             <span class="product-image media-middle">
                                                                 <a href="product-detail.jsp">
-                                                                    <img class="img-fluid" src="img/product/3.jpg" alt="Ghế thư giãn Ball Chair màu đỏ vỏ trắng">
+                                                                    <img class="img-fluid" src="<%=p.getImage(0)%>" alt="">
                                                                 </a>
                                                             </span>
                                                         </div>
                                                         <div class="product-line-grid-body col-md-6">
                                                             <div class="product-line-info">
-                                                                <a class="label" href="product-detail.jsp" data-id_customization="0">Ghế thư giãn Ball Chair màu đỏ vỏ trắng</a>
+                                                                <a class="label" href="product-detail.jsp" data-id_customization="0"><%=p.getName()%></a>
                                                             </div>
                                                             <div class="product-line-info product-price">
-                                                                <span class="value">15.375.000 vnđ</span>
+                                                                <span class="value"><%=p.getPrice_sell()%> vnđ</span>
                                                             </div>
-                                                            <div class="product-line-info">
-                                                                <span class="label-atrr">Kích thước:</span>
-                                                                <span class="value">S</span>
-                                                            </div>
-                                                            <div class="product-line-info">
-                                                                <span class="label-atrr">Màu:</span>
-                                                                <span class="value">Trắng đỏ</span>
-                                                            </div>
+
                                                         </div>
                                                         <div class="product-line-grid-right text-center product-line-actions col-md-4">
                                                             <div class="row">
                                                                 <div class="col-md-5 col qty">
                                                                     <div class="label">Qty:</div>
                                                                     <div class="quantity">
-                                                                        <input type="text" name="qty" value="1" class="input-group form-control">
+                                                                        <input type="text" name="qty" value="<%=p.getQuantity()%>" class="input-group form-control">
 
                                                                         <span class="input-group-btn-vertical">
                                                                             <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
@@ -103,10 +100,11 @@
                                                                         </span>
                                                                     </div>
                                                                 </div>
+                                                                <% long priceI = (p.getPrice_sell())*(p.getQuantity()); %>
                                                                 <div class="col-md-5 col price">
                                                                     <div class="label">Tổng:</div>
                                                                     <div class="product-price total">
-                                                                        15.375.000 vnđ
+                                                                        <%=priceI%> vnđ
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-2 col text-xs-right align-self-end">
@@ -120,127 +118,7 @@
                                                         </div>
                                                     </div>
                                                 </li>
-                                                <li class="cart-item">
-                                                    <div class="product-line-grid row justify-content-between">
-                                                        <!--  product left content: image-->
-                                                        <div class="product-line-grid-left col-md-2">
-                                                            <span class="product-image media-middle">
-                                                                <a href="product-detail.jsp">
-                                                                    <img class="img-fluid" src="img/product/2.jpg" alt="Ghế thư giãn Ball Chair màu đỏ vỏ trắng">
-                                                                </a>
-                                                            </span>
-                                                        </div>
-                                                        <div class="product-line-grid-body col-md-6">
-                                                            <div class="product-line-info">
-                                                                <a class="label" href="product-detail.jsp" data-id_customization="0">
-                                                                    Ghế cafe </a>
-                                                            </div>
-                                                            <div class="product-line-info product-price">
-                                                                <span class="value">1.190.000 vnđ</span>
-                                                            </div>
-                                                            <div class="product-line-info">
-                                                                <span class="label-atrr">Kích thước:</span>
-                                                                <span class="value">S</span>
-                                                            </div>
-                                                            <div class="product-line-info">
-                                                                <span class="label-atrr">Màu:</span>
-                                                                <span class="value">Xanh</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-line-grid-right text-center product-line-actions col-md-4">
-                                                            <div class="row">
-                                                                <div class="col-md-5 qty col">
-                                                                    <div class="label">Qty:</div>
-                                                                    <div class="quantity">
-                                                                        <input type="text" name="qty" value="2" class="input-group form-control">
-
-                                                                        <span class="input-group-btn-vertical">
-                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
-                                                                                +
-                                                                            </button>
-                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
-                                                                                -
-                                                                            </button>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-5 price col">
-                                                                    <div class="label">Tổng:</div>
-                                                                    <div class="product-price total">
-                                                                        2.380.000 vnđ
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-2 text-xs-right align-self-end col">
-                                                                    <div class="cart-line-product-actions ">
-                                                                        <a class="remove-from-cart" rel="nofollow" href="#" data-link-action="delete-from-cart" data-id-product="1">
-                                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="cart-item">
-                                                    <div class="product-line-grid row justify-content-between">
-                                                        <!--  product left content: image-->
-                                                        <div class="product-line-grid-left col-md-2">
-                                                            <span class="product-image media-middle">
-                                                                <a href="product-detail.jsp">
-                                                                    <img class="img-fluid" src="img/product/1.jpg" alt="Ghế thư giãn Ball Chair màu đỏ vỏ trắng">
-                                                                </a>
-                                                            </span>
-                                                        </div>
-                                                        <div class="product-line-grid-body col-md-6">
-                                                            <div class="product-line-info">
-                                                                <a class="label" href="product-detail.jsp" data-id_customization="0"> Đồng Hồ</a>
-                                                            </div>
-                                                            <div class="product-line-info product-price">
-                                                                <span class="value">430.000 vnđ</span>
-                                                            </div>
-                                                            <div class="product-line-info">
-                                                                <span class="label-atrr">Kích thước:</span>
-                                                                <span class="value">S</span>
-                                                            </div>
-                                                            <div class="product-line-info">
-                                                                <span class="label-atrr">Màu:</span>
-                                                                <span class="value">Vàng</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-line-grid-right text-center product-line-actions col-md-4">
-                                                            <div class="row">
-                                                                <div class="col-md-5 col qty">
-                                                                    <div class="label">Qty:</div>
-                                                                    <div class="quantity">
-                                                                        <input type="text" name="qty" value="3" class="input-group form-control">
-
-                                                                        <span class="input-group-btn-vertical">
-                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
-                                                                                +
-                                                                            </button>
-                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
-                                                                                -
-                                                                            </button>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-5 col price">
-                                                                    <div class="label">Tổng:</div>
-                                                                    <div class="product-price total">
-                                                                        1.290.000 vnđ
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-2 col text-xs-right align-self-end">
-                                                                    <div class="cart-line-product-actions ">
-                                                                        <a class="remove-from-cart" rel="nofollow" href="#" data-link-action="delete-from-cart" data-id-product="1">
-                                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                <%}%>
                                             </ul>
                                         </div>
                                     </div>
@@ -252,13 +130,13 @@
                                     <div class="cart-summary">
                                         <div class="cart-detailed-totals">
                                             <div class="cart-summary-products">
-                                                <div class="summary-label">Có 3 sản phẩm trong giỏ hàng của bạn</div>
+                                                <div class="summary-label">Có ${cart.quantity} sản phẩm trong giỏ hàng của bạn</div>
                                             </div>
                                             <div class="cart-summary-line" id="cart-subtotal-products">
                                                 <span class="label js-subtotal">
                                                     Tổng Sản phẩm:
                                                 </span>
-                                                <span class="value">19.045.000 vnđ</span>
+                                                <span class="value">${cart.total} vnđ</span>
                                             </div>
                                             <div class="cart-summary-line" id="cart-subtotal-shipping">
                                                 <span class="label">
@@ -271,31 +149,9 @@
                                             </div>
                                             <div class="cart-summary-line cart-total">
                                                 <span class="label">Tổng:</span>
-                                                <span class="value">19.045.000 vnđ (bao gồm thuế.)</span>
+                                                <span class="value">${cart.total} vnđ (bao gồm thuế.)</span>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div id="block-reassurance">
-                                        <ul>
-                                            <li>
-                                                <div class="block-reassurance-item">
-                                                    <img src="img/product/check1.png" alt="Chính sách bảo mật (chỉnh sửa bằng mô-đun trấn an khách hàng)">
-                                                    <span>Chính sách bảo mật </span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="block-reassurance-item">
-                                                    <img src="img/product/check2.png" alt="Chính sách giao hàng (chỉnh sửa với mô-đun trấn an khách hàng)">
-                                                    <span>Chính sách giao hàng </span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="block-reassurance-item">
-                                                    <img src="img/product/check3.png" alt="Chính sách hoàn trả (chỉnh sửa với mô-đun trấn an khách hàng)">
-                                                    <span>Chính sách hoàn trả </span>
-                                                </div>
-                                            </li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>

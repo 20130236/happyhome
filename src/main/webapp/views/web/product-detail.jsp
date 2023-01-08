@@ -293,10 +293,9 @@
                                                                             </span>
                                                                     </div>
                                                                     <span class="add">
-                                                                            <button class="btn btn-primary add-to-cart add-item" data-button-action="add-to-cart" type="submit" >
-                                                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                                <span>Thêm vào giỏ hàng</span>
-                                                                            </button>
+                                                                           <a class="addToWishlist" href="/cart/add?id=<%=product.product_id%>">
+                                                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                            </a>
                                                                             <a class="addToWishlist" href="#">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
@@ -378,7 +377,7 @@
                                                     <a data-toggle="tab" href="#description" class="active show">Mô tả sản phẩm </a>
                                                 </li>
                                                 <li>
-                                                    <a data-toggle="tab" href="#tag">Đặt điểm sản phẩm</a>
+                                                    <a data-toggle="tab" href="#tag">Đặc điểm sản phẩm</a>
                                                 </li>
                                                 <li>
                                                     <a data-toggle="tab" href="#review">Nhận xét</a>
@@ -451,7 +450,7 @@
                                                                 </div>
                                                                 <div class="product-buttons d-flex justify-content-center">
                                                                     <form action="#" method="post" class="formAddToCart">
-                                                                        <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                        <a class="add-to-cart" href="/cart/add?id=<%=psm.product_id%>" data-button-action="add-to-cart">
                                                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                         </a>
                                                                     </form>
@@ -513,25 +512,25 @@
 <!-- Vendor JS -->
 <jsp:include page="/common/web/js.jsp"></jsp:include>
 <script>
-    var model = document.getElementById("model-cart-add");
-    var btnAddToCart = document.querySelectorAll(".add-item");
-    var btnContinue = document.getElementById('continue-shopping');
-
-    btnContinue.onclick = function () {
-        model.style.display = "none";
-    };
-
-    for (let i = 0; i < btnAddToCart.length; i++) {
-        btnAddToCart[i].addEventListener("click", function () {
-            model.style.display = "block";
-        });
-    }
-
-    window.onclick = function (event) {
-        if (event.target == model) {
-            model.style.display = "none";
-        }
-    };
+    // var model = document.getElementById("model-cart-add");
+    // var btnAddToCart = document.querySelectorAll(".add-item");
+    // var btnContinue = document.getElementById('continue-shopping');
+    //
+    // btnContinue.onclick = function () {
+    //     model.style.display = "none";
+    // };
+    //
+    // for (let i = 0; i < btnAddToCart.length; i++) {
+    //     btnAddToCart[i].addEventListener("click", function () {
+    //         model.style.display = "block";
+    //     });
+    // }
+    //
+    // window.onclick = function (event) {
+    //     if (event.target == model) {
+    //         model.style.display = "none";
+    //     }
+    // };
 
 </script>
 </body>

@@ -4,8 +4,11 @@
 <% UserModel user = (UserModel)session.getAttribute("user"); %>
 <%@ page import="model.Product_type" %>
 <%@ page import="java.util.List" %>
+<%@ page import="model.Product" %>
+<%@ page import="beans.Cart" %>
+<%@ page import="java.util.Collection" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<jsp:useBean id="cart" class="beans.Cart" scope="session"/>
 <style>
     .drop-menu {
         width: 235px;
@@ -199,26 +202,27 @@
                     <div class="desktop_cart">
                         <div class="blockcart block-cart cart-preview tiva-toggle">
                             <div class="header-cart tiva-toggle-btn">
-                                <span class="cart-products-count">1</span>
+                                <span class="cart-products-count">${cart.quantity}</span>
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                             </div>
                             <div class="dropdown-content">
                                 <div class="cart-content">
                                     <table>
                                         <tbody>
+                                        <%  Collection<Product> list = cart.getListProduct();
+                                            for (Product p: list) {%>
                                         <tr>
                                             <td class="product-image">
                                                 <a href="product-detail.html">
-                                                    <img src="~/Template/img/product/5.jpg" alt="Product">
+                                                    <img src="<%=p.getImage(0)%>" alt="Product">
                                                 </a>
                                             </td>
                                             <td>
                                                 <div class="product-name">
-                                                    <a href="product-detail.html">Ghế thư giãn Ball Chair màu đỏ vỏ trắng</a>
+                                                    <a href="product-detail.html"><%=p.name%></a>
                                                 </div>
                                                 <div>
-                                                    x2
-                                                    <span class="product-price">15.375.000 vnđ</span>
+                                                    <span class="product-price"><%=p.quantity%> * <%=p.price_sell%> vnđ</span>
                                                 </div>
                                             </td>
                                             <td class="action">
@@ -227,9 +231,10 @@
                                                 </a>
                                             </td>
                                         </tr>
+                                        <%}%>
                                         <tr class="total">
                                             <td colspan="2">Tổng :</td>
-                                            <td>15.375.000 vnđ</td>
+                                            <td>${cart.total} vnđ</td>
                                         </tr>
 
                                         <tr>

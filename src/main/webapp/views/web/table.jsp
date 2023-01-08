@@ -160,14 +160,14 @@
                                                                 </div>
                                                                 <div class="product-group-price">
                                                                     <div class="product-price-and-shipping">
-                                                                        <span class="price"><%=p.getPrice() %> vnđ</span>
+                                                                        <span class="price"><%=p.getPrice_sell() %> vnđ</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="product-buttons d-flex justify-content-center">
                                                                 <form action="#" method="post" class="formAddToCart">
                                                                     <input type="hidden" name="id_product" value="1">
-                                                                    <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                    <a class="add-to-cart" href="/cart/add?id=<%=p.product_id%>" data-button-action="add-to-cart">
                                                                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                                     </a>
                                                                 </form>
@@ -229,7 +229,7 @@
                                                                         </div>
                                                                         <div class="product-group-price">
                                                                             <div class="product-price-and-shipping">
-                                                                                <span class="price"><%=p.getPrice()%> vnđ</span>
+                                                                                <span class="price"><%=p.getPrice_sell()%> vnđ</span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="discription">
@@ -238,7 +238,7 @@
                                                                     </div>
                                                                     <div class="product-buttons d-flex">
                                                                         <form action="#" method="post" class="formAddToCart">
-                                                                            <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                            <a class="add-to-cart" href="/cart/add?id=<%=p.product_id%>" data-button-action="add-to-cart">
                                                                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>Thêm vào giỏ hàng
                                                                             </a>
                                                                         </form>
