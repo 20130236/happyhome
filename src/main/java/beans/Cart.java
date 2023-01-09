@@ -76,4 +76,7 @@ public class Cart implements Serializable {
     public long getTotal(){
         return total;
     }
+    public UserModel getCustomer(){
+        return customer;
+    }
 }
