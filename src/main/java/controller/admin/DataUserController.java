@@ -1,7 +1,7 @@
 package controller.admin;
 
 import model.UserModel;
-import services.UserService;
+import service.UserService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

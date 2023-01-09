@@ -1,4 +1,4 @@
-package utils;
+package util;
 
 import domain.Email;
 import javax.mail.*;
