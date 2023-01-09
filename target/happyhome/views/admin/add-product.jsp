@@ -1,3 +1,5 @@
+<%@ page import="model.Product_type" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -59,13 +61,13 @@
                       <div style="display: flex" class="row">
                         <div class="form-group col-md-6 ">
                           <label> Id </label>
-                          <input type="text" class="form-control" name="id" placeholder="Tên sản phầm">
+                          <input type="text" class="form-control" name="id" >
 
                         </div>
 
                         <div class="form-group col-md-6 ">
                           <label>Mã sản phẩm</label>
-                          <input type="text" class="form-control" name="code" placeholder="Tên sản phầm">
+                          <input type="text" class="form-control" name="code" >
                         </div>
 
 
@@ -93,7 +95,15 @@
                       <div class="form-group">
 
                         <label for="exampleInputEmail1">Loại sản phẩm</label>
-                        <input type="text" class="form-control" id="loaisp" name="loaisp">
+                        <select name="famille">
+                          <% List<Product_type> list0 = (List<Product_type>) request.getAttribute("listType");
+                            for (Product_type pty: list0
+                            ) {%>
+                          <option value="<%=pty.getType_id()%>" selected="selected">
+                           <%=pty.getType_name()%>
+                          </option>
+                          <%}%>
+                        </select>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Hãng sản xuất</label>

@@ -96,7 +96,7 @@
                                             <label for="exampleInputEmail1"></label>
                                             <input type="email" class="form-control" id="" placeholder="Kích thước sản phẩm: <%=pr.getSize()%>" disabled="disabled">
                                             <label for="exampleInputEmail1"></label>
-                                            <input type="email" class="form-control" id="" placeholder="Thời gian bảo hành: <%=pr.getProduct_insurance()%> năm" disabled="disabled">
+                                            <input type="email" class="form-control" id="" placeholder="Thời gian bảo hành: <%=pr.getProduct_insurance()%>" disabled="disabled">
                                             <label for="exampleInputEmail1"></label>
                                             <input type="email" class="form-control" id="" placeholder="Trạng thái sản phẩm: <%=pr.getStatus()%>" disabled="disabled">
 
