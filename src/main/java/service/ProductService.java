@@ -242,6 +242,33 @@ public class ProductService {
         return list;
     }
 
+    public static List<Product> getAllProductBySellId(int id){
+        List<Product> listad = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql;
+        try {
+            sql = "";
+
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            listad = new ArrayList<>();
+            ps.setInt(1,id);
+            rs = ps.executeQuery(sql);
+            while (rs.next()){
+                Product p = new Product(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getInt(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11),rs.getInt(11),rs.getString(12));
+                listad.add(p);
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return listad;
+
+
+    }
+
 
 
 
