@@ -116,5 +116,4 @@
     });
   });
 
-  window.addEventListener("load", window.print());
 </script>
