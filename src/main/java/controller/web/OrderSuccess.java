@@ -19,6 +19,9 @@ import java.util.Objects;
 
 @WebServlet(name = "OrderSuccess", value = "/order_success")
 public class OrderSuccess extends HttpServlet {
+    OrderService oderService = new OrderService();
+    int orderid = oderService.getMaxMHD();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ArticleService service = new ArticleService();
@@ -43,20 +46,28 @@ public class OrderSuccess extends HttpServlet {
         } else if (listp.size() == 0) {
             response.sendRedirect("/home");
         } else if (!(Objects.isNull(user)) && !(listp.size() == 0)) {
+            //lay ra user
+            try {
+                UserModel u = user;
+                long money = cart.getTotal();
 
-            UserModel u = user;
-            long money = cart.getTotal();
-            OrderService oderService = new OrderService();
-            Order o;
-            Date current = Date.valueOf(LocalDate.now());
-            Order od = new Order(1, u.getUserName(), "Tien mat", money, 0, current, " ", 0);
+                Date current = Date.valueOf(LocalDate.now());
+                Order od = new Order(orderid, u.getUserName(), "Tiền mặt", money, 0, current, " ", 0);
+                oderService.addOder(od);
+                od.setOder_id(orderid);
+                Collection<Product> productList = cart.getListProduct();
+                for (Product p : productList) {
+                    Order_detail orderDetail = new Order_detail(0, od, p.getProduct_id(), p.getPrice_sell(), p.getQuantity(), 0, (p.getPrice_sell() * p.getQuantity()));
+                    oderService.addOrderDetail(orderDetail);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-            oderService.addOder(od);
-
-
-            RequestDispatcher rd = request.getRequestDispatcher("/views/web/order-success.jsp");
-            rd.forward(request, response);
         }
+        RequestDispatcher rd = request.getRequestDispatcher("/views/web/order-success.jsp");
+        rd.forward(request, response);
+
     }
 
     @Override
