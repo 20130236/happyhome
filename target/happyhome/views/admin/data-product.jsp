@@ -81,7 +81,7 @@
                     <td>
                       <button class="btn btn-info"><a href="/view_product?pid=<%=p.getProduct_id()%>" style="color: white"> Xem sản phẩm </a></button>
                       <button class="btn btn-danger" href>Xoá </button>
-                      <button class="btn btn-success">Sửa </button>
+                      <button class="btn btn-success"><a href="/edit_product?pid=<%=p.getProduct_id()%>" style="color: white">Sửa sản phẩm </a></button>
                     </td>
                   </tr>
                   <%}%>

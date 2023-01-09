@@ -178,7 +178,7 @@
 
 
             <div class="card-footer row" style="width: 100%;">
-              <button type="submit">Thêm sản phẩm</button>
+              <button type="submit">Sửa sản phẩm</button>
             </div>
 
 

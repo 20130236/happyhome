@@ -4,6 +4,7 @@ import dao.DBConnection;
 import model.Product;
 import model.Image;
 import model.Product_type;
+import model.Slider;
 
 import java.awt.*;
 import java.sql.PreparedStatement;
@@ -39,6 +40,32 @@ public class ProductService {
 
 
     }
+
+    public static List<Slider> getAllSlider() {
+        List<Slider> list = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql;
+        try {
+            sql = "select * from slideimg";
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            list = new ArrayList<>();
+            rs = ps.executeQuery(sql);
+            while (rs.next()) {
+               Slider s= new Slider(rs.getInt(1),rs.getString(2),rs.getInt(3));
+               list.add(s);
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
+
+
+    }
+
 
     //lay ra hinh anh tuong ung
     public ArrayList<Image> getImage(int id) {
@@ -172,6 +199,31 @@ public class ProductService {
         }
         return list;
     }
+    // lay ra san pham ban chay
+    public List<Product> getBestSale(){
+        List<Product> list = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql;
+        try {
+            sql = "SELECT product.*, SUM(order_detail.amount) AS soLgDaBan FROM product" +
+                    " INNER JOIN order_detail ON order_detail.id_product = product.product_id GROUP BY order_detail.id_product ORDER BY soLgDaBan DESC";
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            list = new ArrayList<>();
+            rs = ps.executeQuery(sql);
+            while (rs.next()) {
+                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(11), rs.getString(12), 0);
+                list.add(p);
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
+    }
+
 
     //lay ra tong so san pham de phan trang
     public int getTotalProduct() {
@@ -313,11 +365,16 @@ public class ProductService {
 
 
     public static void main(String[] args) {
-//       ProductService service = new ProductService();
-//        List<Product> li = service.getAllProduct();
-//
-//        for(Product p : li){
-//            System.out.println(p.toString());
+       ProductService service = new ProductService();
+        List<Product> li = service.getBestSale();
+
+        for(Product p : li){
+            System.out.println(p.toString());
+        }
+//        List<Slider> sl= service.getAllSlider();
+//        for (Slider s: sl
+//             ) {
+//            System.out.println(s.toString());
 //        }
 //        List<Image> img = service.getImage(1);
 //        for(Image i : img){
@@ -330,9 +387,9 @@ public class ProductService {
 //        Product p = service.getProductById(1);
 //        System.out.println(p.toString());
 
-        Product p = new Product(1111, "test", 1234, 5678, "info", "code", "brand", "red", "200x300", "Sp mới", 0, 1, "35th", 0);
-        ProductService ser = new ProductService();
-        ser.addProduct(p);
+//        Product p = new Product(1111, "test", 1234, 5678, "info", "code", "brand", "red", "200x300", "Sp mới", 0, 1, "35th", 0);
+//        ProductService ser = new ProductService();
+//        ser.addProduct(p);
     }
 
 }
