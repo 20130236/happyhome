@@ -17,11 +17,17 @@ public class Show extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         Cart cart = (Cart) request.getSession().getAttribute("cart");
-        UserModel u = cart.getCustomer();
-        System.out.println(u.getId());
-        if(u.getId() == 0){
-            System.out.println("Khong dang nhap");
+        UserModel user = (UserModel)request.getSession().getAttribute("user");
+        response.getWriter().println(user.getId());
+        if(user == null){
+            response.getWriter().println("UID NULL");
         }
+        if(user.getId() == 0){
+            response.getWriter().println("Khong dang nhap");
+        }else {
+            response.getWriter().println("Đã đăng nhập");
+        }
+
         if (cart == null) {
             response.getWriter().println("Giỏ hàng trống");
         } else {

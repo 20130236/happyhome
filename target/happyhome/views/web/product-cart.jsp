@@ -1,7 +1,9 @@
 <%@ page import="model.Product" %>
 <%@ page import="java.util.Collection" %>
+<%@ page import="model.UserModel" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="cart" class="beans.Cart" scope="session"/>
+<% UserModel user = (UserModel)session.getAttribute("user"); %>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
@@ -122,7 +124,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <a href="product-checkout.jsp" class="continue btn btn-primary pull-xs-right">
+                                    <a href="/checkout" class="continue btn btn-primary pull-xs-right">
                                         Tiếp tục
                                     </a>
                                 </div>

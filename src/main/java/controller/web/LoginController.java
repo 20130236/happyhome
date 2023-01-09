@@ -7,7 +7,7 @@ import model.UserModel;
 import service.ArticleService;
 import service.IntroService;
 import service.ProductService;
-import services.UserService;
+import service.UserService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

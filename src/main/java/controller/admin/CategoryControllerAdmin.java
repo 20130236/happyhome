@@ -1,7 +1,7 @@
 package controller.admin;
 
 import model.CategoryProModel;
-import services.CategoryProService;
+import service.CategoryProService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

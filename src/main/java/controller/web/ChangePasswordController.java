@@ -7,7 +7,7 @@ import model.UserModel;
 import service.ArticleService;
 import service.IntroService;
 import service.ProductService;
-import services.UserService;
+import service.UserService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -61,6 +61,17 @@ public class ChangePasswordController extends HttpServlet {
                 UserService.deleteToken(id,token);
                 response.sendRedirect("login");
             } else {
+                ArticleService service = new ArticleService();
+                ProductService productService = new ProductService();
+                List<Article_Category> list = service.getListArCategory();
+                request.setAttribute("listAr", list);
+                //Lay ra danh sach loai sp de chen vao header
+                List<Product_type> listType = productService.getAllProduct_type();
+                request.setAttribute("listType",listType);
+                //Lay ra thong tin de chen vao footer
+                IntroService intr = new IntroService();
+                Introduce intro = intr.getIntro();
+                request.setAttribute("info", intro);
                 request.setAttribute("error", "Mật khẩu không khớp.Vui lòng nhập lại");
                 request.setAttribute("token",token);
                 request.getRequestDispatcher("views/web/user-change-password.jsp").forward(request, response);
