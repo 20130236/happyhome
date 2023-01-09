@@ -1,6 +1,13 @@
+<%@ page import="model.Order" %>
+<%@ page import="model.Introduce" %>
+<%@ page import="java.util.List" %>
+<%@ page import="model.Order_detail" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<% Order order = (Order) request.getAttribute("order");
+  Introduce introduce = (Introduce) request.getAttribute("info");
+%>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -52,31 +59,27 @@
               <!-- info row -->
               <div class="row invoice-info">
                 <div class="col-sm-4 invoice-col">
-                  From
+                  Cửa hàng:
                   <address>
-                    <strong>HappyHome</strong><br>
-                    Địa chỉ: Đại học Nông Lâm TP.HCM<br>
-                    Phường Linh Trung, Q.Thủ Đức, TP.HCM.<br>
-                    Phone: (804) 123-5432<br>
-                    Email: info@happyhome.com
+                    <strong><%=introduce.getName()%></strong><br>
+                    Địa chỉ: <%=introduce.getAddress()%> <br>
+                    Phone: <%=introduce.getPhone()%><br>
+                    Email: <%=introduce.getEmail()%>
                   </address>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                  To
+                  Khách hàng
                   <address>
-                    <strong>Nguyễn Văn A</strong><br>
-                    Địa chỉ: 6/1D Khu phố 2, Linh Trung,<br>
-                    Phường Linh Trung, Q.Thủ Đức, TP.HCM.<br>
-                    Phone: 0368799134<br>
-                    Email: nguyenvanA@gmail.com
+                    <strong><%=order.getUser_name()%></strong><br>
+
                   </address>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                  <b>ID hoá đơn:</b> 4F3S8J<br><br>
-                  <b>Ngày lập HD</b> 2/22/2014<br>
-                  <b>Tài Khoản:</b> 968-34567
+                  <b>ID hoá đơn : </b> <%=order.getOder_id()%><br>
+                  <b>Ngày lập hoá đơn : </b> <%=order.getDate_order()%><br>
+                  <b>Tài khoản :</b> <%=order.getUser_name()%>
                 </div>
                 <!-- /.col -->
               </div>
@@ -88,42 +91,15 @@
                   <table class="table table-striped">
                     <thead>
                     <tr>
-                      <th>Số lượng</th>
                       <th>Mã sản phẩm</th>
                       <th>Tên sản phẩm</th>
-                      <th>Mô tả</th>
+                      <th>Giá</th>
+                      <th>Số lượng</th>
                       <th>Thành tiền</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>SP01</td>
-                      <td>Ghế xoay văn phòng lưng lưới xám GAK836</td>
-                      <td>El snort testosterone trophy driving gloves handsome</td>
-                      <td>300.000đ</td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>SP02</td>
-                      <td>Ghế xoay văn phòng lưng lưới xám GAK836</td>
-                      <td>Wes Anderson umami biodiesel</td>
-                      <td>300.000đ</td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>SP03</td>
-                      <td>Ghế xoay văn phòng lưng lưới xám GAK836</td>
-                      <td>Terry Richardson helvetica tousled street art master</td>
-                      <td>300.000đ</td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>SP04</td>
-                      <td>Ghế xoay văn phòng lưng lưới xám GAK836</td>
-                      <td>Tousled lomo letterpress</td>
-                      <td>300.000đ</td>
-                    </tr>
+
                     </tbody>
                   </table>
                 </div>
@@ -143,7 +119,7 @@
                   <div style="background-color: #0000000d;padding: 5px 10px;margin-top: 10px">
                     <div style="margin-top: 15px;color: red"><strong>Ghi Chú của khách hàng:</strong></div>
                     <p class="" style="color:black">
-                      Giao sớm giúp mình được không shop
+
                     </p>
                   </div>
 
@@ -156,19 +132,19 @@
                     <table class="table">
                       <tr>
                         <th style="width:50%">Tổng tiền sản phẩm:</th>
-                        <td>1.000.000đ</td>
+                        <td><%=order.getTotal_money()%>đ</td>
                       </tr>
                       <tr>
-                        <th>Thuế (9.3%)</th>
-                        <td>300.000đ</td>
+                        <th>Thuế(0%)</th>
+                        <td>0đ</td>
                       </tr>
                       <tr>
                         <th>Phí giao hàng:</th>
-                        <td>50.000đ</td>
+                        <td>0đ</td>
                       </tr>
                       <tr>
                         <th>Tổng tiền:</th>
-                        <td>1.450.000đ</td>
+                        <td><%=order.getTotal_money()%>đ</td>
                       </tr>
                     </table>
                   </div>
