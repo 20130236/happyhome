@@ -244,10 +244,9 @@ public class ProductService {
 
 
 
-
     public static void main(String[] args) {
        ProductService service = new ProductService();
-        List<Product> li = service.pagingProductBType(1,1);
+        List<Product> li = service.getAllProduct();
 
         for(Product p : li){
             System.out.println(p.toString());

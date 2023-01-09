@@ -1,3 +1,5 @@
+<%@ page import="model.Product" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -21,12 +23,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>DataTables</h1>
+            <h1>Danh sách sản phẩm</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">DataTables</li>
+              <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+              <li class="breadcrumb-item active">Danh sách sản phẩm</li>
             </ol>
           </div>
         </div>
@@ -45,113 +47,44 @@
                     <option selected="selected" disabled="disabled">Tìm kiếm theo</option>
                     <option>Sản Phẩm mới</option>
                     <option>Sản Phẩm hot</option>
-                    <option>Hết hàng</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
                   </select>
+
                 </div>
-                <button class="btn btn-primary" style="float: right;"><a href="add-product.html" style="color: white">Thêm mới</a></button>
+                <button class="btn btn-primary" style="float: right;"><a href="/add_product" style="color: white">Thêm mới</a></button>
               </div>
+
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
+
                   <thead>
                   <tr>
-
-                    <th>Id </th>
+                    <th>Id sản phẩm</th>
                     <th>Tên sản phẩm </th>
-                    <th>Thuộc tính</th>
-                    <th>Danh mục </th>
-                    <th>Giá</th>
+                    <th>Giá nhập vào</th>
+                    <th>Giá bán ra</th>
+                    <th>Loại sản phẩm</th>
                     <th>Tác vụ</th>
                   </tr>
                   </thead>
+
                   <tbody>
+                  <% List<Product> list0 = (List<Product>) request.getAttribute("listProduct");
+                    for (Product p: list0
+                    ) {%>
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Size,Màu sắc</td>
-                    <td> Phong ngủ , Bàn</td>
-                    <td>500.000đ</td>
+                    <td><%=p.getProduct_id()%></td>
+                    <td><%=p.getName()%></td>
+                    <td><%=p.getPrice()%></td>
+                    <td><%=p.getPrice_sell()%></td>
+                    <td><%=p.getNType()%></td>
                     <td>
-                      <button class="btn btn-danger">Xoá </button>
+                      <button class="btn btn-info"><a href="/view_product?pid=<%=p.getProduct_id()%>" style="color: white"> Xem sản phẩm </a></button>
+                      <button class="btn btn-danger" href>Xoá </button>
                       <button class="btn btn-success">Sửa </button>
                     </td>
                   </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>Size,Màu sắc</td>
-                    <td> Phong ngủ , Bàn</td>
-                    <td>500.000đ</td>
-                    <td>
-                      <button class="btn btn-danger">Xoá </button>
-                      <button class="btn btn-success">Sửa </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.5
-                    </td>
-                    <td>Size,Màu sắc</td>
-                    <td> Phong ngủ , Bàn</td>
-                    <td>500.000đ</td>
-                    <td>
-                      <button class="btn btn-danger">Xoá </button>
-                      <button class="btn btn-success">Sửa </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 6
-                    </td>
-                    <td>Size,Màu sắc</td>
-                    <td> Phong ngủ , Bàn</td>
-                    <td>500.000đ</td>
-                    <td>
-                      <button class="btn btn-danger">Xoá </button>
-                      <button class="btn btn-success">Sửa </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet Explorer 7</td>
-                    <td>Size,Màu sắc</td>
-                    <td> Phong ngủ , Bàn</td>
-                    <td>500.000đ</td>
-                    <td>
-                      <button class="btn btn-danger">Xoá </button>
-                      <button class="btn btn-success">Sửa </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Gecko</td>
-                    <td>Epiphany 2.20</td>
-                    <td>Size,Màu sắc</td>
-                    <td> Phong ngủ , Bàn</td>
-                    <td>500.000đ</td>
-                    <td>
-                      <button class="btn btn-danger">Xoá </button>
-                      <button class="btn btn-success">Sửa </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Tasman</td>
-                    <td>Internet Explorer 5.2</td>
-                    <td>Size,Màu sắc</td>
-                    <td> Phong ngủ , Bàn</td>
-                    <td>500.000đ</td>
-                    <td>
-                      <button class="btn btn-danger">Xoá </button>
-                      <button class="btn btn-success">Sửa </button>
-                    </td>
-                  </tr>
+                  <%}%>
                   </tbody>
 
                 </table>
@@ -162,18 +95,17 @@
           </div>
           <!-- /.col -->
         </div>
-        <!-- /.row -->
+        <!-- modal -->
       </div>
       <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
   <jsp:include page="/common/admin/footer.jsp"></jsp:include>
 </div>
 <!-- ./wrapper -->
-
 <jsp:include page="/common/admin/js.jsp"></jsp:include>
+
 </body>
 </html>
