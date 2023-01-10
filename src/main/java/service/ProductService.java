@@ -221,7 +221,29 @@ public class ProductService {
         }
         return list;
     }
+    // lay ra san pham moi nhat
+    public List<Product> getNewProduct(int n){
+        List<Product> list = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql;
+        try {
+            sql = "SELECT * FROM product p ORDER BY p.product_id DESC LIMIT " + n;
+            ps = DBConnection.getConnection().prepareStatement(sql);
+            list = new ArrayList<>();
+            rs = ps.executeQuery(sql);
+            while (rs.next()) {
+                Product p = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(11), rs.getString(12), 0);
+                list.add(p);
 
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return list;
+    }
 
     //lay ra tong so san pham de phan trang
     public int getTotalProduct() {

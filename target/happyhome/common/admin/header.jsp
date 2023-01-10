@@ -10,12 +10,6 @@
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="<c:url value="/views/admin/home.jsp"/>">Trang chủ</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="<c:url value="/views/admin/contact-us.jsp"/>">Liên hệ</a>
-        </li>
     </ul>
 
     <!-- Right navbar links -->

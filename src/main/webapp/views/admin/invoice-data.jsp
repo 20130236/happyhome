@@ -49,7 +49,7 @@
                                         <option>Sản Phẩm hot</option>
                                     </select>
                                 </div>
-                                <button class="btn btn-primary" style="float: right;"><a href="add-invoice.html"
+                                <button class="btn btn-primary" style="float: right;"><a href="#"
                                                                                          style="color: white">Thêm
                                     mới</a></button>
                             </div>
@@ -73,21 +73,26 @@
                                         for (Order o : list) {
                                     %>
                                     <tr>
-                                        <td><%=o.getOder_id()%></td>
-                                        <td><%=o.getUser_name()%></td>
-                                        <td><%=o.getDate_order()%></td>
-                                        <% String result = "Đã giao hàng";
+                                        <td><%=o.getOder_id()%>
+                                        </td>
+                                        <td><%=o.getUser_name()%>
+                                        </td>
+                                        <td><%=o.getDate_order()%>
+                                        </td>
+                                            <% String result = "Đã giao hàng";
                                             if(o.getStatus() != 0){
                                                 result = "Chưa giao hàng";
                                             }
                                         %>
-                                        <td><%=result%></td>
-                                        <td>
-                                            <button class="btn btn-info"><a href="/order_detail?id=<%=o.getOder_id()%>" style="color:white">Chi tiết</a></button>
-                                            <button class="btn btn-success">Sửa</button>
-                                            <button class="btn btn-danger" >Xoá</button>
+                                        <td><%=result%>
                                         </td>
-                                    <% } %>
+                                        <td>
+                                            <button class="btn btn-info"><a href="/order_detail?id=<%=o.getOder_id()%>"
+                                                                            style="color:white">Chi tiết</a></button>
+                                            <button class="btn btn-success">Sửa</button>
+                                            <button class="btn btn-danger">Xoá</button>
+                                        </td>
+                                            <% } %>
                                     </tbody>
                                 </table>
                             </div>
