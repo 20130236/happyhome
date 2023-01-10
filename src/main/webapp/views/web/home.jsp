@@ -1,3 +1,5 @@
+<%@ page import="model.Product" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ include file="../../common/taglib.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -68,16 +70,21 @@
                                             </div>
 
                                             <!-- column 8 -->
+                                       
                                             <div class="block-content col-lg-8 flex-8">
                                                 <div class="tab-content">
                                                     <div class="tab-pane fade in active show">
+
                                                         <div class="category-product-index owl-carousel owl-theme owl-loaded owl-drag">
-                                                            <div class="item text-center">
+                                                              <div class="item text-center">
+                                                                <% List<Product> list0 = (List<Product>) request.getAttribute("bestseller");
+                                                                    for (Product pty: list0
+                                                                    ) {%>
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
                                                                         <a href="product-detail.jsp">
-                                                                            <img class="img-fluid image-cover" src="https://product.hstatic.net/200000065946/product/pro_mau_tu_nhien_noi_that_moho_ghe_an_vline_1_d3141504a3164161ab891983182514b1_master.jpg" alt="img">
-                                                                            <img class="img-fluid image-secondary" src="https://product.hstatic.net/200000065946/product/pro_mau_tu_nhien_noi_that_moho_ghe_an_vline_2_06a1dadefb0e4109bdab5780b1657f7f_master.jpg" alt="img">
+                                                                            <img class="img-fluid image-cover" src="<%=pty.getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=pty.getImage(1)%>" alt="img">
                                                                         </a>
                                                                         <div class="highlighted-informations">
                                                                             <div class="variant-links">
@@ -90,12 +97,12 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="product-detail.jsp">Ghế Ăn Gỗ Cao Su Tự Nhiên VLINE 601</a>
+                                                                                <a href="<c:url value="/product_detail"/>"><%=pty.getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price">1.290.000 vnđ</span>
-                                                                                    <!--<del class="regular-price">1,990,000vnđ</del>-->
+                                                                                    <span class="price"><%=pty.getPrice_sell()%></span>
+                                                                                    <%--<del class="regular-price"><%=pty.getPrice()%></del>--%>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -109,233 +116,25 @@
                                                                             <a class="addToWishlist" href="#" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a href="product-detail.jsp" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                            <a href="<c:url value="/product_detail"/>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                                             </a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="product-miniature js-product-miniature item-one first-item">
-                                                                    <div class="thumbnail-container">
-                                                                        <a href="product-detail.jsp">
-                                                                            <img class="img-fluid image-cover" src="https://product.hstatic.net/200000065946/product/pro_nau_noi_that_moho_giuong_ngu_go_tram_vline_1m2_1_f6ab867b73f4476088ad2635c1669f39_master.jpg" alt="img">
-                                                                            <img class="img-fluid image-secondary" src="https://product.hstatic.net/200000065946/product/pro_nau_noi_that_moho_giuong_ngu_go_tram_vline_1m8_2_09e6f0afa7684efcbb049ae74aa0c183_master.jpg" alt="img">
-                                                                        </a>
-                                                                        <div class="highlighted-informations">
-                                                                            <div class="variant-links">
-                                                                                <a href="#" class="color beige" title="Beige"></a>
-                                                                                <a href="#" class="color orange" title="Orange"></a>
-                                                                                <a href="#" class="color green" title="Green"></a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-description">
-                                                                        <div class="product-groups">
-                                                                            <div class="product-title">
-                                                                                <a href="product-detail.jsp">Giường Ngủ Gỗ Tràm VLINE 601</a>
-                                                                            </div>
-                                                                            <div class="product-group-price">
-                                                                                <div class="product-price-and-shipping">
-                                                                                    <span class="price">2.999.999 vnđ</span>
-                                                                                    <del class="regular-price">3.750.000 vnđ</del>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-buttons d-flex justify-content-center">
-                                                                            <form action="#" method="post" class="formAddToCart">
-
-                                                                                <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                                </a>
-                                                                            </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                            <a href="product-detail.jsp" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item text-center">
-                                                                <div class="product-miniature js-product-miniature item-one first-item">
-                                                                    <div class="thumbnail-container">
-                                                                        <a href="product-detail.jsp">
-                                                                            <img class="img-fluid image-cover" src="https://product.hstatic.net/200000065946/product/pro_mau_tu_nhien_noi_that_moho_ban_sofa__ban_tra_go_cao_su_milan_601_3_5a7dd5037ac24566bc8fe457b7586de1_master.jpg" alt="img">
-                                                                            <img class="img-fluid image-secondary" src="https://product.hstatic.net/200000065946/product/pro_mau_tu_nhien_noi_that_moho_ban_sofa__ban_tra_go_cao_su_milan_601_2_d28fde4149e54fc7af02903cd6998081_master.jpg" alt="img">
-                                                                        </a>
-                                                                        <div class="highlighted-informations">
-                                                                            <div class="variant-links">
-                                                                                <a href="#" class="color beige" title="Beige"></a>
-                                                                                <a href="#" class="color orange" title="Orange"></a>
-                                                                                <a href="#" class="color green" title="Green"></a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-description">
-                                                                        <div class="product-groups">
-                                                                            <div class="product-title">
-                                                                                <a href="product-detail.jsp">Bàn Sofa – Bàn Trà Gỗ Cao Su MILAN 602</a>
-                                                                            </div>
-                                                                            <div class="product-group-price">
-                                                                                <div class="product-price-and-shipping">
-                                                                                    <span class="price">599.000 vnđ</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-buttons d-flex justify-content-center">
-                                                                            <form action="#" method="post" class="formAddToCart">
-                                                                                <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                                </a>
-                                                                            </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                            <a href="product-detail.jsp" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="product-miniature js-product-miniature item-one first-item">
-                                                                    <div class="thumbnail-container">
-                                                                        <a href="product-detail.jsp">
-                                                                            <img class="img-fluid image-cover" src="https://product.hstatic.net/200000065946/product/pro_mau_tu_nhien_noi_that_moho_combo_ban_va_guong_trang_diem_2_951e4eb74080461aa947ab14bf1a344c_master.jpg" alt="img">
-                                                                            <img class="img-fluid image-secondary" src="https://product.hstatic.net/200000065946/product/pro_mau_tu_nhien_noi_that_moho_combo_ban_va_guong_trang_diem_4_5b180502b7664ff3891d67b80afb0e98_master.jpg" alt="img">
-                                                                        </a>
-                                                                        <div class="highlighted-informations">
-                                                                            <div class="variant-links">
-                                                                                <a href="#" class="color beige" title="Beige"></a>
-                                                                                <a href="#" class="color orange" title="Orange"></a>
-                                                                                <a href="#" class="color green" title="Green"></a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-description">
-                                                                        <div class="product-groups">
-                                                                            <div class="product-title">
-                                                                                <a href="product-detail.jsp">Bàn Trang Điểm Gỗ Đa Năng VIENNA 202 Màu Tự Nhiên</a>
-                                                                            </div>
-                                                                            <div class="product-group-price">
-                                                                                <div class="product-price-and-shipping">
-                                                                                    <span class="price">5.000.000 vnđ</span>
-                                                                                    <del class="regular-price">3.999.999 vnđ</del>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-buttons d-flex justify-content-center">
-                                                                            <form action="#" method="post" class="formAddToCart">
-                                                                                <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                                </a>
-                                                                            </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                            <a href="product-detail.jsp" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item text-center">
-                                                                <div class="product-miniature js-product-miniature item-one first-item">
-                                                                    <div class="thumbnail-container">
-                                                                        <a href="product-detail.jsp">
-                                                                            <img class="img-fluid image-cover" src="https://product.hstatic.net/200000065946/product/pro_trang_noi_that_moho_ke_de_sach_7_85b616ba9a054024b13dcd167096a2b4_master.jpg" alt="img">
-                                                                            <img class="img-fluid image-secondary" src="https://product.hstatic.net/200000065946/product/pro_trang_noi_that_moho_ke_de_sach_2_318c28c817d44a93bebfc731ab5f74f2_master.jpg" alt="img">
-                                                                        </a>
-                                                                        <div class="highlighted-informations">
-                                                                            <div class="variant-links">
-                                                                                <a href="#" class="color beige" title="Beige"></a>
-                                                                                <a href="#" class="color orange" title="Orange"></a>
-                                                                                <a href="#" class="color green" title="Green"></a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-description">
-                                                                        <div class="product-groups">
-                                                                            <div class="product-title">
-                                                                                <a href="product-detail.jsp">Kệ Để Sách 3 Tầng WORKS 703</a>
-                                                                            </div>
-                                                                            <div class="product-group-price">
-                                                                                <div class="product-price-and-shipping">
-                                                                                    <span class="price">1.990.000 vnđ</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-buttons d-flex justify-content-center">
-                                                                            <form action="#" method="post" class="formAddToCart">
-                                                                                <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                                </a>
-                                                                            </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="product-miniature js-product-miniature item-one first-item">
-                                                                    <div class="thumbnail-container">
-                                                                        <a href="product-detail.jsp">
-                                                                            <img class="img-fluid image-cover" src="https://product.hstatic.net/200000065946/product/pro_nau_noi_that_moho_tu_ke_tivi_kolding_1_85628cac95344a59bcf705e71eaf7a36_master.jpg" alt="img">
-                                                                            <img class="img-fluid image-secondary" src="https://product.hstatic.net/200000065946/product/pro_nau_noi_that_moho_tu_ke_tivi_kolding_4_8b66420d2db143b6b03cf398aba212c0_master.jpg" alt="img">
-                                                                        </a>
-                                                                        <div class="highlighted-informations">
-                                                                            <div class="variant-links">
-                                                                                <a href="#" class="color beige" title="Beige"></a>
-                                                                                <a href="#" class="color orange" title="Orange"></a>
-                                                                                <a href="#" class="color green" title="Green"></a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-description">
-                                                                        <div class="product-groups">
-                                                                            <div class="product-title">
-                                                                                <a href="product-detail.jsp">Tủ Kệ Tivi Gỗ KOLDING 702</a>
-                                                                            </div>
-                                                                            <div class="product-group-price">
-                                                                                <div class="product-price-and-shipping">
-                                                                                    <span class="price">5.490.000 vnđ</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-buttons d-flex justify-content-center">
-                                                                            <form action="#" method="post" class="formAddToCart">
-
-                                                                                <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                                </a>
-                                                                            </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                                <%}%>
                                                             </div>
                                                         </div>
+
                                                     </div>
+
                                                 </div>
                                             </div>
+                                         
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
 
 

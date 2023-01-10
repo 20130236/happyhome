@@ -1,8 +1,6 @@
 package controller.web;
 
-import model.Article_Category;
-import model.Introduce;
-import model.Product_type;
+import model.*;
 import service.ArticleService;
 import service.IntroService;
 import service.ProductService;
@@ -20,6 +18,7 @@ public class HomeController extends HttpServlet {
         //Lay ra danh sach loai bai viet
         ArticleService service = new ArticleService();
         ProductService productService = new ProductService();
+
         List<Article_Category> list = service.getListArCategory();
         request.setAttribute("listAr", list);
         //Lay ra danh sach loai sp de chen vao header
@@ -29,7 +28,9 @@ public class HomeController extends HttpServlet {
         IntroService intr = new IntroService();
         Introduce intro = intr.getIntro();
         request.setAttribute("info", intro);
-
+        //san pham ban chay
+        List<Product> li = productService.getBestSale();
+        request.setAttribute("bestseller", li);
 
         RequestDispatcher rd = request.getRequestDispatcher("views/web/home.jsp");
         rd.forward(request,response);
