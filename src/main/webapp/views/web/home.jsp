@@ -75,16 +75,16 @@
                                                 <div class="tab-content">
                                                     <div class="tab-pane fade in active show">
 
-                                                        <div class="category-product-index owl-carousel owl-theme owl-loaded owl-drag">
-                                                              <div class="item text-center">
+                                                     <div class="category-product-index owl-carousel owl-theme owl-loaded owl-drag">
+                                                            <div class="item text-center">
                                                                 <% List<Product> list0 = (List<Product>) request.getAttribute("bestseller");
-                                                                    for (Product pty: list0
+                                                                    for (int i = 0; i < 2; i++
                                                                     ) {%>
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
                                                                         <a href="product-detail.jsp">
-                                                                            <img class="img-fluid image-cover" src="<%=pty.getImage(0)%>" alt="img">
-                                                                            <img class="img-fluid image-secondary" src="<%=pty.getImage(1)%>" alt="img">
+                                                                            <img class="img-fluid image-cover" src="<%=list0.get(i).getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=list0.get(i).getImage(1)%>" alt="img">
                                                                         </a>
                                                                         <div class="highlighted-informations">
                                                                             <div class="variant-links">
@@ -97,11 +97,11 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="<c:url value="/product_detail"/>"><%=pty.getName()%></a>
+                                                                                <a href="<c:url value="/product_detail"/>"><%=list0.get(i).getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=pty.getPrice_sell()%></span>
+                                                                                    <span class="price"><%=list0.get(i).getPrice_sell()%></span>
                                                                                     <%--<del class="regular-price"><%=pty.getPrice()%></del>--%>
                                                                                 </div>
                                                                             </div>
@@ -116,7 +116,7 @@
                                                                             <a class="addToWishlist" href="#" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a href="<c:url value="/product_detail"/>" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                            <a href="<c:url value="/product_detail?id=<%=list0.get(i).getProduct_id()%>"/>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                                             </a>
                                                                         </div>
@@ -124,6 +124,105 @@
                                                                 </div>
                                                                 <%}%>
                                                             </div>
+
+                                                            <div class="item text-center">
+                                                                <%
+                                                                    for (int i = 2; i < 4; i++
+                                                                    ) {%>
+                                                                <div class="product-miniature js-product-miniature item-one first-item">
+                                                                    <div class="thumbnail-container">
+                                                                        <a href="product-detail.jsp">
+                                                                            <img class="img-fluid image-cover" src="<%=list0.get(i).getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=list0.get(i).getImage(1)%>" alt="img">
+                                                                        </a>
+                                                                        <div class="highlighted-informations">
+                                                                            <div class="variant-links">
+                                                                                <a href="#" class="color beige" title="Beige"></a>
+                                                                                <a href="#" class="color orange" title="Orange"></a>
+                                                                                <a href="#" class="color green" title="Green"></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-description">
+                                                                        <div class="product-groups">
+                                                                            <div class="product-title">
+                                                                                <a href="<c:url value="/product_detail"/>"><%=list0.get(i).getName()%></a>
+                                                                            </div>
+                                                                            <div class="product-group-price">
+                                                                                <div class="product-price-and-shipping">
+                                                                                    <span class="price"><%=list0.get(i).getPrice_sell()%></span>
+                                                                                    <%--<del class="regular-price"><%=pty.getPrice()%></del>--%>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-buttons d-flex justify-content-center">
+                                                                            <form action="#" method="post" class="formAddToCart">
+                                                                                <input type="hidden" name="id_product" value="1">
+                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                                </a>
+                                                                            </form>
+                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                            </a>
+                                                                            <a href="<c:url value="/product_detail?id=<%=list0.get(i).getProduct_id()%>"/>" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <%}%>
+                                                            </div>
+
+                                                            <div class="item text-center">
+                                                                <%
+                                                                    for (int i = 4; i < 6; i++
+                                                                    ) {%>
+                                                                <div class="product-miniature js-product-miniature item-one first-item">
+                                                                    <div class="thumbnail-container">
+                                                                        <a href="product-detail.jsp">
+                                                                            <img class="img-fluid image-cover" src="<%=list0.get(i).getImage(0)%>" alt="img">
+                                                                            <img class="img-fluid image-secondary" src="<%=list0.get(i).getImage(1)%>" alt="img">
+                                                                        </a>
+                                                                        <div class="highlighted-informations">
+                                                                            <div class="variant-links">
+                                                                                <a href="#" class="color beige" title="Beige"></a>
+                                                                                <a href="#" class="color orange" title="Orange"></a>
+                                                                                <a href="#" class="color green" title="Green"></a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="product-description">
+                                                                        <div class="product-groups">
+                                                                            <div class="product-title">
+                                                                                <a href="<c:url value="/product_detail"/>"><%=list0.get(i).getName()%></a>
+                                                                            </div>
+                                                                            <div class="product-group-price">
+                                                                                <div class="product-price-and-shipping">
+                                                                                    <span class="price"><%=list0.get(i).getPrice_sell()%></span>
+                                                                                    <%--<del class="regular-price"><%=pty.getPrice()%></del>--%>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-buttons d-flex justify-content-center">
+                                                                            <form action="#" method="post" class="formAddToCart">
+                                                                                <input type="hidden" name="id_product" value="1">
+                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
+                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                                                </a>
+                                                                            </form>
+                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                            </a>
+                                                                            <a href="<c:url value="/product_detail?id=<%=list0.get(i).getProduct_id()%>"/>" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <%}%>
+                                                            </div>
+
                                                         </div>
 
                                                     </div>
