@@ -10,12 +10,6 @@
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="<c:url value="/views/admin/home.jsp"/>">Trang chủ</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="<c:url value="/views/admin/contact-us.jsp"/>">Liên hệ</a>
-        </li>
     </ul>
 
     <!-- Right navbar links -->
@@ -103,37 +97,13 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Quản lý bài Viết
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<c:url value="/views/admin/add-article.jsp"/>" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Đăng bài viết   <span class="right badge badge-danger">New</span></p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<c:url value="/views/admin/article-data.jsp"/>" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Danh sách bài viết</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
                 <li class="nav-item ">
                     <a href="" class="nav-link ">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Quản lý sản phẩm
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
+                            <span class="badge badge-info right"></span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -144,13 +114,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<c:url value="/views/admin/data-product.jsp"/>" class="nav-link ">
+                            <a href="<c:url value="/product_manager"/>" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh sách sản phẩm </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<c:url value="/views/admin/add-product.jsp"/>" class="nav-link ">
+                            <a href="<c:url value="/add_product"/>" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thêm sản phẩm</p>
                             </a>
@@ -184,21 +154,9 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<c:url value="/views/admin/invoice-data.jsp"/>" class="nav-link ">
+                            <a href="<c:url value="/order_controller"/>" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh sách đơn hàng</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<c:url value="/views/admin/add-invoice.jsp"/>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Thêm đơn hàng</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<c:url value="/views/admin/invoice-detail.jsp"/>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Chi tiết hoá đơn</p>
                             </a>
                         </li>
                     </ul>

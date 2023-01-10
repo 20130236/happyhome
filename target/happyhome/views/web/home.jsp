@@ -70,16 +70,16 @@
                                             </div>
 
                                             <!-- column 8 -->
-                                            <% List<Product> list0 = (List<Product>) request.getAttribute("bestseller");
-                                                for (Product pty: list0
-                                                ) {%>
+                                       
                                             <div class="block-content col-lg-8 flex-8">
                                                 <div class="tab-content">
                                                     <div class="tab-pane fade in active show">
 
                                                         <div class="category-product-index owl-carousel owl-theme owl-loaded owl-drag">
-                                                            <div class="item text-center">
-
+                                                              <div class="item text-center">
+                                                                <% List<Product> list0 = (List<Product>) request.getAttribute("bestseller");
+                                                                    for (Product pty: list0
+                                                                    ) {%>
                                                                 <div class="product-miniature js-product-miniature item-one first-item">
                                                                     <div class="thumbnail-container">
                                                                         <a href="product-detail.jsp">
@@ -97,12 +97,12 @@
                                                                     <div class="product-description">
                                                                         <div class="product-groups">
                                                                             <div class="product-title">
-                                                                                <a href="product-detail.jsp"><%=pty.getName()%></a>
+                                                                                <a href="<c:url value="/product_detail"/>"><%=pty.getName()%></a>
                                                                             </div>
                                                                             <div class="product-group-price">
                                                                                 <div class="product-price-and-shipping">
                                                                                     <span class="price"><%=pty.getPrice_sell()%></span>
-                                                                                    <!--<del class="regular-price">1,990,000vnđ</del>-->
+                                                                                    <%--<del class="regular-price"><%=pty.getPrice()%></del>--%>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -116,227 +116,13 @@
                                                                             <a class="addToWishlist" href="#" data-rel="1" onclick="">
                                                                                 <i class="fa fa-heart" aria-hidden="true"></i>
                                                                             </a>
-                                                                            <a href="product-detail.jsp" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                            <a href="<c:url value="/product_detail"/>" class="quick-view hidden-sm-down" data-link-action="quickview">
                                                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                                                             </a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="product-miniature js-product-miniature item-one first-item">
-                                                                    <div class="thumbnail-container">
-                                                                        <a href="product-detail.jsp">
-                                                                            <img class="img-fluid image-cover" src="<%=pty.getImage(2)%>" alt="img">
-                                                                            <img class="img-fluid image-secondary" src=" <%=pty.getImage(3)%>" alt="img">
-                                                                        </a>
-                                                                        <div class="highlighted-informations">
-                                                                            <div class="variant-links">
-                                                                                <a href="#" class="color beige" title="Beige"></a>
-                                                                                <a href="#" class="color orange" title="Orange"></a>
-                                                                                <a href="#" class="color green" title="Green"></a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-description">
-                                                                        <div class="product-groups">
-                                                                            <div class="product-title">
-                                                                                <a href="product-detail.jsp"><%=pty.getName()%></a>
-                                                                            </div>
-                                                                            <div class="product-group-price">
-                                                                                <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=pty.getPrice_sell()%> vnđ</span>
-
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-buttons d-flex justify-content-center">
-                                                                            <form action="#" method="post" class="formAddToCart">
-
-                                                                                <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                                </a>
-                                                                            </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                            <a href="product-detail.jsp" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="item text-center">
-                                                                <div class="product-miniature js-product-miniature item-one first-item">
-                                                                    <div class="thumbnail-container">
-                                                                        <a href="/product_detail">
-                                                                            <img class="img-fluid image-cover" src="<%=pty.getImage(4)%>" alt="img">
-                                                                            <img class="img-fluid image-secondary" src="<%=pty.getImage(5)%>" alt="img">
-                                                                        </a>
-                                                                        <div class="highlighted-informations">
-                                                                            <div class="variant-links">
-                                                                                <a href="#" class="color beige" title="Beige"></a>
-                                                                                <a href="#" class="color orange" title="Orange"></a>
-                                                                                <a href="#" class="color green" title="Green"></a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-description">
-                                                                        <div class="product-groups">
-                                                                            <div class="product-title">
-                                                                                <a href="product-detail.jsp"><%=pty.getName()%></a>
-                                                                            </div>
-                                                                            <div class="product-group-price">
-                                                                                <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=pty.getPrice_sell()%></span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-buttons d-flex justify-content-center">
-                                                                            <form action="#" method="post" class="formAddToCart">
-                                                                                <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                                </a>
-                                                                            </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                            <a href="product-detail.jsp" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="product-miniature js-product-miniature item-one first-item">
-                                                                    <div class="thumbnail-container">
-                                                                        <a href="product-detail.jsp">
-                                                                            <img class="img-fluid image-cover" src="<%=pty.getImage(6)%>" alt="img">
-                                                                            <img class="img-fluid image-secondary" src="<%=pty.getImage(7)%>" alt="img">
-                                                                        </a>
-                                                                        <div class="highlighted-informations">
-                                                                            <div class="variant-links">
-                                                                                <a href="#" class="color beige" title="Beige"></a>
-                                                                                <a href="#" class="color orange" title="Orange"></a>
-                                                                                <a href="#" class="color green" title="Green"></a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-description">
-                                                                        <div class="product-groups">
-                                                                            <div class="product-title">
-                                                                                <a href="product-detail.jsp"><%=pty.getName()%></a>
-                                                                            </div>
-                                                                            <div class="product-group-price">
-                                                                                <div class="product-price-and-shipping">
-                                                                                    <span class="price"><%=pty.getPrice_sell()%></span>
-
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-buttons d-flex justify-content-center">
-                                                                            <form action="#" method="post" class="formAddToCart">
-                                                                                <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                                </a>
-                                                                            </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                            <a href="product-detail.jsp" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item text-center">
-                                                                <div class="product-miniature js-product-miniature item-one first-item">
-                                                                    <div class="thumbnail-container">
-                                                                        <a href="product-detail.jsp">
-                                                                            <img class="img-fluid image-cover" src="https://product.hstatic.net/200000065946/product/pro_trang_noi_that_moho_ke_de_sach_7_85b616ba9a054024b13dcd167096a2b4_master.jpg" alt="img">
-                                                                            <img class="img-fluid image-secondary" src="https://product.hstatic.net/200000065946/product/pro_trang_noi_that_moho_ke_de_sach_2_318c28c817d44a93bebfc731ab5f74f2_master.jpg" alt="img">
-                                                                        </a>
-                                                                        <div class="highlighted-informations">
-                                                                            <div class="variant-links">
-                                                                                <a href="#" class="color beige" title="Beige"></a>
-                                                                                <a href="#" class="color orange" title="Orange"></a>
-                                                                                <a href="#" class="color green" title="Green"></a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-description">
-                                                                        <div class="product-groups">
-                                                                            <div class="product-title">
-                                                                                <a href="product-detail.jsp">Kệ Để Sách 3 Tầng WORKS 703</a>
-                                                                            </div>
-                                                                            <div class="product-group-price">
-                                                                                <div class="product-price-and-shipping">
-                                                                                    <span class="price">1.990.000 vnđ</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-buttons d-flex justify-content-center">
-                                                                            <form action="#" method="post" class="formAddToCart">
-                                                                                <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                                </a>
-                                                                            </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="product-miniature js-product-miniature item-one first-item">
-                                                                    <div class="thumbnail-container">
-                                                                        <a href="product-detail.jsp">
-                                                                            <img class="img-fluid image-cover" src="https://product.hstatic.net/200000065946/product/pro_nau_noi_that_moho_tu_ke_tivi_kolding_1_85628cac95344a59bcf705e71eaf7a36_master.jpg" alt="img">
-                                                                            <img class="img-fluid image-secondary" src="https://product.hstatic.net/200000065946/product/pro_nau_noi_that_moho_tu_ke_tivi_kolding_4_8b66420d2db143b6b03cf398aba212c0_master.jpg" alt="img">
-                                                                        </a>
-                                                                        <div class="highlighted-informations">
-                                                                            <div class="variant-links">
-                                                                                <a href="#" class="color beige" title="Beige"></a>
-                                                                                <a href="#" class="color orange" title="Orange"></a>
-                                                                                <a href="#" class="color green" title="Green"></a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="product-description">
-                                                                        <div class="product-groups">
-                                                                            <div class="product-title">
-                                                                                <a href="product-detail.jsp">Tủ Kệ Tivi Gỗ KOLDING 702</a>
-                                                                            </div>
-                                                                            <div class="product-group-price">
-                                                                                <div class="product-price-and-shipping">
-                                                                                    <span class="price">5.490.000 vnđ</span>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="product-buttons d-flex justify-content-center">
-                                                                            <form action="#" method="post" class="formAddToCart">
-
-                                                                                <input type="hidden" name="id_product" value="1">
-                                                                                <a class="add-to-cart" href="#" data-button-action="add-to-cart">
-                                                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                                                </a>
-                                                                            </form>
-                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
-                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
-                                                                            </a>
-                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
-                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                                <%}%>
                                                             </div>
                                                         </div>
 
@@ -344,7 +130,7 @@
 
                                                 </div>
                                             </div>
-                                            <%}%>
+                                         
                                         </div>
                                     </div>
                                 </div>

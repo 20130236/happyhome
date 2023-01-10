@@ -19,17 +19,8 @@ public class ProductManager extends HttpServlet {
         ProductService service = new ProductService();
         List<Product> pro = service.getAllProduct();
         request.setAttribute("listProduct", pro);
-
-        request.getRequestDispatcher("views/admin/data-product.jsp").forward(request,response);
-
-
-
-
-
-
-
+        request.getRequestDispatcher("views/admin/data-product.jsp").forward(request, response);
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

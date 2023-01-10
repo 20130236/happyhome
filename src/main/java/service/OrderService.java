@@ -155,30 +155,5 @@ public class OrderService {
     }
 
     public static void main(String[] args) {
-
-
-        OrderService orderService = new OrderService();
-//        int max = orderService.getMaxMHD();
-//        Order ooo = new Order(max, "huyen", "the", 1234567, 1, null, "May baty", 1);
-//
-//       orderService.addOder(ooo);
-        Order o = orderService.getOderById(26);
-
-
-            System.out.println(o.toString());
-
-//
-            List<Order_detail> orderDetails = orderService.getOrderDById(27);
-        for (Order_detail oooo: orderDetails
-             ) {
-            System.out.println(oooo.toString());
-        }
-        //      System.out.println(orderService.getMaxMHD());
-//        Date date = (Date) Calendar.getInstance().getTime();
-//        System.out.println(date);
-
-
     }
-
-
 }

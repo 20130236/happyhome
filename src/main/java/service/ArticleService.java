@@ -202,13 +202,5 @@ public class ArticleService {
         return list;
     }
     public static void main(String[] args) {
-        Article a = getArticleById(1);
-        ArticleService as = new ArticleService();
-
-        List<Article> li = as.pagingArticle(2);
-        for(Article aa : li){
-            System.out.println(aa.toString());
-        }
-
     }
 }

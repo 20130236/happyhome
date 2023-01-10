@@ -20,27 +20,14 @@ public class OrderDetail extends HttpServlet {
         int aid = Integer.parseInt(idd);
         OrderService orderService = new OrderService();
         Order od = orderService.getOderById(aid);
-        request.setAttribute("order",od);
-
+        request.setAttribute("order", od);
         List<Order_detail> detailList = orderService.getOrderDById(aid);
         request.setAttribute("orderDetails", detailList);
-
-        for (Order_detail oooo: detailList
-        ) {
-            System.out.println(oooo.toString());
-        }
-
-
-
-        //Lay ra thong tin de chen vao footer
+        //lay ra thong tin cua hang
         IntroService intr = new IntroService();
         Introduce intro = intr.getIntro();
         request.setAttribute("info", intro);
-
-        request.getRequestDispatcher("/views/admin/invoice-detail.jsp").forward(request,response);
-
-
-
+        request.getRequestDispatcher("/views/admin/invoice-detail.jsp").forward(request, response);
     }
 
     @Override

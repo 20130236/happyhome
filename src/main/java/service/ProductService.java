@@ -65,8 +65,6 @@ public class ProductService {
 
 
     }
-
-
     //lay ra hinh anh tuong ung
     public ArrayList<Image> getImage(int id) {
         ArrayList<Image> imgUrl = new ArrayList<>();
@@ -365,31 +363,6 @@ public class ProductService {
 
 
     public static void main(String[] args) {
-       ProductService service = new ProductService();
-        List<Product> li = service.getBestSale();
-
-        for(Product p : li){
-            System.out.println(p.toString());
-        }
-//        List<Slider> sl= service.getAllSlider();
-//        for (Slider s: sl
-//             ) {
-//            System.out.println(s.toString());
-//        }
-//        List<Image> img = service.getImage(1);
-//        for(Image i : img){
-//            System.out.println(i.toString());
-//        }
-//        ArrayList<Product_type> type_name = service.getAllProduct_type();
-//        for (Product_type t: type_name){
-//            System.out.println(t.toString());
-//        }
-//        Product p = service.getProductById(1);
-//        System.out.println(p.toString());
-
-//        Product p = new Product(1111, "test", 1234, 5678, "info", "code", "brand", "red", "200x300", "Sp mới", 0, 1, "35th", 0);
-//        ProductService ser = new ProductService();
-//        ser.addProduct(p);
     }
 
 }
