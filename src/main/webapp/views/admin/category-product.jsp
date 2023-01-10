@@ -1,5 +1,10 @@
+<%@ page import="model.CategoryProModel" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+  List<CategoryProModel> list = (List<CategoryProModel>) request.getAttribute("listCate");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,12 +26,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Loại Hàng Hoá</h1>
+            <h1>Danh sách danh mục</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">General Form</li>
+              <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+              <li class="breadcrumb-item active">Danh sách danh mục</li>
             </ol>
           </div>
         </div>
@@ -40,7 +45,7 @@
           <div class="col-md-9">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Chủng Loại Hàng Hoá</h3>
+                <h3 class="card-title"></h3>
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                     <i class="fas fa-minus"></i>
@@ -48,79 +53,32 @@
                 </div>
               </div>
               <div class="card-body" style="display: block; padding:0px ;">
+                <c:if test="${success != null}">
+                  <div class="alert-success" style="width: 30%">${success}</div>
+                </c:if>
+
                 <form style="padding:10px">
                   <table id="example1" class="table table-bordered table-striped" >
                     <thead>
                     <tr>
-                      <th>Mã loại </th>
-                      <th>Tên loại hàng</th>
+                      <th>Mã Danh mục </th>
+                      <th>Tên Danh mục</th>
                       <th>Số sản phẩm </th>
                       <th>Tác vụ</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                      <td>Trident</td>
-                      <td>Internet
-                        Explorer 4.0
-                      </td>
-                      <td>Win 95+</td>
+                    <% for (CategoryProModel cate : list) {%>
+                   <tr>
+                      <td><%=cate.getId()%></td>
+                      <td><%=cate.getName()%></td>
+                      <td><%=cate.getNumbOfPro()%></td>
                       <td>
-                        <button class="btn btn-danger">Xoá</button>
-                        <a class="btn btn-success" href="edit-product.jsp">Sửa</a>
+                        <a class="btn btn-danger" href="data-category?action=delete&id=<%=cate.getId()%>">Xoá</a>
+                        <a class="btn btn-success" href="data-category?action=edit&id=<%=cate.getId()%>">Sửa</a>
                       </td>
                     </tr>
-                    <tr>
-                      <td>Trident</td>
-                      <td>Internet
-                        Explorer 5.0
-                      </td>
-                      <td>Win 95+</td>
-                      <td>
-                        <button class="btn btn-danger">Xoá</button>
-                        <a class="btn btn-success" href="edit-product.jsp">Sửa</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Trident</td>
-                      <td>Internet
-                        Explorer 5.5
-                      </td>
-                      <td>Win 95+</td>
-                      <td>
-                        <button class="btn btn-danger">Xoá</button>
-                        <a class="btn btn-success" href="edit-product.jsp">Sửa</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Trident</td>
-                      <td>Internet
-                        Explorer 6
-                      </td>
-                      <td>Win 98+</td>
-                      <td>
-                        <button class="btn btn-danger">Xoá</button>
-                        <a class="btn btn-success" href="edit-product.jsp">Sửa</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Trident</td>
-                      <td>Internet Explorer 7</td>
-                      <td>Win XP SP2+</td>
-                      <td>
-                        <button class="btn btn-danger">Xoá</button>
-                        <a class="btn btn-success" href="edit-product.jsp">Sửa</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Gecko</td>
-                      <td>Epiphany 2.20</td>
-                      <td>Gnome</td>
-                      <td>
-                        <button class="btn btn-danger">Xoá</button>
-                        <a class="btn btn-success" href="edit-product.jsp">Sửa</a>
-                      </td>
-                    </tr>
+                    <%}%>
                     </tfoot>
                   </table>
 
@@ -132,25 +90,24 @@
           <div class="col-md-3" >
             <div class="card card-success" >
               <div class="card-header">
-                <h3 class="card-title">Thêm loại hàng</h3>
+                <h3 class="card-title">Thêm mới</h3>
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                     <i class="fas fa-minus"></i>
                   </button>
                 </div>
               </div>
+              <form id="add-cate" action="<c:url value="/data-category"/>" method="get">
               <div class="card-body" style="display: block">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Tên nhóm sản phẩm</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Name of category">
+                  <label for="cate">Tên danh mục</label>
+                  <input type="text" class="form-control" name="cate" id="cate" placeholder="">
+                  <input type="hidden" name="action" value="add">
                 </div>
-                <div class="form-group" style="margin-top: 20px">
-                  <label for="">Diễn giải cho loại hàng</label>
-                  <textarea rows="13" class="form-control" placeholder="Enter description for the category"></textarea>
-                </div>
-                <buttton class="btn btn-success">Lưu thông tin</buttton>
+                <button type="submit" class="btn btn-primary" form="add-cate" style="background-color: #28a745;
+    border-color: #28a745;">Thêm Danh mục </button>
               </div>
-              <!-- /.card-body -->
+              </form>
             </div>
           </div>
         </div>

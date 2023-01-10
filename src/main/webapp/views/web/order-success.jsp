@@ -1,3 +1,4 @@
+<%@ page import="model.UserModel" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
@@ -12,7 +13,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Đặt hàng thành công </title>
-
+    <link rel="icon" type="image/x-icon" href="/Template/web/img/home/Logo-happyhome-removebg-preview.png">
     <meta name="keywords" content="Furniture, Decor, Interior">
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
     <meta name="author" content="tivatheme">
@@ -25,50 +26,56 @@
 </head>
 
 <body id="contact" class="blog">
-    <jsp:include page="/common/web/header.jsp"></jsp:include>
+<jsp:include page="/common/web/header.jsp"></jsp:include>
 
-    <!-- main content -->
-    <div class="main-content">
-        <div id="wrapper-site">
-            <div id="content-wrapper">
+<!-- main content -->
+<div class="main-content">
+    <div id="wrapper-site">
+        <div id="content-wrapper">
 
-                <!-- breadcrumb -->
-                <nav class="breadcrumb-bg">
-                    <div class="container no-index">
-                        <div class="breadcrumb">
-                            <ol>
-                                <li>
-                                    <a href="index.html">
-                                        <span>Trang chủ</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="order-success.jsp">
-                                        <span>Đặt hàng thành công </span>
-                                    </a>
-                                </li>
-                            </ol>
-                        </div>
+            <!-- breadcrumb -->
+            <nav class="breadcrumb-bg">
+                <div class="container no-index">
+                    <div class="breadcrumb">
+                        <ol>
+                            <li>
+                                <a href="index.html">
+                                    <span>Trang chủ</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="order-success.jsp">
+                                    <span>Đặt hàng thành công </span>
+                                </a>
+                            </li>
+                        </ol>
                     </div>
-                </nav>
-                <div id="main">
-                    <div class="page-home">
-                        <div class="container">
-                            <h1 class="text-center title-page">Đặt hàng</h1>
-                            <div class="row-inhert" style="margin-bottom: 400px">
-                                <p>Chúc mừng bạn. Đơn hàng của bạn đã được đặt hàng thành công Bộ phận chăm sóc khách hàng sẽ liên lạc trong vòng 2h để xác nhận chi tiết đơn hàng</p>
-                            </div>
+                </div>
+            </nav>
+            <div id="main">
+                <div class="page-home">
+                    <div class="container">
+                        <h1 class="text-center title-page">Đặt hàng</h1>
+                        <div class="row-inhert" style="margin-bottom: 400px">
+                            <p>Chúc mừng bạn. Đơn hàng của bạn đã được đặt hàng thành công Bộ phận chăm sóc khách hàng
+                                sẽ liên lạc trong vòng 2h để xác nhận chi tiết đơn hàng</p>
+                        </div>
+
+
+                        <div class="text-center">
+                            <a href="/cart_detail" title="View Cart"><i class="fa fa-home" aria-hidden="true"></i>     TRỞ LẠI TRANG CHỦ</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
-    <jsp:include page="/common/web/footer.jsp"></jsp:include>
+<jsp:include page="/common/web/footer.jsp"></jsp:include>
 
-    <!-- Vendor JS -->
-    <jsp:include page="/common/web/js.jsp"></jsp:include>
+<!-- Vendor JS -->
+<jsp:include page="/common/web/js.jsp"></jsp:include>
 </body>
 </html>

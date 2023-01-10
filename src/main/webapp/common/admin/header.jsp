@@ -1,16 +1,14 @@
+<%@ page import="model.UserModel" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    UserModel user = (UserModel)session.getAttribute("user");
+%>
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="<c:url value="/views/admin/home.jsp"/>">Trang chủ</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="<c:url value="/views/admin/contact-us.jsp"/>">Liên hệ</a>
         </li>
     </ul>
 
@@ -63,9 +61,15 @@
             <div class="image">
                 <img src="<c:url value="/Template/admin/dist/img/user2-160x160.jpg"/>" class="img-circle elevation-2" alt="User Image">
             </div>
+            <% if (user != null) {%>
+            <div class="info">
+                <a href="#" class="d-block"><%=user.getUserName()%></a>
+            </div>
+            <% } else {%>
             <div class="info">
                 <a href="#" class="d-block">Admin</a>
             </div>
+            <% }%>
         </div>
 
         <!-- SidebarSearch Form -->
@@ -87,62 +91,38 @@
                 with font-awesome or any other icon font library -->
                 <li class="nav-item ">
                     <a href="<c:url value="/views/admin/home.jsp"/>" class="nav-link ">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                        Trang chủ
-                    </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Quản lý bài Viết
-                            <i class="right fas fa-angle-left"></i>
+                            Trang chủ
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<c:url value="/views/admin/add-article.jsp"/>" class="nav-link ">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Đăng bài viết   <span class="right badge badge-danger">New</span></p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<c:url value="/views/admin/article-data.jsp"/>" class="nav-link ">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Danh sách bài viết</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
-
                 <li class="nav-item ">
                     <a href="" class="nav-link ">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Quản lý sản phẩm
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
+                            <span class="badge badge-info right"></span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<c:url value="/views/admin/category-product.jsp"/>" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Chủng loại</p>
+                            <a href="<c:url value="/data-category"/>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh mục sản phẩm</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<c:url value="/views/admin/data-product.jsp"/>" class="nav-link ">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Danh sách sản phẩm </p>
+                            <a href="<c:url value="/product_manager"/>" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách sản phẩm </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<c:url value="/views/admin/add-product.jsp"/>" class="nav-link ">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Thêm sản phẩm</p>
+                            <a href="<c:url value="/add_product"/>" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thêm sản phẩm</p>
                             </a>
                         </li>
                     </ul>
@@ -157,9 +137,9 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<c:url value="/views/admin/user-data.jsp"/>" class="nav-link" id="data-user">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p> Danh sách user</p>
+                            <a href="<c:url value="/data-user?action=list"/>" class="nav-link" id="data-user">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> Danh sách user</p>
                             </a>
                         </li>
                     </ul>
@@ -174,21 +154,9 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<c:url value="/views/admin/invoice-data.jsp"/>" class="nav-link ">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Danh sách đơn hàng</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<c:url value="/views/admin/add-invoice.jsp"/>" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Thêm đơn hàng</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<c:url value="/views/admin/invoice-detail.jsp"/>" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Chi tiết hoá đơn</p>
+                            <a href="<c:url value="/order_controller"/>" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh sách đơn hàng</p>
                             </a>
                         </li>
                     </ul>
@@ -203,9 +171,9 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<c:url value="/views/admin/info.jsp"/>" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Thông tin trên website</p>
+                            <a href="/info_controller" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Thông tin trên website</p>
                             </a>
                         </li>
                     </ul>
