@@ -31,13 +31,8 @@ public class HomeController extends HttpServlet {
         //san pham ban chay
         List<Product> li = productService.getBestSale();
         request.setAttribute("bestseller", li);
-        //lay ra san pham moi nhat
-        List<Product> lnew = productService.getNewProduct(8);
-        request.setAttribute("pnew", lnew);
-        //lay ra tin tuc
-        ArticleService ac = new ArticleService();
-        List<Article> articles = ac.getNewArticle();
-        request.setAttribute("articles", articles);
+
+
         RequestDispatcher rd = request.getRequestDispatcher("views/web/home.jsp");
         rd.forward(request,response);
     }

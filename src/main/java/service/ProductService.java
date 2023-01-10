@@ -385,6 +385,11 @@ public class ProductService {
 
 
     public static void main(String[] args) {
+        ProductService service = new ProductService();
+        List<Product> p = service.getBestSale();
+        for(Product pr : p){
+            System.out.println(pr.toString());
+        }
     }
 
 }
