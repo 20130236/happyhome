@@ -1,4 +1,6 @@
 <%@ page import="model.UserModel" %>
+<%@ page import="model.Order" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
@@ -169,10 +171,38 @@
                         </button>
                     </form>
                     <div class="order">
-                        <h4>Lịch sử
-                            <span class="detail">Mua hàng</span>
+                        <h4>
+                            <span class="detail">Lịch sử mua hàng</span>
                         </h4>
-                        <p>Bạn chưa mua sản phẩm nào.</p>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Mã đơn hàng</th>
+                                <th scope="col">Phương thức thanh toán</th>
+                                <th scope="col">Ngày đặt hàng</th>
+                                <th scope="col">Tổng hoá đơn</th>
+                                <th scope="col">Trạng thái</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% List<Order> list = (List<Order>) request.getAttribute("od");
+                                for (Order o: list){
+                            %>
+                            <tr>
+                                <th scope="row"><%=o.getOder_id()%></th>
+                                <td><%=o.getPayment()%></td>
+                                <td><%=o.getDate_order()%></td>
+                                <td><%=o.getTotal_money()%></td>
+                                <% String result = "Đã giao hàng";
+                                    if(o.getStatus() != 0){
+                                        result = "Chưa giao hàng";
+                                    }
+                                %>
+                                <td><%=result%></td>
+                            </tr>
+                            <% } %>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 

@@ -240,8 +240,8 @@
                                         <tr>
                                             <td colspan="3" class="d-flex justify-content-center">
                                                 <div class="cart-button">
-                                                    <a href="product-cart.html" title="View Cart">Xem giỏ hàng</a>
-                                                    <a href="product-checkout.html" title="Checkout">Thanh toán</a>
+                                                    <a href="/cart_detail" title="View Cart">Xem giỏ hàng</a>
+                                                    <a href="/checkout" title="Checkout">Thanh toán</a>
                                                 </div>
                                             </td>
                                         </tr>

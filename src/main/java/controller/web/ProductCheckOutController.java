@@ -1,8 +1,10 @@
 package controller.web;
 
+import beans.Cart;
 import model.Article_Category;
 import model.Introduce;
 import model.Product_type;
+import model.UserModel;
 import service.ArticleService;
 import service.IntroService;
 import service.ProductService;
@@ -12,12 +14,15 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 @WebServlet(name = "ProductCheckOutController", value = "/checkout")
 public class ProductCheckOutController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Lay ra danh sach loai bai viet
+
+//
         ArticleService service = new ArticleService();
         ProductService productService = new ProductService();
         List<Article_Category> list = service.getListArCategory();
@@ -29,19 +34,19 @@ public class ProductCheckOutController extends HttpServlet {
         IntroService intr = new IntroService();
         Introduce intro = intr.getIntro();
         request.setAttribute("info", intro);
-//
 
+        Cart cart = (Cart) request.getSession().getAttribute("cart");
+        UserModel user = (UserModel)request.getSession().getAttribute("user");
+        if(Objects.isNull(user)){
+            response.sendRedirect("/login");
+        } else if (Objects.isNull(cart)) {
+            response.sendRedirect("/home");
 
+        } else if(!Objects.isNull(user)) {
+            RequestDispatcher rd = request.getRequestDispatcher("/views/web/product-checkout.jsp");
+            rd.forward(request,response);
+        }
 
-
-
-
-
-
-
-
-        RequestDispatcher rd = request.getRequestDispatcher("/views/web/product-checkout.jsp");
-        rd.forward(request,response);
     }
 
     @Override

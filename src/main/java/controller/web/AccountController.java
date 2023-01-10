@@ -1,14 +1,8 @@
 package controller.web;
 
 import domain.Email;
-import model.Article_Category;
-import model.Introduce;
-import model.Product_type;
-import model.UserModel;
-import service.ArticleService;
-import service.IntroService;
-import service.ProductService;
-import service.UserService;
+import model.*;
+import service.*;
 import util.EmailUtil;
 
 import javax.servlet.RequestDispatcher;
@@ -39,12 +33,19 @@ public class AccountController extends HttpServlet {
         Introduce intro = intr.getIntro();
         request.setAttribute("info", intro);
 
+        OrderService orderService = new OrderService();
+
+
         UserModel oldUser = (UserModel)request.getSession().getAttribute("user");
         if(oldUser == null){
             response.sendRedirect(request.getContextPath() + "/login");
         } else{
             UserModel user = UserService.findById(oldUser.getId());
             request.setAttribute("user",user);
+            List<Order> orders = orderService.getOderByUname(user.getUserName());
+            request.setAttribute("od", orders);
+
+
             RequestDispatcher rd = request.getRequestDispatcher("views/web/user-acount.jsp");
             rd.forward(request, response);
         }

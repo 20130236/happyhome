@@ -213,7 +213,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<c:url value="/views/admin/info.jsp"/>" class="nav-link">
+                            <a href="/info_controller" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thông tin trên website</p>
                             </a>
