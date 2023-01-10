@@ -56,27 +56,44 @@ public class Cart implements Serializable {
         }
     }
 
-    public void update(Product p){
-        if(data.containsKey(p.getKey())){
+    public void update(Product p) {
+        if (data.containsKey(p.getKey())) {
             data.put(p.getKey(), p);
         }
         updateTotalAndQ();
     }
 
-    public void remove(String key){
+    public void remove(String key) {
         data.remove(key);
         updateTotalAndQ();
     }
-    public Collection<Product> getListProduct(){
+
+    public Collection<Product> getListProduct() {
         return data.values();
     }
-    public int getQuantity(){
+
+    public int getQuantity() {
         return quantity;
     }
-    public long getTotal(){
+
+    public long getTotal() {
         return total;
     }
-    public UserModel getCustomer(){
+
+    public UserModel getCustomer() {
         return customer;
     }
+
+    public void sub(Product p) {
+        if (data.containsKey(p.getKey()) && data.get(p.getKey()).getQuantity() > 0) {
+            Product p1 = data.get(p.getKey());
+            int num = p1.getQuantity();
+            p1.setQuantity(num - 1);
+            data.put(p.getKey(), p1);
+        } else if (data.get(p.getKey()).getQuantity() < 1) {
+            data.remove(p.getKey());
+        }
+        updateTotalAndQ();
+    }
+
 }

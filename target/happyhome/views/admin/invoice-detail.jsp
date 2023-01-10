@@ -2,11 +2,14 @@
 <%@ page import="model.Introduce" %>
 <%@ page import="java.util.List" %>
 <%@ page import="model.Order_detail" %>
+<%@ page import="java.util.Collections" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <% Order order = (Order) request.getAttribute("order");
   Introduce introduce = (Introduce) request.getAttribute("info");
+  ArrayList<Order_detail> order_details = (ArrayList<Order_detail>) request.getAttribute("orderDetails");
 %>
 <html lang="en">
 <head>
@@ -99,7 +102,15 @@
                     </tr>
                     </thead>
                     <tbody>
-
+                   <% for (Order_detail o : order_details) { %>
+                    <tr>
+                      <td><%=o.getId_product()%></td>
+                      <td><%=o.getName(o.getId_product())%></td>
+                      <td><%=o.getPrice()%></td>
+                      <td><%=o.getAmount()%></td>
+                      <td><%=o.getTotal()%>  đ</td>
+                    </tr>
+                    <% } %>
                     </tbody>
                   </table>
                 </div>

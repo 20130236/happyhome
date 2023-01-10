@@ -181,12 +181,18 @@
                                         <div class="tab-content">
                                             <div class="tab-pane fade in active show" role="tabpanel">
                                                 <div class="ty-other-pay clearfix">
+                                                    <select name="thanhtoan" class="ty-payments-list">
+                                                        <option value="Giao hàng thu tiền tại nhà">Giao hàng thu tiền tận nhà</option>
+                                                        <option value="Nhận hàng tại cửa hàng">Nhận hàng tại cửa hàng</option>
+                                                        <option value="Thanh toán qua ngân hàng">Thanh toán qua ngân hàng</option>
+
+
+                                                    </select>
+                                                    <div>CHÍNH SÁCH THANH TOÁN</div>
                                                     <ul class="ty-payments-list">
                                                         <li class="ty-payments-list__item">
-                                                            <input id="payment_12" class="list_checkbox " type="radio"
-                                                                   name="payment_id" value="12" checked="checked">
                                                             <div class="ty-payments-list__item-group">
-                                                                <label for="payment_12"
+                                                                <label
                                                                        class="ty-payments-list__item-title">
                                                                     Giao hàng thu tiền tận nhà
                                                                 </label>
@@ -200,10 +206,9 @@
                                                         <div>
                                                         </div>
                                                         <li class="ty-payments-list__item">
-                                                            <input id="payment_13" class="list_checkbox" type="radio"
-                                                                   name="payment_id" value="13">
+
                                                             <div class="ty-payments-list__item-group">
-                                                                <label for="payment_13"
+                                                                <label
                                                                        class="ty-payments-list__item-title">
                                                                     Nhận hàng tại cửa hàng
                                                                 </label>
@@ -214,10 +219,9 @@
                                                             </div>
                                                         </li>
                                                         <li class="ty-payments-list__item">
-                                                            <input id="payment_14" class="list_checkbox" type="radio"
-                                                                   name="payment_id" value="14">
+
                                                             <div class="ty-payments-list__item-group">
-                                                                <label for="payment_14"
+                                                                <label
                                                                        class="ty-payments-list__item-title">
                                                                     Thanh toán qua ngân hàng
                                                                 </label>
