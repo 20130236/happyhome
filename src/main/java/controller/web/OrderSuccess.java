@@ -48,11 +48,15 @@ public class OrderSuccess extends HttpServlet {
         } else if (!(Objects.isNull(user)) && !(listp.size() == 0)) {
             //lay ra user
             try {
+                response.setContentType("text/html;charset=UTF-8");
+                request.setCharacterEncoding("UTF-8");
+                response.setCharacterEncoding("UTF-8");
+                String ptthanhtoan = request.getParameter("thanhtoan");
                 UserModel u = user;
                 long money = cart.getTotal();
 
                 Date current = Date.valueOf(LocalDate.now());
-                Order od = new Order(orderid, u.getUserName(), "Tiền mặt", money, 0, current, " ", 0);
+                Order od = new Order(orderid, u.getUserName(), "Tien mat", money, 0, current, " ", 0);
                 oderService.addOder(od);
                 od.setOder_id(orderid);
                 Collection<Product> productList = cart.getListProduct();
@@ -61,7 +65,7 @@ public class OrderSuccess extends HttpServlet {
                     oderService.addOrderDetail(orderDetail);
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                response.sendRedirect("/home");
             }
 
         }

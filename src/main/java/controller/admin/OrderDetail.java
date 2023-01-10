@@ -23,7 +23,7 @@ public class OrderDetail extends HttpServlet {
         request.setAttribute("order",od);
 
         List<Order_detail> detailList = orderService.getOrderDById(aid);
-        request.setAttribute("detailOder", detailList);
+        request.setAttribute("orderDetails", detailList);
 
         for (Order_detail oooo: detailList
         ) {
